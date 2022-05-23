@@ -1,0 +1,96 @@
+#top-right{
+    position: absolute;
+        top: 15px;
+        right: 20px;
+  }
+
+    .form-control {
+        display: block;
+        width: 1300%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.25rem;
+        transition: border-color .15s
+      }
+      .input-group {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            width: 600px;
+      }
+      #me-4 {
+            margin-right: 100px !important;
+            }
+            .me-lg-0 {
+             margin-right: 200px !important;
+                    }             
+      
+       @keyframes notification {
+        5%  { Transform : rortate(10deg);}
+        10% { Transform : rortate(-10deg);}
+        15% { Transform : rortate(10deg);}
+        20% { Transform : rortate(0deg);}
+       }                     
+       #counter.counter-lg {
+    top: -24px !important;
+            }
+            .navbar-custom {
+  height: 100px;
+}    
+#below-nav-bar{
+    filter: drop-shadow(1px 3px 6px rgba(0, 0, 0, 0.161));
+    left: 73px;
+    top: 20%;
+    position: absolute;
+    overflow: visible;
+    width: 1099px;
+    height: 96px;
+    text-align: left;
+    font-family: 'Open Sans';
+    font-style:oblique;
+    font-weight: bold ;
+    font-size: 35px;
+    color:white;
+    
+    }
+    #choissisez {
+    opacity: 0.56;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    left: 73.5px;
+    top: 65%;
+    position: absolute;
+    overflow: visible;
+    width: 488px;
+    height: 84px;
+    text-align: left;
+    font-family: "Open Sans", sans-serif;;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    color: rgba(255,255,255,1);
+}
+#buttom {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    padding: .5rem;
+    max-width: 100%;
+    display: inline-block;
+    text-align: left;
+
+    font-family:'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    color: rgba(106,106,106,1);
+    }
