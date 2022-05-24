@@ -43,10 +43,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasRole('Dupw');
             
         });
-        Gate::define('is-Admin-Dupw',function($user){
-            return $user->(hasRole('Dupw') && hasRole('Dupw') );
-            
-        });
+        
 
 
           }

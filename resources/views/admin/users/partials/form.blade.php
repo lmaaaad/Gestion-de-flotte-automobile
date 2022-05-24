@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         
-@isset($create)
+
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
@@ -44,7 +44,7 @@
                                 @enderror
                             </div>
                         </div>
-@endisset
+
                         <div class="row mb-1 ">
                             <div class="col-12 offset-md-2" >
                             @foreach ( $roles as $role )

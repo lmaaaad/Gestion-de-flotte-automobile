@@ -36,42 +36,42 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->middleware(['auth','auth.isAdmin'])->name('admin.')->group(function(){ 
 Route::resource('/users',UserController::class); });
 
-Route::prefix('pieces')->middleware(['auth','auth.isAdmin'])->name('pieces.')->group(function(){ 
+Route::prefix('pieces')->middleware(['auth','auth.isAdminOrDupw'])->name('pieces.')->group(function(){ 
     Route::resource('/fournisseurs',FournisseurController::class); 
 });
 
-Route::prefix('pieces')->middleware(['auth','auth.isAdmin'])->name('pieces.')->group(function(){ 
+Route::prefix('pieces')->middleware(['auth','auth.isAdminOrDupw'])->name('pieces.')->group(function(){ 
     Route::resource('/pieces',pieceController::class); 
 });
-Route::prefix('gestionv')->middleware(['auth','auth.isAdmin'])->name('gestionv.')->group(function(){ 
+Route::prefix('gestionv')->middleware(['auth'])->name('gestionv.')->group(function(){ 
     Route::resource('/conducteurs',ConducteurController::class); 
 });
-Route::prefix('gestionv')->middleware(['auth','auth.isAdmin'])->name('gestionv.')->group(function(){ 
+Route::prefix('gestionv')->middleware(['auth'])->name('gestionv.')->group(function(){ 
     Route::resource('/vehicules',VehiculeController::class); 
 });
 
-Route::prefix('gestionv')->middleware(['auth','auth.isAdmin'])->name('gestionv.')->group(function(){ 
+Route::prefix('gestionv')->middleware(['auth'])->name('gestionv.')->group(function(){ 
     Route::resource('/assurances',AssuranceController::class); 
 });
-Route::prefix('gestionv')->middleware(['auth','auth.isAdmin'])->name('gestionv.')->group(function(){ 
+Route::prefix('gestionv')->middleware(['auth'])->name('gestionv.')->group(function(){ 
     Route::resource('/taxes',TaxeController::class); 
 });
-Route::prefix('gestionv')->middleware(['auth','auth.isAdmin'])->name('gestionv.')->group(function(){ 
+Route::prefix('gestionv')->middleware(['auth'])->name('gestionv.')->group(function(){ 
     Route::resource('/visites',VisiteController::class); 
 });
-Route::prefix('entretiens')->middleware(['auth','auth.isAdmin',])->name('entretiens.')->group(function(){ 
+Route::prefix('entretiens')->middleware(['auth','auth.isAdminOrDupw'])->name('entretiens.')->group(function(){ 
     Route::resource('/entretiens',EntretienController::class); 
 });
 
 Route::prefix('affectations')->middleware('auth')->name('affectations.')->group(function(){ 
     Route::resource('/affectations',AffectationController::class); 
 });
-Route::get('/rapport', [App\Http\Controllers\RapportController::class, 'index'])->middleware(['auth','auth.isAdmin'])->name('rapport');
+Route::get('/rapport', [App\Http\Controllers\RapportController::class, 'index'])->middleware(['auth','auth.isAdminOrDupw'])->name('rapport');
 
 Route::get('/autocomplete',[SearchController::class,'autocomplete'])->name('autocomplete');
 
 
 
-Route::get('/piece_utiliser', [App\Http\Controllers\PiecesuController::class, 'index'])->middleware(['auth','auth.isAdmin'])->name('piece');
+Route::get('/piece_utiliser', [App\Http\Controllers\PiecesuController::class, 'index'])->middleware(['auth','auth.isAdminOrDupw'])->name('piece');
 
 

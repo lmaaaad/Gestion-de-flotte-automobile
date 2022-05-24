@@ -17,7 +17,8 @@ class AccessAdDu
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Gate::allows('is-Admin-Dupw')){   
+        if(Gate::allows('is-admin') || Gate::allows('is-dupw')){    
+
             return $next($request);
            }
            return redirect('/home');

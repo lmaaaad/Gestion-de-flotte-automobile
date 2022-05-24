@@ -118,8 +118,9 @@ class UserController extends Controller
             return redirect(route('admin.users.index')); 
 
         }
-
-        $user->update($request->except(['_token']));
+        $data=$request->except(['_token']);
+        $data['password']=bcrypt($data['password']);
+        $user->update($data);
         //$user->roles()->sync($request->roles);
 
         $request->session()->flash('success','You have Edited The User');

@@ -58,6 +58,7 @@ class Kernel extends HttpKernel
         'auth.isAdmin'=> \App\Http\Middleware\AccessAdmin::class,
         'auth.isDupw' =>\App\Http\Middleware\AccessDupw::class,
         'auth.isObservateur' => \App\Http\Middleware\AccessObservateur::class,
+        'auth.isAdminOrDupw' =>\App\Http\Middleware\AccessAdDu::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,

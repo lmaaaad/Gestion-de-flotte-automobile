@@ -17,14 +17,14 @@ class VehiculeController extends Controller
      */
     public function index()
     {
-    //  $user=auth()->user();
-    //     if ($user->hasRole('Dupw')) {
-          
-        
-    //     $vehicules=Vehicule::where('wilaya_id',$user->wilaya_id);
-    //     }else {
+     $user=auth()->user();
+        if ($user->hasRole('dupw')) {
+    
+    
+        $vehicules=vehicule::where('Wilaya',$user->Wilaya)->get();
+        }else {
             $vehicules=Vehicule::all();
-        // }
+         }
 
         return view('gestionv.vehicules.index', [
             'vehicules' => $vehicules, 'wilaya' => Wilaya::all()
