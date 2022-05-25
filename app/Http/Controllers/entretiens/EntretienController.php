@@ -44,7 +44,7 @@ class EntretienController extends Controller
      */
     public function store(Request $request)
     {
-         // dd($request);
+         
          $validatedData = $request->validate([
 
             'vehicule_id' => 'required|max:255',
@@ -54,11 +54,14 @@ class EntretienController extends Controller
             'cout' => 'required',
             'discription' => 'required|max:255',
             'kilometrage' => 'required',
+            'pieces' => 'required|array|min:1',
+            'pieces.*' => 'required',
             
         ]);
 
          
-        $entretien=Entretien::create($validatedData);
+        $entretien=Entretien::create($request->except('pieces'));
+        $entretien->pieces()->sync($request->pieces);
 
         //$entretien->roles()->sync($request->roles);
 
@@ -93,7 +96,12 @@ class EntretienController extends Controller
     public function edit($id)
     {
         $entretien=Entretien::find($id);
-        return view('entretiens.entretiens.edit',compact('entretien'));
+        
+        return view('entretiens.entretiens.edit')->with([
+            'vehicules' => Vehicule::all(), 'entretien' => $entretien, 
+            'piece_ids'=> $entretien->pieces()->pluck('piece_id')->all(), 
+            'fournisseurs' => Fournisseur::all() , 'pieces' => Piece::all(),
+        ]);
     }
 
     /**

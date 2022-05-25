@@ -39,7 +39,7 @@
                 
                    <div class="row mb-12">  
                        <div class="col-6 mb-3">
-                           <label for='Num_serie' clsss="col-md-4 col-form-label"> {{('N° de Chassis')}}</label>
+                           <label for='Num_serie' clsss="col-md-4 col-form-label" style="color: black"> {{('N° de Chassis')}}</label>
                            <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $vehicule->Num_serie }}</p>
                            
                   
@@ -60,7 +60,7 @@
                         
                          </div>   
                          <div class="col-6 mb-3">
-                             <label for='Carburant' clsss="col-md-4 col-form-label"> {{ __('Carburant') }}</label>
+                             <label for='Carburant' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Carburant') }}</label>
                              <br> <p class=" text-black border border-primary rounded-3 p-2" >{{ $vehicule->Carburant }}</p>
                             
                          </div>
@@ -68,7 +68,7 @@
                 
                    <div class="row mb-12">
                        <div class="col-6 mb-3">
-                           <label for='Etat_Actuel' clsss="col-md-4 col-form-label"> {{ __('Etat Actuel') }}</label>
+                           <label for='Etat_Actuel' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Etat Actuel') }}</label>
                            <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $vehicule->Etat_Actuel }}</p>
                      
                        </div>                              
@@ -78,7 +78,7 @@
                 
                   
                     <div class="col-6 mb-3">
-                        <label for='Wilaya' clsss="col-md-4 col-form-label"> {{ __('Wilaya') }}</label>
+                        <label for='Wilaya' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
                         <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $vehicule->Wilaya }}</p> 
                           
                      

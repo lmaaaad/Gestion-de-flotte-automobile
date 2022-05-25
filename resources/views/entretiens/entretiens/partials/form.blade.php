@@ -25,7 +25,7 @@
                 </select>
             </div>          
                 <div class="col-6 mb-3">
-                    <label for='discription' clsss="col-md-4 col-form-label" > {{ __('Description') }}</label>
+                    <label for='discription' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Description') }}</label>
                     <select name='discription' type='texte' class="form-control" required  
                     value="{{ old('discription') }}">
                     <option disabled selected > Choisissez l'entretien </option>
@@ -85,7 +85,7 @@
 
 <div class='row mb-12'>
     <div class="col-6 mb-3">
-        <label for='date' clsss="col-md-4 col-form-label"> {{ __('Date') }}</label>
+        <label for='date' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Date') }}</label>
         <input name='date' type='date'  class="form-control" required
         value="{{ old('date') }} ">
         @error('date')
@@ -95,7 +95,7 @@
       @enderror
     </div>
     <div class="col-6 mb-3">
-        <label for='kilometrage' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Kilometrage') }}</label>
+        <label for='kilometrage' clsss="col-md-4 col-form-label" style="color: black" style="color: black" > {{ __('Kilometrage (KM)') }}</label>
         <input name='kilometrage' type='number' class="form-control" required  
         value="{{ old('kilometrage') }}  ">
         
@@ -109,18 +109,16 @@
 
 <div class='row mb-12'>
     <div class="col-6 mb-3">
-        <label for='piece_id'> {{ __('Pieces') }}</label>
-                   <select name='piece_id' type='texte' class="form-select" required multiple
-                   value="{{ old('piece_id') }} ">
-                   <option selected disabled value=""> Liste Pieces  </option>
+        <label for='pieces' style="color: black"> {{ __('Pieces') }}</label>
+        <select class="js-example-placeholder-multiple js-states form-control" multiple="multiple" name='pieces[]' id='pieces' required  value="{{ old('piece_id') }} ">
+
                    @foreach($pieces as $piece)
-                   <option value="{{ $piece->id }}" id="{{ $piece->designation }}"
-                       @isset($piece)
-                      @if ($piece->id == $piece->designation) checked @endif
-                       @endisset>
+                   <option value="{{ $piece->id }}" id="{{ $piece->designation }}"   
+                    @isset($piece_ids)            
+                      @if (in_array($piece->id,$piece_ids)) selected @endif  @endisset >
                       {{ $piece->designation }}
                @endforeach
-                   @error('piece_id')
+                   @error('pieces')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -129,7 +127,7 @@
                </div>
 
     <div class="col-6 mb-3">
-        <label for='cout' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Cout (DA)') }}</label>
+        <label for='cout' clsss="col-md-4 col-form-label" style="color: black" style="color: black" > {{ __('Cout (DA)') }}</label>
         <input name='cout' type='number' class="form-control" required  
         value="{{ old('cout') }}  ">
         
@@ -155,3 +153,4 @@
     <a class="mx-1" href="{{ route('entretiens.entretiens.index') }}" ><button class="btn btn-sm btn-Primary" type="button">Annuler</button>  </a>
 </div>
 </div>
+

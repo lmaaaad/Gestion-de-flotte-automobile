@@ -9,7 +9,7 @@ class Taxe extends Model
 {
 
     protected $fillable = [
-        'nom' ,'date', 'expire' ,'rappel', 'vehicule_id',
+        'nom' ,'date', 'expire' ,'rappel', 'vehicule_id','Wilaya',
     ];
 
     public function vehicule()

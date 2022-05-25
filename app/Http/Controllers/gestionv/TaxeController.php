@@ -5,6 +5,7 @@ namespace App\Http\Controllers\gestionv;
 use App\Http\Controllers\Controller;
 use App\Models\Taxe;
 use App\Models\Vehicule;
+use App\Models\Wilaya;
 use Illuminate\Http\Request;
 
 class TaxeController extends Controller
@@ -16,7 +17,16 @@ class TaxeController extends Controller
      */
     public function index()
     {
-        return view('gestionv.taxes.index', ['taxes' => Taxe::paginate(100)]);
+        $user=auth()->user();
+        if ($user->hasRole('dupw')) {
+    
+    
+            $taxes=Taxe::where('Wilaya',$user->Wilaya)->get();
+            }else {
+                $taxes=Taxe::all();
+
+             }
+        return view('gestionv.taxes.index', ['taxes' => $taxes ,'wilaya' => Wilaya::all()]);
     }
 
     /**
@@ -45,6 +55,7 @@ class TaxeController extends Controller
             'date' => 'required',
             'expire' => 'required',
             'rappel' => 'required',
+            'Wilaya' => 'required',
            
   
         ]);

@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Piece;
 
 class Entretien extends Model
 {
     protected $fillable = [
-        'vehicule_id','fournisseur_id','piece_id','date','cout','discription','kilometrage',
+        'vehicule_id','fournisseur_id','date','cout','discription','kilometrage',
     ];
     use HasFactory;
     public function pieces()
 {
-    return $this->belongsTo('App\Models\Piece');
+    return $this->belongsToMany('App\Models\Piece');
 }
 
     public function vehicule()

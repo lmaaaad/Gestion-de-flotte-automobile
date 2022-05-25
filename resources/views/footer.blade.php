@@ -46,6 +46,7 @@
 <!-- Datatable plugin javascript--> 
 <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap5.min.js"></script>
+
 <script>
 $(document).ready(function () {
 $('#example').DataTable();
@@ -59,3 +60,4 @@ $('#example').DataTable();
 </body>
 
 </html>
+

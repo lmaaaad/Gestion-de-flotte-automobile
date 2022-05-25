@@ -19,6 +19,7 @@ class CreateVisitesTable extends Migration
             $table->date('date');
             $table->date('prochaine');
             $table->bigInteger('rappel');
+            $table->string('Wilaya')->nullable();
             $table->foreign('vehicule_id')->references('id')->on('vehicules')->onDelete('cascade');
             $table->timestamps();
         });

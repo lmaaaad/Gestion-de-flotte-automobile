@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Entretien;
 
 class Piece extends Model
 {
@@ -19,9 +20,9 @@ class Piece extends Model
 {
     return $this->belongsTo('App\Models\Fournisseur');
 }
-public function entretien()
+public function entretiens()
 {
-    return $this->hasMany('App\Models\Entretien');
+    return $this->belongsToMany('App\Models\Entretien');
 }
 
 

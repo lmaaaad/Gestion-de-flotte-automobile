@@ -17,14 +17,14 @@ class CreateEntretiensTable extends Migration
             $table->id();
             $table->unsignedBigInteger('vehicule_id');
             $table->unsignedBigInteger('fournisseur_id');
-            $table->unsignedBigInteger('piece_id');
+
             $table->longText('discription');
             $table->date('date');
             $table->integer('kilometrage');
             $table->integer('cout');
             $table->foreign('vehicule_id')->references('id')->on('vehicules')->onDelete('cascade');
             $table->foreign('fournisseur_id')->references('id')->on('fournisseurs')->onDelete('cascade');
-            $table->foreign('piece_id')->references('id')->on('pieces')->onDelete('cascade');
+         
             $table->timestamps();
         });
     }

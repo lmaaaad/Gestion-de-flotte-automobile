@@ -15,11 +15,14 @@ class CreateConducteursTable extends Migration
     {
         Schema::create('conducteurs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('wilaya_id');
             $table->unsignedBigInteger('vehicule_id');
             $table->string('Nom')->nullable();
             $table->string('Prenom')->nullable();
             $table->string('tel')->nullable();
             $table->string('Adresse')->nullable();
+            $table->foreign('wilaya_id')->references('id')->on('wilayas')->onDelete('cascade');
+
             $table->foreign('vehicule_id')->references('id')->on('vehicules')->onDelete('cascade');
 
             $table->timestamps();

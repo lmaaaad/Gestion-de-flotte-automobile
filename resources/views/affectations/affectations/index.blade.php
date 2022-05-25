@@ -58,12 +58,33 @@
         <!-- End of Sidebar -->
 @include('navbar')      
                     <!-- Content Row -->
-                    <div class="row py-3">
-                        <p>  
+                    <div class="py-3 d-flex justify-start">
+                        @cannot('is-observateur') 
+                        
                             <a href="{{ route('affectations.affectations.create') }}" >
                                 <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
                             </a>
-                         </p>
+                            @endcannot
+
+                            @cannot('is-dupw')
+                              
+                           
+                            <div class="dropdown col align-self-end p-1 mx-5 text-right align-self-end">
+                                    <button class="btn btn-primary dropdown-toggle" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Selectionnez Votre Wilaya
+                                    </button>
+                                    <div class="dropdown-menu animated--fade-in scrollable"
+                                        aria-labelledby="dropdownMenuButton">
+                                        @foreach ($wilaya as $wilaya)
+                                        <a class="dropdown-item" href="#">{{ $wilaya->name }}</a>
+                                        @endforeach
+                                    </div>
+                                </div>     
+                                @endcannot 
+                               </div>
+                         
 
                          
                       
@@ -73,12 +94,14 @@
                     <thead>
                       <tr>
                         <th scope="col">Conducteur</th>
-                        <th scope="col">Date de Depart</th>
-                        <th scope="col">Date de retour</th>
                         <th scope="col">Depart</th>
                         <th scope="col">Arrivee</th>
+                        <th scope="col">Date de Depart</th>
+                        <th scope="col">Date de retour</th>
                         <th scope="col">Affecte par</th>
+                        @cannot('is-observateur') 
                         <th scope="col">Action</th>
+                        @endcannot
                        
 
                         
@@ -95,7 +118,7 @@
                             <td>{{ $affectation->date_retour  }}</td>
                             <td>{{ $affectation->date  }}</td>
                             <td>{{ $affectation->affecte_par  }}</td>
-
+                            @cannot('is-observateur') 
             
                              <td> 
                                  <div class=" d-flex">
@@ -110,6 +133,7 @@
                                      </form>    
                                     </div>    
                             </td>
+                            @endcannot
                           </tr>
                         @endforeach
                       
@@ -117,7 +141,7 @@
                       
                     </tbody>
                   </table>
-                  {{ $affectations->links() }}
+                
                 </div>
             </div>   
           

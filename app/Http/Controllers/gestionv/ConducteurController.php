@@ -19,9 +19,25 @@ class ConducteurController extends Controller
      */
     public function index()
     {
+       
+
+        $user=auth()->user();
+        if ($user->hasRole('dupw')) {
+    
+    
+            $conducteurs=Conducteur::where('wilaya_id',$user->wilaya->id)->get();
+            }else {
+                $conducteurs=Conducteur::all();
+                if(request()->has('wilaya_id'))
+                {
+                    $conducteurs=Conducteur::where('wilaya_id',request()->wilaya_id)->get();
+
+                }
+
+             }
 
         return view('gestionv.conducteurs.index', [
-            'conducteurs' => Conducteur::paginate(1000) , 'wilaya' => Wilaya::all()
+            'conducteurs' =>  $conducteurs , 'wilayas' => Wilaya::all()
         ]);
 
     }
@@ -53,6 +69,7 @@ class ConducteurController extends Controller
             'tel' => 'required|size:10',
             'Adresse' => 'required|min:4|max:50',
             'vehicule_id' => 'required',
+            'wilaya_id' => 'required',
         ]);
        
 

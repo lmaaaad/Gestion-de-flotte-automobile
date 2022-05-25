@@ -4,12 +4,16 @@
 @include('navbar')
             
                     <!-- Content row -->
-                    <div class="py-3 d-flex justify-content-around">
-                       
+                    <div class="py-3 d-flex justify-start">
+                      @cannot('is-observateur') 
                             <a href="{{ route('gestionv.vehicules.create') }}" >
                                 <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
                             </a>
+                            @endcannot
 
+                            @cannot('is-dupw')
+                              
+                           
                     <div class="dropdown col align-self-end p-1 mx-5 text-right align-self-end">
                             <button class="btn btn-primary dropdown-toggle" type="button"
                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
@@ -22,7 +26,8 @@
                                 <a class="dropdown-item" href="#">{{ $wilaya->name }}</a>
                                 @endforeach
                             </div>
-                        </div>      
+                        </div>     
+                        @endcannot 
                 </div>     
 
             <div class="container pt-1 border rounded-3 mt-0">
@@ -50,8 +55,10 @@
                             <td>{{ $vehicule->Etat_Actuel }}</td>
                              <td> 
                                  <div class=" d-flex">
+                                  <a class="mx-1" href="{{ route('gestionv.vehicules.show',$vehicule->id) }}" ><button class="btn btn-sm btn-secondary" type="button">Detail</button>  </a>
+                                  @cannot('is-observateur') 
                                      <a class="mx-1" href="{{ route('gestionv.vehicules.edit',$vehicule->id) }}" ><button class="btn btn-sm btn-primary" type="button">Modifier</button>  </a>
-                                     <a class="mx-1" href="{{ route('gestionv.vehicules.show',$vehicule->id) }}" ><button class="btn btn-sm btn-secondary" type="button">Detail</button>  </a> 
+                                      
                                      <form id="delete-user-form-{{ $vehicule->Matricule }}" action="{{ route('gestionv.vehicules.destroy',$vehicule->id) }}" method="POST">
                                        
                                         @csrf
@@ -59,7 +66,8 @@
                                          <button type="submit" class="mx-1 btn btn-sm btn-danger">
                                              Supprimer
                                           </button>
-                                     </form>    
+                                     </form>
+                                     @endcannot         
                                     </div>    
                             </td>
                           </tr>

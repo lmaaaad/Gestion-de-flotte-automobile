@@ -2,12 +2,31 @@
 @include('gestionv.side')
 @include('navbar')
                     <!-- Content Row -->
-                    <div class="row py-3">
-                        <p>  
+                    <div class="py-3 d-flex justify-start">
+                        @cannot('is-observateur') 
                             <a href="{{ route('gestionv.taxes.create') }}" >
                                 <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
                             </a>
-                         </p>
+                            @endcannot
+
+                         @cannot('is-dupw')
+                              
+                           
+                         <div class="dropdown col align-self-end p-1 mx-5 text-right align-self-end">
+                                 <button class="btn btn-primary dropdown-toggle" type="button"
+                                     id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                     aria-expanded="false">
+                                     Selectionnez Votre Wilaya
+                                 </button>
+                                 <div class="dropdown-menu animated--fade-in scrollable"
+                                     aria-labelledby="dropdownMenuButton">
+                                     @foreach ($wilaya as $wilaya)
+                                     <a class="dropdown-item" href="#">{{ $wilaya->name }}</a>
+                                     @endforeach
+                                 </div>
+                             </div>     
+                             @endcannot 
+                            </div>   
 
                          
        
@@ -22,7 +41,8 @@
                         <th scope="col">Vehicule</th>
                         <th scope="col">Date Taxe</th>
                         <th scope="col">Expiration Taxe</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Wilaya</th>
+                        @cannot('is-observateur')   <th scope="col">Action</th>@endcannot
                       </tr>
                     </thead>
                     <tbody>
@@ -32,8 +52,9 @@
                             <th scope='row'> {{ $taxe->nom }} </th>
                             <td>{{ $taxe->vehicule->Matricule}} </td>
                             <td> {{  $taxe->date  }} </td>
-                            <td> {{ $taxe->expire }}
-                            
+                            <td> {{ $taxe->Wilaya }}
+                            <td> {{ $taxe->expire }}</td>
+                            @cannot('is-observateur')  
                              <td> 
                                  <div class=" d-flex">
                                      <a class="mx-1" href="{{ route('gestionv.taxes.edit',$taxe->id) }}" ><button class="btn btn-sm btn-primary" type="button">Modifier</button>  </a>
@@ -47,6 +68,7 @@
                                      </form>    
                                     </div>    
                             </td>
+                            @endcannot
                           </tr>
                         @endforeach
                       
@@ -54,7 +76,7 @@
                       
                     </tbody>
                   </table>
-                  {{ $taxes->links() }}
+                 
                 </div>
             </div>   
            <!-- /.container-fluid -->

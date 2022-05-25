@@ -5,6 +5,7 @@ namespace App\Http\Controllers\affectation;
 use App\Http\Controllers\Controller;
 use App\Models\Affectation;
 use App\Models\Conducteur;
+use App\Models\Wilaya;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -17,9 +18,18 @@ class AffectationController extends Controller
      */
     public function index()
     {
+        $user=auth()->user();
+        if ($user->hasRole('dupw')) {
+    
+    
+            $affectations=Affectation::where('Wilaya',$user->Wilaya)->get();
+            }else {
+                $affectations=Affectation::all();
+
+             }
         
         return view('affectations.affectations.index', [
-            'affectations' => Affectation::paginate(1000) ,'conducteur'=>Conducteur::all() 
+            'affectations' => $affectations ,'conducteur'=>Conducteur::all() ,  'wilaya' => Wilaya::all(),
         ]);
         
     }
@@ -32,8 +42,10 @@ class AffectationController extends Controller
      */
     public function create()
     {
+        $affectations=Affectation::all();
+        
         return view('affectations.affectations.create', [
-            'affectations' => Affectation::all() , 'conducteurs'=>Conducteur::all() ,
+            'affectations' => $affectations , 'conducteurs'=>Conducteur::all() ,
         ]);
     }
 
@@ -54,6 +66,7 @@ class AffectationController extends Controller
             'depart' => 'required',
             'arrivee' => 'required',
             'affecte_par' =>'required',
+            'Wilaya' => 'required',
         ]);
       
 

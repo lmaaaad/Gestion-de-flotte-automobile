@@ -9,7 +9,7 @@ class Assurance extends Model
 
 {
     protected $fillable = [
-        'date' ,'expire', 'rappel' ,'vehicule_id', 'fournisseur_id',
+        'date' ,'expire', 'rappel' ,'vehicule_id', 'fournisseur_id','Wilaya',
     ];
     
     public function vehicule()

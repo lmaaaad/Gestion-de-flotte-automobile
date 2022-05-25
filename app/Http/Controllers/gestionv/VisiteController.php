@@ -5,6 +5,7 @@ namespace App\Http\Controllers\gestionv;
 use App\Http\Controllers\Controller;
 use App\Models\Vehicule;
 use App\Models\Visite;
+use App\Models\Wilaya;
 use Illuminate\Http\Request;
 
 class VisiteController extends Controller
@@ -16,7 +17,16 @@ class VisiteController extends Controller
      */
     public function index()
     {
-        return view('gestionv.visites.index', ['visites' => Visite::paginate(1000)]);
+        $user=auth()->user();
+        if ($user->hasRole('dupw')) {
+    
+    
+            $visites=Visite::where('Wilaya',$user->Wilaya)->get();
+            }else {
+                $visites=Visite::all();
+
+             }
+        return view('gestionv.visites.index', ['visites' => $visites ,'wilaya' => Wilaya::all()]);
     }
 
     /**
@@ -42,6 +52,7 @@ class VisiteController extends Controller
             'date' => 'required',
             'prochaine' => 'required',
             'rappel' => 'required',
+            'Wilaya' => 'required',
            
         ]);
          

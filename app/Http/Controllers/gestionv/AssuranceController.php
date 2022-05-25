@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Assurance;
 use App\Models\Fournisseur;
 use App\Models\Vehicule;
+use App\Models\Wilaya;
 use Illuminate\Http\Request;
 
 class AssuranceController extends Controller
@@ -17,7 +18,17 @@ class AssuranceController extends Controller
      */
     public function index()
     {
-        return view('gestionv.assurances.index', ['assurances' => Assurance::paginate(100)]);
+        $user=auth()->user();
+        if ($user->hasRole('dupw')) {
+    
+    
+            $assurances=Assurance::where('Wilaya',$user->Wilaya)->get();
+            }else {
+                $assurances=Assurance::all();
+
+             }
+
+        return view('gestionv.assurances.index', ['assurances' =>  $assurances , 'wilaya' => Wilaya::all()]);
 
     }
 
@@ -47,8 +58,9 @@ class AssuranceController extends Controller
             'rappel' => 'required',
             'vehicule_id' => 'required',
             'fournisseur_id' => 'required',
+            'Wilaya' => 'required',
         ]);
-         
+        
         $assurance=Assurance::create($validatedData);
 
         //$assurance->roles()->sync($request->roles);

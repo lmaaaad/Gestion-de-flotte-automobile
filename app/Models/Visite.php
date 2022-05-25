@@ -9,7 +9,7 @@ class Visite extends Model
 {
 
     protected $fillable = [
-        'vehicule_id' ,'date', 'prochaine' ,'rappel', 
+        'vehicule_id' ,'date', 'prochaine' ,'rappel', 'Wilaya'
     ];
 
     Public function vehicule()

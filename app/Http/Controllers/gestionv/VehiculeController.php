@@ -29,6 +29,7 @@ class VehiculeController extends Controller
         return view('gestionv.vehicules.index', [
             'vehicules' => $vehicules, 'wilaya' => Wilaya::all()
         ]);
+        
 
     }
 

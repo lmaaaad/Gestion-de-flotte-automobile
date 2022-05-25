@@ -1,12 +1,12 @@
 @csrf
-
+@cannot('is-observateur') 
 
 <div class="row mb-12">
 
     <div class="col-6 mb-3">
        <label for="name" class="col-md-4 col-form-label ">{{ __('Nom') }}</label>
        <input name="Nom" type="text" class="form-control @error('name') is-invalid @enderror"  required autocomplete="Nom" autofocus
-       value="{{ old('Nom') }}  @isset($vehicule) {{ $vehicule->Nom }} @endisset">
+       value="{{ old('Nom') }}  @isset($conducteurs) {{ $conducteurs->Nom }} @endisset">
 
           @error('Nom')
               <span class="invalid-feedback" role="alert">
@@ -18,7 +18,7 @@
     <div class="col-6 mb-3">
         <label for="Prenom" class="col-md-4 col-form-label ">{{ __('Prenom') }}</label>
         <input id="Prenom" type="Prenom" class="form-control " name="Prenom"  required autocomplete="Prenom"
-        value="{{ old('Prenom') }}  @isset($vehicule) {{ $vehicule->Prenom }} @endisset">
+        value="{{ old('Prenom') }}  @isset($conducteurs) {{ $conducteurs->Prenom }} @endisset">
 
         @error('Prenom')
             <span class="invalid-feedback" role="alert">
@@ -31,9 +31,9 @@
 
 <div class="row mb-12">
     <div class="col-6 mb-3">
-        <label for='tel' clsss="col-md-4 col-form-label" > {{ __('Telephone') }}</label>
+        <label for='tel' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Telephone') }}</label>
         <input name='tel' type='tel' class="form-control" required  pattern="[0]{1}[5-7]{1}[0-9]{8}" placeholder="exp:0567879829" aria-label="10-digit area code"
-        value="{{ old('tel') }}  @isset($vehicule) {{ $vehicule->tel }} @endisset">
+        value="{{ old('tel') }}  @isset($conducteurs) {{ $conducteurs->tel }} @endisset">
         
         @error('tel')
         <span class="invalid-feedback" role="alert">
@@ -42,9 +42,9 @@
       @enderror
    </div>
     <div class="col-6 mb-3">
-        <label for='Adresse' clsss="col-md-4 col-form-label" > {{ __('Adresse') }}</label>
+        <label for='Adresse' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Adresse') }}</label>
         <input name='Adresse' type='Adresse' class="form-control" required
-        value="{{ old('Adresse') }}  @isset($vehicule) {{ $vehicule->Adresse }} @endisset">
+        value="{{ old('Adresse') }}  @isset($conducteurs) {{ $conducteurs->Adresse }} @endisset">
         
         @error('Adresse')
         <span class="invalid-feedback" role="alert">
@@ -77,6 +77,23 @@
                </select>
           </div>
 
+          <div class="col-6 mb-3">
+            <label for='Wilaya' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
+            <select id="Wilaya" class="form-select" name='Wilaya' required
+            value="{{ old('Wilaya') }} ">
+            @foreach ($wilayas as $wilaya)
+            <option value="{{ $wilaya->id }}"  @isset($conducteurs) @if ($conducteur->wilaya->id == $wilaya_id)
+                selected
+            @endif @endisset >
+            {{ $wilaya->name }}
+        </option>
+            @endforeach 
+
+                 
+              </select>
+         
+       </div>
+
         </div>
            
 
@@ -87,3 +104,4 @@
     <a class="mx-1" href="{{ route('gestionv.conducteurs.index') }}" ><button class="btn btn-sm btn-secondary" type="button">Annuler</button>  </a>
 </div>
 
+@endcannot

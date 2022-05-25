@@ -131,7 +131,9 @@
              
             </a>
          @endcan
-        
+
+         @cannot('is-observateur')
+     
          <a class="col-md-3 col-sm-6 p-2 " href="{{ route('pieces.fournisseurs.index') }}">
              <div class="bg-warning bg-gradient p-2" style="height: 130px;">
                 <img src="/pic/setting2.png" width="70px" height="70px">
@@ -139,7 +141,7 @@
              </div>
 
             </a>
-    
+            @endcannot 
 
          <a class="col-md-3 col-sm-6 p-2  " href="{{ route('gestionv.conducteurs.index') }}">
              <div class="bg-success bg-gradient p-2" style="height: 130px;">
@@ -147,18 +149,30 @@
                 <div class="text-center">    Gestion Véhicule </div>
              </div>
          </a>
+
+         @cannot('is-observateur')
+             
+         
          <a class="col-md-3 col-sm-6 p-2" href="{{ route('entretiens.entretiens.index') }}">
              <div class="bg-info"style="height: 130px;">
                 <img src="pic/maftah.png" width="70px" height="70px">
                 <p class="text-center">     Entretien  </p>
              </div>
             </a>
+
+            @endcannot
+
+            @cannot('is-observateur')
+
          <a class="col-md-3 col-sm-6 p-2" href="{{ route('rapport') }}">
              <div class="bg-danger bg-gradient"style="height: 130px;">
                 <img src="pic/rapport.png" width="70px" height="70px">
                 <p class="text-center "> Rapports </p>
              </div>
             </a>
+            @endcannot()
+
+
          <a class="col-md-3 col-sm-6 p-2" href="{{ route('affectations.affectations.index') }}">
              
               <div class="purple "style="height: 130px;">

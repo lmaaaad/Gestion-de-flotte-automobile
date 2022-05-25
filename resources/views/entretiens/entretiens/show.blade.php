@@ -14,7 +14,7 @@
                              <br> <p class=" text-black border border-primary rounded-3 p-2" > {{  $entretiens->vehicule->Matricule }}  </p>
                         </div>          
                         <div class="col-6 mb-3">
-                              <label for='discription' clsss="col-md-4 col-form-label" > {{ __('Description') }}</label>
+                              <label for='discription' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Description') }}</label>
                          <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $entretiens->discription }}</p>
                                
                         </div>           
@@ -27,7 +27,7 @@
                              <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $entretiens->fournisseur->name }} </p>
                         </div>
                         <div class="col-6 mb-3">
-                            <label for='date' clsss="col-md-4 col-form-label"> {{ __('Date') }}</label>
+                            <label for='date' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Date') }}</label>
                             <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $entretiens->date }} </p>
                            
                         </div>
@@ -35,18 +35,24 @@
                      
                      <div class='row mb-12'>
                          <div class="col-6 mb-3">
-                             <label for='kilometrage' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Kilometrage') }}</label>
+                             <label for='kilometrage' clsss="col-md-4 col-form-label" style="color: black" style="color: black" > {{ __('Kilometrage') }}</label>
                              <br> <p class=" text-black border border-primary rounded-3 p-2" > {{  $entretiens->kilometrage }}    </p>                        
                         </div>
                         <div class="col-6 mb-3">
                             <label for='piece_id'> {{ __('Pieces') }}</label>
-                            <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $entretiens->pieces }} </p>                               
+                            <br> <p class=" text-black border border-primary rounded-3 p-2" > 
+                                @foreach ($entretiens->pieces as $p )
+                                    
+                                
+                                {{ $p->designation  }} <br>
+                                @endforeach
+                            </p>                               
                         </div>
                      </div>
                      
                      <div class='row mb-12'>
                          <div class="col-6 mb-3">
-                             <label for='cout' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Cout (DA)') }}</label>
+                             <label for='cout' clsss="col-md-4 col-form-label" style="color: black" style="color: black" > {{ __('Cout (DA)') }}</label>
                              <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $entretiens->cout }} </p>
                            
                         </div>

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Conducteur extends Model
 {
     protected $fillable = [
-        'Nom','Prenom','tel','Adresse','vehicule_id',
+        'Nom','Prenom','tel','Adresse','vehicule_id', 'Wilaya',
     ];
 
     
@@ -23,5 +23,9 @@ class Conducteur extends Model
     public function affectations()
     {
         return $this->hasMany('App\Models\Affectation');
+    }
+    public function wilaya()
+    {
+        return $this->belongsTo('App\Models\Wilaya');
     }
 }

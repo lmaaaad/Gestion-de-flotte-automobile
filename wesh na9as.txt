@@ -1,11 +1,9 @@
 search bar 
 
-affichae paar wilaya
+affichae paar wilaya (mini khlas)
 
 
-les roles avec affihage 
-
-Logout 
+RElatio many to many
 
 Entretien f Show page , na9as affichage kanet takhrjli 
 Trying to get property 'Matricule' of non-object >>  and ma3reftch na7iha so khalitha t'afficher za3ma id wahdou and maaficha walou :( :( :( 

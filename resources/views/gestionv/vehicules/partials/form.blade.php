@@ -1,5 +1,5 @@
 @csrf
-
+@cannot('is-observateur') 
     <div class="row mb-12">
 
         <div class="col-6 mb-3">
@@ -56,7 +56,7 @@
 
    <div class="row mb-12">  
        <div class="col-6 mb-3">
-           <label for='Num_serie' clsss="col-md-4 col-form-label"> {{('N° de Chassis')}}</label>
+           <label for='Num_serie' clsss="col-md-4 col-form-label" style="color: black"> {{('N° de Chassis')}}</label>
            <input name='Num_serie' type='texte' class="form-control" required 
            value="{{ old('Num_serie') }}  @isset($vehicule) {{ $vehicule->Num_serie }} @endisset">
            
@@ -102,7 +102,7 @@
              @enderror
          </div>   
          <div class="col-6 mb-3">
-             <label for='Carburant' clsss="col-md-4 col-form-label"> {{ __('Carburant') }}</label>
+             <label for='Carburant' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Carburant') }}</label>
              <select name='Carburant' type='texte' class="form-select" required
              value="{{ old('Carburant') }}  @isset($vehicule) {{ $vehicule->Carburant }} @endisset">
              <option selected disabled value=""> Type de Carburant </option>
@@ -121,7 +121,7 @@
 
    <div class="row mb-12">
        <div class="col-6 mb-3">
-           <label for='Etat_Actuel' clsss="col-md-4 col-form-label"> {{ __('Etat Actuel') }}</label>
+           <label for='Etat_Actuel' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Etat Actuel') }}</label>
            <Select name='Etat_Actuel' type='texte' class="form-select" required
            value="{{ old('Etat_Actuel') }}  @isset($vehicule) {{ $vehicule->Etat_Actuel }} @endisset">
            <option selected disabled value=""> Etat de Vehicule </option>
@@ -147,7 +147,7 @@
 
   
     <div class="col-6 mb-3">
-        <label for='Wilaya' clsss="col-md-4 col-form-label"> {{ __('Wilaya') }}</label>
+        <label for='Wilaya' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
         <select id="Wilaya" class="form-select" name='Wilaya' required
         value="{{ old('Wilaya') }}  @isset($vehicule) {{ $vehicule->Wilaya }} @endisset"> 
             <option disabled selected>Selectionnez Votre Wilaya</option>
@@ -177,3 +177,4 @@
         <a class="mx-1" href="{{ route('gestionv.vehicules.index') }}" ><button class="btn btn-sm btn-success" type="submit">Enregistrer</button>  </a>
         <a class="mx-1" href="{{ route('gestionv.vehicules.index') }}" ><button class="btn btn-sm btn-secondary" type="button">Annuler</button>  </a>
     </div>
+    @endcannot

@@ -60,7 +60,7 @@
     <div class="row mb-12">
         
         <div class="col-6 mb-3">
-            <label for='quantite' clsss="col-md-4 col-form-label" > {{('Quantite ')}}</label>
+            <label for='quantite' clsss="col-md-4 col-form-label" style="color: black" > {{('Quantite ')}}</label>
             <input name='quantite' type='number' class="form-control" required 
             value="{{ old('quantite') }}  @isset($piece) {{ $piece->quantite }} @endisset">
             
@@ -72,7 +72,7 @@
        </div>        
         
         <div class="col-6 mb-3">
-            <label for='quantite_utiliser' clsss="col-md-4 col-form-label" > {{('Quantite Utiliser')}}</label>
+            <label for='quantite_utiliser' clsss="col-md-4 col-form-label" style="color: black" > {{('Quantite Utiliser')}}</label>
             <input name='quantite_utiliser' type='number' class="form-control" required 
             value="{{ old('quantite_utiliser') }}  @isset($piece) {{ $piece->quantite_utiliser }} @endisset">
             
@@ -99,7 +99,7 @@
             @enderror
         </div>
        <div class="col-6 mb-3">
-           <label for='prix' clsss="col-md-4 col-form-label"> {{('Prix Unitaire')}}</label>
+           <label for='prix' clsss="col-md-4 col-form-label" style="color: black"> {{('Prix Unitaire')}}</label>
            <input name='prix' type='texte' class="form-control" required
            value="{{ old('prix') }}  @isset($piece) {{ $piece->prix }} @endisset">
            
@@ -117,7 +117,7 @@
 
    <div class="col-6 mb-3">
       
-    <label for='date_acq' clsss="col-md-4 col-form-label"> {{ __("Date d'Acquisition") }}</label>
+    <label for='date_acq' clsss="col-md-4 col-form-label" style="color: black"> {{ __("Date d'Acquisition") }}</label>
     <input name='date_acq' type='date' class="form-control" required
     value="{{ old('date_acq') }}  @isset($piece) {{ $fournisseur->date }} @endisset">
     @error('dateprix')

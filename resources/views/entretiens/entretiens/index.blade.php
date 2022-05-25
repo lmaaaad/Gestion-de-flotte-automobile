@@ -24,6 +24,7 @@
         rel="stylesheet" href=" https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap5.min.css" >   
     <!-- Custom styles for this template-->
     <link href="/rapport.css" rel="stylesheet">
+
    
 </head>
 
