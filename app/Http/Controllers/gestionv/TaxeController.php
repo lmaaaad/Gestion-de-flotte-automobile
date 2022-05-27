@@ -21,12 +21,15 @@ class TaxeController extends Controller
         if ($user->hasRole('dupw')) {
     
     
-            $taxes=Taxe::where('Wilaya',$user->Wilaya)->get();
+            $taxes=Taxe::where('wilaya_id',$user->wilaya->id)->get();
             }else {
                 $taxes=Taxe::all();
-
+                if(request()->has('wilaya_id'))
+                {
+                $taxes=Taxe::where('wilaya_id',request()->wilaya_id)->get();
+                }
              }
-        return view('gestionv.taxes.index', ['taxes' => $taxes ,'wilaya' => Wilaya::all()]);
+        return view('gestionv.taxes.index', ['taxes' => $taxes ,'wilayas' => Wilaya::all()]);
     }
 
     /**
@@ -36,7 +39,7 @@ class TaxeController extends Controller
      */
     public function create()
     {
-        return view('gestionv.taxes.create', ['vehicules' => Vehicule::all()]);
+        return view('gestionv.taxes.create', ['vehicules' => Vehicule::all(), 'wilayas' => Wilaya::all(),]);
     }
 
     /**
@@ -55,8 +58,7 @@ class TaxeController extends Controller
             'date' => 'required',
             'expire' => 'required',
             'rappel' => 'required',
-            'Wilaya' => 'required',
-           
+            'wilaya_id' => 'required',           
   
         ]);
         
@@ -64,7 +66,7 @@ class TaxeController extends Controller
         $taxe=Taxe::create($validatedData);
         //$taxe->roles()->sync($request->roles);
 
-        $request->session()->flash('success','Vous avez cree un Taxe');
+        $request->session()->flash('success','Conducteur effectué avec succès');
 
         return redirect(route('gestionv.taxes.index'));
     }
@@ -92,7 +94,8 @@ class TaxeController extends Controller
         return view('gestionv.taxes.edit',
         [
             'vehicules'=>Vehicule::all() ,
-            'taxe' =>Taxe::find($id) 
+            'taxe' =>Taxe::find($id) ,
+            'wilayas' => Wilaya::all(),
         ]);
     }
 
@@ -107,7 +110,7 @@ class TaxeController extends Controller
     {
         $taxe = Taxe::find($id);
         $taxe->update($request->except(['_token']));
-        $request->session()->flash('success',"Vous avez modifie les informations d'un taxe");
+        $request->session()->flash('success',"Conducteur modifiée avec Succès");
         return redirect(route('gestionv.taxes.index'));
     }
 
@@ -120,7 +123,7 @@ class TaxeController extends Controller
     public function destroy($id,Request $request)
     {
         Taxe::destroy($id);
-        $request->session()->flash('success','Vous avez supprime un Taxe');
+        $request->session()->flash('success','Conducteur Supprimé !!');
         return redirect(route('gestionv.taxes.index')); 
     }
 }

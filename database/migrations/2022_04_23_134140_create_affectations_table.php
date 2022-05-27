@@ -21,7 +21,8 @@ class CreateAffectationsTable extends Migration
             $table->string('arrivee');
             $table->date('date_retour');
             $table->string('affecte_par');
-            $table->string('Wilaya');
+            $table->unsignedBigInteger('wilaya_id');
+            $table->foreign('wilaya_id')->references('id')->on('wilayas')->onDelete('cascade');
             $table->foreign('conducteur_id')->references('id')->on('conducteurs')->onDelete('cascade');
             $table->timestamps();
         });

@@ -4,7 +4,9 @@
 @include('navbar')
        
                     <!-- Content Row -->
-                    <div class="py-3 d-flex justify-start">
+                    <div class='card-body bg-white  border border-light '>
+                        <div class="card-header">
+                    <div class="py-2 d-flex justify-start">
                         @cannot('is-observateur') 
                             <a href="{{ route('gestionv.visites.create') }}" >
                                 <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
@@ -21,13 +23,14 @@
                                  </button>
                                  <div class="dropdown-menu animated--fade-in scrollable"
                                      aria-labelledby="dropdownMenuButton">
-                                     @foreach ($wilaya as $wilaya)
-                                     <a class="dropdown-item" href="#">{{ $wilaya->name }}</a>
+                                     @foreach ($wilayas as $wilaya)
+                                     <a class="dropdown-item" href="{{ route('gestionv.visites.index',['wilaya_id'=>$wilaya->id] ) }}"></a>
                                      @endforeach
                                  </div>
                              </div>     
                              @endcannot 
                             </div>
+                        </div>
                          
 
                
@@ -48,7 +51,7 @@
                         @foreach ($visites as $visite)
                         <tr>
                             <th scope="row">{{ $visite->vehicule->Matricule}} </th>
-                            <td> {{ $visite->Wilaya }}
+                            <td> {{ $visite->wilaya->name }}
                             <td> {{  $visite->date  }} </td>
                             <td> {{ $visite->prochaine }}</td>
                             @cannot('is-observateur') 
@@ -64,6 +67,7 @@
                                              Supprimer
                                           </button>
                                      </form>    
+
                                     </div>    
                             </td>
                             @endcannot
@@ -85,6 +89,7 @@
             <!-- End of Footer -->
 
         </div>
+    </div>
         <!-- End of Content Wrapper -->
         
  @include('footer')

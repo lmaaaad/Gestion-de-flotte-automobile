@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicule extends Model
 {
     protected $fillable = [
-        'Matricule' ,'Marque', 'Modele' ,'Etat_Actuel', 'Couleur', 'Num_serie', 'Date_ms', 'Type' ,'Carburant' , 'Wilaya',
+        'Matricule' ,'Marque', 'Modele' ,'Etat_Actuel', 'Couleur', 'Num_serie', 'Date_ms', 'Type' ,'Carburant' , 'wilaya_id',
     ];
     
     use HasFactory;
@@ -36,6 +36,10 @@ class Vehicule extends Model
     public function entretien()
     {
         return $this->HasOne('App\Models\Entretien');
+    }
+    public function wilaya()
+    {
+        return $this->belongsTo('App\Models\Wilaya');
     }
 
 }

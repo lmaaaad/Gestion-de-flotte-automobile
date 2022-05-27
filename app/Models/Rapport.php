@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rapport extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'wilaya_id',
+    ];
+    public function wilaya()
+    {
+        return $this->belongsTo('App\Models\Wilaya');
+    }
+   
 }

@@ -15,16 +15,16 @@ class CreateFournisseursTable extends Migration
     {
         Schema::create('fournisseurs', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('type')->nullable();
-            $table->string('ville')->nullable();
-            $table->string('tel')->nullable();
-            $table->string('email')->nullable();
-            $table->string('NRC')->nullable();
-            $table->string('NIF')->nullable();
-            $table->string('Ncontrat')->nullable();
-            $table->date('datedeb')->nullable();;
-            $table->date('datefin')->nullable();;          
+            $table->string('name');
+            $table->string('type');
+            $table->string('ville');
+            $table->string('tel');
+            $table->string('email');
+            $table->string('NRC');
+            $table->string('NIF');
+            $table->string('Ncontrat');
+            $table->date('datedeb');
+            $table->date('datefin');          
             $table->timestamps();
         });
     }

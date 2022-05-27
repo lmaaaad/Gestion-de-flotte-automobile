@@ -35,11 +35,9 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <div class="sidebar-brand d-flex align-items-center justify-content-center">
-                <a id='logo-orig' class="navbar-brand ps-0 " href="#" > 
-                    <img src='/pic/logo-orig.png' alt=algerie-poste-logo>
-                </a>
+               
     
-                <div class="sidebar-brand-text">Affectations</div>
+                <div class="sidebar-brand-text">Mission</div>
             </div>
 
             <!-- Divider -->
@@ -49,7 +47,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('affectations.affectations.index') }}">
                     <i><img src="/pic/affectation.png" style='height:30px;'></i>
-                    <span class="pl-2 ">Affectations </span>
+                    <span class="pl-2 ">Mission </span>
                 </a>
             </li>
             <!-- Divider -->
@@ -58,14 +56,16 @@
         <!-- End of Sidebar -->
 @include('navbar')      
                     <!-- Content Row -->
-                    <div class="py-3 d-flex justify-start">
-                        @cannot('is-observateur') 
+                   <div class='card-body bg-white  border border-light '>
+                        <div class="card-header">
+                    <div class="py-2 d-flex justify-start">
+                   
+                         
                         
                             <a href="{{ route('affectations.affectations.create') }}" >
                                 <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
                             </a>
-                            @endcannot
-
+                           
                             @cannot('is-dupw')
                               
                            
@@ -77,13 +77,15 @@
                                     </button>
                                     <div class="dropdown-menu animated--fade-in scrollable"
                                         aria-labelledby="dropdownMenuButton">
-                                        @foreach ($wilaya as $wilaya)
+                                        @foreach ($wilayas as $wilaya)
                                         <a class="dropdown-item" href="#">{{ $wilaya->name }}</a>
                                         @endforeach
                                     </div>
                                 </div>     
                                 @endcannot 
                                </div>
+
+                            </div>
                          
 
                          
@@ -99,9 +101,9 @@
                         <th scope="col">Date de Depart</th>
                         <th scope="col">Date de retour</th>
                         <th scope="col">Affecte par</th>
-                        @cannot('is-observateur') 
+                      
                         <th scope="col">Action</th>
-                        @endcannot
+                       
                        
 
                         
@@ -118,7 +120,7 @@
                             <td>{{ $affectation->date_retour  }}</td>
                             <td>{{ $affectation->date  }}</td>
                             <td>{{ $affectation->affecte_par  }}</td>
-                            @cannot('is-observateur') 
+                           
             
                              <td> 
                                  <div class=" d-flex">
@@ -133,7 +135,7 @@
                                      </form>    
                                     </div>    
                             </td>
-                            @endcannot
+                           
                           </tr>
                         @endforeach
                       

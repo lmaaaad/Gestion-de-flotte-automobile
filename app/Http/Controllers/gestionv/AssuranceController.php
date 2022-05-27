@@ -22,13 +22,16 @@ class AssuranceController extends Controller
         if ($user->hasRole('dupw')) {
     
     
-            $assurances=Assurance::where('Wilaya',$user->Wilaya)->get();
+            $assurances=Assurance::where('wilaya_id',request()->wilaya_id)->get();
             }else {
                 $assurances=Assurance::all();
-
+                if(request()->has('wilaya_id'))
+                {
+                $assurances=Assurance::where('wilaya_id',request()->wilaya_id)->get();
+                }
              }
 
-        return view('gestionv.assurances.index', ['assurances' =>  $assurances , 'wilaya' => Wilaya::all()]);
+        return view('gestionv.assurances.index', ['assurances' =>  $assurances , 'wilayas' => Wilaya::all()]);
 
     }
 
@@ -39,7 +42,7 @@ class AssuranceController extends Controller
      */
     public function create()
     {
-        return view('gestionv.assurances.create', ['vehicules' => Vehicule::all(),'fournisseurs' => Fournisseur::all()]);
+        return view('gestionv.assurances.create', ['vehicules' => Vehicule::all(),'wilayas' => Wilaya::all(),'fournisseurs' => Fournisseur::all()]);
 
     }
 
@@ -58,14 +61,14 @@ class AssuranceController extends Controller
             'rappel' => 'required',
             'vehicule_id' => 'required',
             'fournisseur_id' => 'required',
-            'Wilaya' => 'required',
-        ]);
+            'wilaya_id' => 'required',
+                ]);
         
         $assurance=Assurance::create($validatedData);
 
         //$assurance->roles()->sync($request->roles);
 
-        $request->session()->flash('success','Vous avez cree un Assurance');
+        $request->session()->flash('success','Assurance effectué avec succès');
 
         return redirect(route('gestionv.assurances.index'));
     }
@@ -90,10 +93,13 @@ class AssuranceController extends Controller
     public function edit($id)
     {
 
+        $assurance =Assurance::find($id);
+
         return view('gestionv.assurances.edit',
         [
             
-            'assurance' =>Assurance::find($id) ,'vehicules'=>Vehicule::all() ,'fournisseurs' => Fournisseur::all() 
+            'assurance' =>$assurance,
+            'vehicules'=>Vehicule::all() ,'fournisseurs' => Fournisseur::all() ,'wilayas' => Wilaya::all(),
         ]);
 
         
@@ -110,7 +116,7 @@ class AssuranceController extends Controller
     {
         $assurance = Assurance::find($id);
         $assurance->update($request->except(['_token']));
-        $request->session()->flash('success',"Vous avez modifie les informations d'un assurance");
+        $request->session()->flash('success',"Assurance modifiée avec Succès");
         return redirect(route('gestionv.assurances.index'));
     }
 
@@ -123,7 +129,7 @@ class AssuranceController extends Controller
     public function destroy($id,Request $request)
     {
         Assurance::destroy($id);
-        $request->session()->flash('success','Vous avez supprime un Assurance');
+        $request->session()->flash('success','Assurance Supprimé !!');
         return redirect(route('gestionv.assurances.index')); 
     }
 }

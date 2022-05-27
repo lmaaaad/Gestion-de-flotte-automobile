@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Conducteur extends Model
 {
     protected $fillable = [
-        'Nom','Prenom','tel','Adresse','vehicule_id', 'Wilaya',
+        'Nom','Prenom','tel','Adresse','vehicule_id', 'wilaya_id',
     ];
 
     

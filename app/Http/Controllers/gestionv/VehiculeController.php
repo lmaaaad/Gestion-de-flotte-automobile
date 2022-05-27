@@ -19,15 +19,19 @@ class VehiculeController extends Controller
     {
      $user=auth()->user();
         if ($user->hasRole('dupw')) {
-    
-    
-        $vehicules=vehicule::where('Wilaya',$user->Wilaya)->get();
+
+        $vehicules=vehicule::where('wilaya_id',$user->wilaya->id)->get();
         }else {
-            $vehicules=Vehicule::all();
+            $vehicules=vehicule::all();
+                if(request()->has('wilaya_id'))
+                {
+                   
+                    $vehicules=Vehicule::where('wilaya_id',request()->wilaya_id)->get();
+                }
          }
 
         return view('gestionv.vehicules.index', [
-            'vehicules' => $vehicules, 'wilaya' => Wilaya::all()
+            'vehicules' => $vehicules, 'wilayas' => Wilaya::all(),
         ]);
         
 
@@ -40,7 +44,9 @@ class VehiculeController extends Controller
      */
     public function create()
     {
-        return view('gestionv.vehicules.create', ['conducteurs' => Conducteur::all()]);
+        return view('gestionv.vehicules.create', [
+            'conducteurs' => Conducteur::all() ,'wilayas' => Wilaya::all()
+    ]);
     }
 
     /**
@@ -64,14 +70,14 @@ class VehiculeController extends Controller
             'Type' => 'required',
             'Carburant' => 'required',
             'Etat_Actuel' => 'required',
-            'Wilaya' => 'required',
-        ]);
+            'wilaya_id' => 'required',
+                ]);
          
         $vehicule=Vehicule::create($validatedData);
 
         //$vehicule->roles()->sync($request->roles);
 
-        $request->session()->flash('success','Vous avez cree un Vehicule');
+        $request->session()->flash('success','Vehicule ajouté avec succès');
 
         return redirect(route('gestionv.vehicules.index'));
     }
@@ -85,7 +91,9 @@ class VehiculeController extends Controller
     public function show($id)
     {
         $vehicule=Vehicule::find($id);
-      return view('gestionv.vehicules.show',compact('vehicule'));
+      return view('gestionv.vehicules.show',([
+          'vehicule' => $vehicule , 'wilayas' => Wilaya::all()
+      ]));
         
     }
 
@@ -98,7 +106,9 @@ class VehiculeController extends Controller
     public function edit($id)
     {
         $vehicule=Vehicule::find($id);
-      return view('gestionv.vehicules.edit',compact('vehicule'));
+      return view('gestionv.vehicules.edit',([
+        'vehicule' => $vehicule , 'wilayas' => Wilaya::all()
+      ]));
     }
 
     /**
@@ -110,9 +120,10 @@ class VehiculeController extends Controller
      */
     public function update(Request $request, $id)
     {
+       
         $vehicule = Vehicule::find($id);
         $vehicule->update($request->except(['_token']));
-        $request->session()->flash('success',"Vous avez modifie les informations d'un vehicule");
+        $request->session()->flash('success',"Vehicule modifiée avec Succès");
         return redirect(route('gestionv.vehicules.index'));
     }
 
@@ -125,7 +136,7 @@ class VehiculeController extends Controller
     public function destroy($id,Request $request)
     {
         Vehicule::destroy($id);
-        $request->session()->flash('success','Vous avez supprime un Vehicule');
+        $request->session()->flash('success','Vehicule Supprimé !!');
         return redirect(route('gestionv.vehicules.index')); 
     }
 }

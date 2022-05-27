@@ -24,6 +24,10 @@ public function entretiens()
 {
     return $this->belongsToMany('App\Models\Entretien');
 }
+public function wilaya()
+{
+    return $this->belongsTo('App\Models\Wilaya');
+}
 
 
 

@@ -43,7 +43,7 @@
 
         <div class="col-6 mb-3">
             <label for='tel' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Telephone') }}</label>
-            <input name='tel' type='tel' class="form-control" required  pattern="[0]{1}[5-7]{1}[0-9]{8}" placeholder="exp:+213567879829" aria-label="10-digit area code" size="2"
+            <input name='tel' type='tel' class="form-control" required  pattern="[0]{1}[5-7]{1}[0-9]{8}" placeholder="exp:0567879829" aria-label="10-digit area code" size="2"
             value="{{ old('tel') }}  @isset($fournisseur) {{ $fournisseur->tel }} @endisset">
             
             @error('tel')
@@ -84,7 +84,7 @@
      <div class="row mb-12">
          <div class="col-6 mb-3">
           <label for='type' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Type') }}</label>
-            <select name='type' type='texte' class="form-select" required
+            <select name='type' type='text' class="form-select" required
                 value="{{ old('type') }}  @isset($fournisseur) {{ $fournisseur->type }} @endisset">
                 <option selected disabled value=""> Choisir </option>
                 <option>Grossiste</option>

@@ -57,7 +57,7 @@ class fournisseurController extends Controller
 
         //$fournisseur->roles()->sync($request->roles);
 
-        $request->session()->flash('success','You have created The User');
+        $request->session()->flash('success','Fournisseur Ajouté avec succès');
 
         return redirect(route('pieces.fournisseurs.index'));
     }
@@ -98,7 +98,7 @@ class fournisseurController extends Controller
         $fournisseur = Fournisseur::find($id);
         $fournisseur->update($request->except(['_token']));
         //$fournisseur->roles()->sync($request->roles);
-        $request->session()->flash('success','You have Edited The User');
+        $request->session()->flash('success','Fournisseur Modifié avec succès');
         return redirect(route('pieces.fournisseurs.index'));
     }
 
@@ -111,7 +111,7 @@ class fournisseurController extends Controller
     public function destroy($id,Request $request)
     {
         Fournisseur::destroy($id);
-        $request->session()->flash('success','Vous avez supprime un Fournisseur');
+        $request->session()->flash('success','Fournisseur Supprimé !!');
         return redirect(route('pieces.fournisseurs.index')); 
     }
 }

@@ -79,7 +79,7 @@
                   
                     <div class="col-6 mb-3">
                         <label for='Wilaya' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
-                        <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $vehicule->Wilaya }}</p> 
+                        <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $vehicule->wilaya->name }}</p> 
                           
                      
                    </div>
@@ -88,6 +88,7 @@
                     <a class="mx-1" href="{{ route('gestionv.vehicules.index') }}" ><button class="btn btn-sm btn-secondary" type="button">Retour</button>  </a>
                 </div>
                         
+                
                     </form>
                 </div>
             </div>

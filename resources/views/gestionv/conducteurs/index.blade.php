@@ -3,7 +3,9 @@
 @include('gestionv.side')
 @include('navbar')
                     <!-- Content Row -->
-                    <div class="py-3 d-flex justify-start">
+                    <div class='card-body bg-white  border border-light '>
+                     <div class="card-header">
+                    <div class="py-2 d-flex justify-start">
                       @cannot('is-observateur') 
                             <a href="{{ route('gestionv.conducteurs.create') }}" >
                                 <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
@@ -30,6 +32,7 @@
                        
                         @endcannot
                    </div>
+                  </div>
                    
 
                
@@ -48,6 +51,7 @@
 @cannot('is-observateur')      <th scope="col">Action</th>  @endcannot
                       </tr>
                     </thead>
+
                     <tbody>
                         @foreach ($conducteurs as $conducteur)
                         <tr>
@@ -56,7 +60,7 @@
                             <td> {{ $conducteur->vehicule->Matricule }}
                             <td>{{ $conducteur->tel  }}</td>
                             <td>{{ $conducteur->Adresse }}</td>
-                            <td> {{ $conducteur->Wilaya }} </td>
+                            <td> {{ $conducteur->wilaya->name }} </td>
                             @cannot('is-observateur') 
                              <td> 
                                  <div class=" d-flex">
@@ -91,5 +95,5 @@
 
         </div>
         <!-- End of Content Wrapper -->
-        
+      </div>
             @include('footer')

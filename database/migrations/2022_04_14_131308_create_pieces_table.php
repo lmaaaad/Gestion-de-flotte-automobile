@@ -17,13 +17,13 @@ class CreatePiecesTable extends Migration
         Schema::create('pieces', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('fournisseur_id');
-            $table->string('designation')->nullable();
-            $table->string('marque')->nullable();
-            $table->integer('quantite')->nullable();
-            $table->integer('quantite_utiliser')->Nullable();
-            $table->string('unite')->nullable();
-            $table->string('prix')->nullable();
-            $table->date('date_acq')->nullable();
+            $table->string('designation');
+            $table->string('marque');
+            $table->integer('quantite');
+            $table->integer('quantite_utiliser');
+            $table->string('unite');
+            $table->string('prix');
+            $table->date('date_acq');
             $table->foreign('fournisseur_id')->references('id')->on('fournisseurs')->onDelete('cascade');
             $table->timestamps();
 

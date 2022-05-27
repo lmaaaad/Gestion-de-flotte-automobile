@@ -2,7 +2,10 @@
 @include('gestionv.side')
 @include('navbar')
                     <!-- Content Row -->
-                    <div class="py-3 d-flex justify-start">
+
+                    <div class='card-body bg-white  border border-light '>
+                     <div class="card-header">
+                        <div class="py-2 d-flex justify-start">
                        
                         @cannot('is-observateur')           
                             <a href="{{ route('gestionv.assurances.create') }}" >
@@ -21,13 +24,14 @@
                                  </button>
                                  <div class="dropdown-menu animated--fade-in scrollable"
                                      aria-labelledby="dropdownMenuButton">
-                                     @foreach ($wilaya as $wilaya)
-                                     <a class="dropdown-item" href="#">{{ $wilaya->name }}</a>
+                                     @foreach ($wilayas as $wilaya)
+                                     <a class="dropdown-item" href="{{ route('gestionv.assurances.index',['wilaya_id'=>$wilaya->id] ) }}">{{ $wilaya->name }}</a>
                                      @endforeach
                                  </div>
                              </div>     
                              @endcannot 
-                            </div>      
+                            </div>   
+                        </div>       
         
                
             <div class="container pt-1 border rounded-3 mt-0">
@@ -37,8 +41,8 @@
                       <tr>
 
                             <th scope="col">Vehicule</th>
-                            <th scope="col">Wilaya</th>
                             <th scope="col">Assurez Chez</th>
+                            <th scope="col">Wilaya</th>
                             <th scope="col">Date d'Assurance</th>
                             <th scope="col">Date d'Expiration</th>
 @cannot('is-observateur')  <th scope="col">Action</th>         @endcannot
@@ -48,8 +52,9 @@
                         @foreach ($assurances as $assurance)
                         <tr>
                             <th scope="row">{{ $assurance->vehicule->Matricule}} </th>
-                            <td> {{  $assurance->Wilaya  }} </td>
+                           
                             <td> {{ $assurance->fournisseur->name }}
+                                <td> {{  $assurance->wilaya->name }} </td>
                             <td> {{  $assurance->date  }} </td>
                             <td> {{ $assurance->expire }} </td>
                                 @cannot('is-observateur')                
@@ -83,7 +88,8 @@
 
             </div>
             <!-- End of Main Content -->
-
+        </div>
+  
             <!-- End of Footer -->
 
         </div>

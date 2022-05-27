@@ -18,14 +18,16 @@ class RapportController extends Controller
      */
     public function index()
     {
+        
         $user=User::all();
         $users =DB::table('users')->count();
         $conducteurs = DB::table('Conducteurs')->count();;
-        $vehicules =   DB::table('vehicules')->count();;
+        $vehicules = DB::table('vehicules')->count();;
         $affectations = DB::table('affectations')->count();;
-        
+
         return view('rapport',compact(['users','conducteurs','vehicules','affectations','user']));
     }
+
 
     /**
      * Show the form for creating a new resource.

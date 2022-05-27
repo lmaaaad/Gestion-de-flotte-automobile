@@ -65,7 +65,7 @@ class EntretienController extends Controller
 
         //$entretien->roles()->sync($request->roles);
 
-        $request->session()->flash('success','Vous avez cree un Entretien');
+        $request->session()->flash('success','Entretien effectué avec succès');
 
         return redirect(route('entretiens.entretiens.index'));
     }
@@ -117,7 +117,7 @@ class EntretienController extends Controller
         $entretien = Entretien::find($id);
         $entretien->update($request->except(['_token']));
         //$entretien->roles()->sync($request->roles);
-        $request->session()->flash('success',"Vous avez modifie les informations d'un Entretien");
+        $request->session()->flash('success',"Entretien modifiée ");
         return redirect(route('entretiens.entretiens.index'));
     }
 
@@ -130,7 +130,7 @@ class EntretienController extends Controller
     public function destroy($id,Request $request)
     {
         Entretien::destroy($id);
-        $request->session()->flash('success','Vous avez supprime un Entretien');
+        $request->session()->flash('success','Entretien Supprimé !');
         return redirect(route('entretiens.entretiens.index')); 
     }
 }

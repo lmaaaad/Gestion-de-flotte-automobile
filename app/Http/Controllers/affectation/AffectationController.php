@@ -29,7 +29,7 @@ class AffectationController extends Controller
              }
         
         return view('affectations.affectations.index', [
-            'affectations' => $affectations ,'conducteur'=>Conducteur::all() ,  'wilaya' => Wilaya::all(),
+            'affectations' => $affectations ,'conducteur'=>Conducteur::all() ,  'wilayas' => Wilaya::all(),
         ]);
         
     }
@@ -45,7 +45,7 @@ class AffectationController extends Controller
         $affectations=Affectation::all();
         
         return view('affectations.affectations.create', [
-            'affectations' => $affectations , 'conducteurs'=>Conducteur::all() ,
+            'affectations' => $affectations , 'conducteurs'=>Conducteur::all() ,'wilayas' => Wilaya::all(),
         ]);
     }
 
@@ -66,7 +66,7 @@ class AffectationController extends Controller
             'depart' => 'required',
             'arrivee' => 'required',
             'affecte_par' =>'required',
-            'Wilaya' => 'required',
+            'wilaya_id' => 'required',
         ]);
       
 
@@ -77,7 +77,7 @@ class AffectationController extends Controller
 
         //$affectation->roles()->sync($request->roles);
 
-        $request->session()->flash('success','Vous avez cree une Affectation');
+        $request->session()->flash('success','Vous avez Affecté une Mission'); 
 
         return redirect(route('affectations.affectations.index'));
     }
@@ -103,7 +103,7 @@ class AffectationController extends Controller
     {
         return view('affectations.affectations.edit',
         [
-            'affectation' =>Affectation::find($id) ,'conducteurs'=>Conducteur::all() ,
+            'affectation' =>Affectation::find($id) ,'conducteurs'=>Conducteur::all() , 'wilayas' => Wilaya::all(),
         ]);
 
     }
@@ -121,7 +121,7 @@ class AffectationController extends Controller
         $affectation = Affectation::find($id);
         $affectation->update($request->except(['_token']));
         //$affectation->roles()->sync($request->roles);
-        $request->session()->flash('success',"Vous avez modifie les informations d'une Affectation");
+        $request->session()->flash('success',"Mission modifiée avec Succès");
         return redirect(route('affectations.affectations.index'));
     }
 
@@ -134,7 +134,7 @@ class AffectationController extends Controller
     public function destroy($id,Request $request)
     {
         Affectation::destroy($id);
-        $request->session()->flash('success','Vous avez supprime une Affectation');
+        $request->session()->flash('success','Mission Annulée');
         return redirect(route('affectations.affectations.index')); 
     }
 }

@@ -24,7 +24,9 @@ class CreateVehiculesTable extends Migration
             $table->date('Date_ms');
             $table->string('Type');
             $table->string('Carburant');
-            $table->string('Wilaya');
+            $table->unsignedBigInteger('wilaya_id');
+            $table->foreign('wilaya_id')->references('id')->on('wilayas')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -32,49 +32,15 @@
     <nav class="navbar navbar-expand navbar-light bg-white topbar col-xl-12 mb-4 static-top shadow">
         <div class="sidebar-brand d-flex align-items-center justify-content-center">
             <a id='logo-orig' class="navbar-brand ps-0 " href="#" > 
-                <img src='/pic/logo-orig.png' alt=algerie-poste-logo>
+                <img src='/pic/logo-head.png' style="height:70px; padding-top:8px; width:180px" alt=algerie-poste-logo>
             </a>
-        </div>    
-        <form
-        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        <div class="input-group">
-            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                aria-label="Search" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                    <i class="fas fa-search fa-sm"></i>
-                </button>
-            </div>
-        </div>
-        </form>
+        </div>   
 
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
         
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-search fa-fw"></i>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                    aria-labelledby="searchDropdown">
-                    <form class="form-inline mr-auto w-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search"
-                                aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </li>
-        
+            
             <!-- Nav Item - Alerts -->
 
         
@@ -109,7 +75,7 @@
   
 </div>             
 </div>
-<nav class="navbar navbar-light navbar-custom col-xl-12" style="background-color: #00B1FF ;">
+<nav class="navbar navbar-light navbar-custom col-xl-12 shadow" style="background-color: #00B1FF ;">
     <div id="below-nav-bar">
         <p> LOGICIEL DE GESTION DE FLOTTE AP  </p>
     </div>
@@ -121,7 +87,7 @@
  <div class="container" >
      <div class="row">  
          @can('is-admin') 
-        <a class="col-md-3 col-sm-6 p-2" id='admin' href="{{ route('admin.users.index') }}">
+        <a class="col-md-3 col-sm-6 p-2 pt-5" id='admin' href="{{ route('admin.users.index') }}">
              <div class=" bg-gradient bg-primary text-center p-2" style="height: 130px;">
                 <img src="pic/user.png" width="70px" height="70px">
 
@@ -132,9 +98,19 @@
             </a>
          @endcan
 
+         <a class="col-md-3 col-sm-6 p-2 pt-5  " href="{{ route('gestionv.conducteurs.index') }}">
+            <div class="bg-danger bg-gradient p-2" style="height: 130px;">
+               <img src="pic/car.png" width="70px" height="70px">
+               <div class="text-center">    Gestion Véhicule </div>
+            </div>
+        </a>
+
+
+        
+
          @cannot('is-observateur')
      
-         <a class="col-md-3 col-sm-6 p-2 " href="{{ route('pieces.fournisseurs.index') }}">
+         <a class="col-md-3 col-sm-6 p-2 pt-5 " href="{{ route('pieces.fournisseurs.index') }}">
              <div class="bg-warning bg-gradient p-2" style="height: 130px;">
                 <img src="/pic/setting2.png" width="70px" height="70px">
                 <div class="text-center" >  Maintenances  </div>
@@ -143,47 +119,63 @@
             </a>
             @endcannot 
 
-         <a class="col-md-3 col-sm-6 p-2  " href="{{ route('gestionv.conducteurs.index') }}">
-             <div class="bg-success bg-gradient p-2" style="height: 130px;">
-                <img src="pic/car.png" width="70px" height="70px">
-                <div class="text-center">    Gestion Véhicule </div>
-             </div>
-         </a>
+            <a class="col-md-3 col-sm-6 p-2 pt-5 " href="{{ route('affectations.affectations.index') }}">
+             
+                <div class="bg-info "style="height: 130px;">
+                  <img src="pic/affectation.png" width="70px" height="70px">
+                  <p class="text-center">  Missions </p>
+                </div>
+              </a>
 
          @cannot('is-observateur')
              
-         
-         <a class="col-md-3 col-sm-6 p-2" href="{{ route('entretiens.entretiens.index') }}">
-             <div class="bg-info"style="height: 130px;">
+         @can('is-admin') 
+         <a class="col-md-3 col-sm-6 p-2 " href="{{ route('entretiens.entretiens.index') }}">
+            <div class="purple"style="height: 130px;">
+               <img src="pic/maftah.png" width="70px" height="70px">
+               <p class="text-center">    Entretien  </p>
+            </div>
+         @endcan   
+
+         @can('is-dupw')
+         <a class="col-md-3 col-sm-6 p-2 pt-5" href="{{ route('entretiens.entretiens.index') }}">
+             <div class="purple"style="height: 130px;">
                 <img src="pic/maftah.png" width="70px" height="70px">
-                <p class="text-center">     Entretien  </p>
+                <p class="text-center">    Entretien  </p>
              </div>
             </a>
+            @endcan
+
+
 
             @endcannot
 
+         
+
             @cannot('is-observateur')
 
-         <a class="col-md-3 col-sm-6 p-2" href="{{ route('rapport') }}">
-             <div class="bg-danger bg-gradient"style="height: 130px;">
-                <img src="pic/rapport.png" width="70px" height="70px">
-                <p class="text-center "> Rapports </p>
-             </div>
-            </a>
-            @endcannot()
-
-
-         <a class="col-md-3 col-sm-6 p-2" href="{{ route('affectations.affectations.index') }}">
-             
-              <div class="purple "style="height: 130px;">
-                <img src="pic/affectation.png" width="70px" height="70px">
-                <p class="text-center">   Missions </p>
-              </div>
-            </a>
-         
+            <a class="col-md-3 col-sm-6 p-2 " href="{{ route('rapport') }}">
+                <div class="bg-success bg-gradient"style="height: 130px;">
+                   <img src="pic/rapport.png" width="70px" height="70px">
+                   <p class="text-center "> Rapports </p>
+                </div>
+               </a>
+               @endcannot()
+   
+           
      </div>
+     <footer class="sticky-footer  text-muted pt-4">
+        <div class="copyright text-right my-auto text-grey pt-5">
+            <span style="font-size: 15px">Copyright &copy;  2022 Algérie Poste. Tous droits réservés </span>
+        </div>
+    </footer>
  </div>
+ 
+ 
  </div>
+ 
+ 
+
 
  <!-- Bootstrap core JavaScript-->
  <script src="/vendor/jquery/jquery.min.js"></script>

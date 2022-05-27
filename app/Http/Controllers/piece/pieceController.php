@@ -57,7 +57,7 @@ class pieceController extends Controller
          
         $piece=Piece::create($validatedData);
     
-        $request->session()->flash('success','Vous Avez entré une pièce');
+        $request->session()->flash('success','Piece Ajouté avec succès');
         return redirect(route('pieces.pieces.index'));
     }
 
@@ -102,7 +102,7 @@ class pieceController extends Controller
         $piece = Piece::find($id);
         if(!$piece)
         {
-            $request->session()->flash('error','you cannot Edit this piece');
+            $request->session()->flash('error','Piece Modifié avec succès');
             return redirect(route('pieces.pieces.index')); 
 
         }
@@ -110,7 +110,7 @@ class pieceController extends Controller
         $piece->update($request->except(['_token']));
         //$piece->roles()->sync($request->roles);
 
-        $request->session()->flash('success','You have Edited The piece');
+        $request->session()->flash('success','Piece');
 
 
         return redirect(route('pieces.pieces.index'));
@@ -125,7 +125,7 @@ class pieceController extends Controller
     public function destroy($id,Request $request)
     {
         Piece::destroy($id);
-        $request->session()->flash('success','You have deleted The piece');
+        $request->session()->flash('success','Piece Supprimé !!');
         return redirect(route('pieces.pieces.index')); 
     }
 }

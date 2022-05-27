@@ -30,11 +30,9 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <div class="sidebar-brand d-flex align-items-center justify-content-center">
-                <a id='logo-orig' class="navbar-brand ps-3 me-5" href="#" > 
-                    <img src='/pic/logo-orig.png' alt=algerie-poste-logo>
-                </a>
+               
     
-                <div class="sidebar-brand-text mx-3">Rapport</div>
+                <div class="sidebar-brand-text mx-3 fw-bolder">Rapport</div>
             </div>
 
             <!-- Divider -->
@@ -55,7 +53,7 @@
  @include('navbar')
                     <!-- Content Row -->
                     <div class="row py-3">
-
+@can('is-admin')
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
@@ -73,6 +71,7 @@
                                 </div>
                             </div>
                         </div>
+    @endcan                    
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">

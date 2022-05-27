@@ -1,4 +1,3 @@
-@cannot('is-observateur') 
 @extends('layouts.app')
 <title> Creer Affectation </title>
 @section('content')
@@ -18,4 +17,3 @@
     </div>
  </div>
 @endsection
-@endcannot

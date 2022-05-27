@@ -34,11 +34,9 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <div class="sidebar-brand d-flex align-items-center justify-content-center">
-                <a id='logo-orig' class="navbar-brand ps-0 " href="#" > 
-                    <img src='/pic/logo-orig.png' alt=algerie-poste-logo>
-                </a>
+                
     
-                <div class="sidebar-brand-text">Gestion Vehicule</div>
+                <div class="sidebar-brand-text fw-bold">Gestion Vehicule</div>
             </div>
 
             <!-- Divider -->

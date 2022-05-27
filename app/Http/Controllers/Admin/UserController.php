@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Wilaya;
 use Illuminate\Support\Facades\Gate;
-use illuminate\Support\Facades\Hash;
 
 
 
@@ -26,7 +26,10 @@ class UserController extends Controller
         }
 
      if(Gate::allows('is-admin')){   
-     return view('admin.users.index', ['users' => User::paginate(1000)]);
+         $user=User::all();
+     return view('admin.users.index', [
+         'users' =>$user , 'wilayas'=> Wilaya::all(),
+        ]);
      }
      dd('No Acces Allowed');
     }
@@ -41,7 +44,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create',['roles'=>Role::all()]);
+        return view('admin.users.create',['roles'=>Role::all(),'wilayas' => Wilaya::all()]);
     }
 
     /**
@@ -57,7 +60,7 @@ class UserController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|max:255|unique:users',
             'password' => 'required|min:8|max:255',
-            'Wilaya' => 'max:30',
+            'wilaya_id' => 'max:30',
             'role_id' => 'required'
         ]);
 
@@ -96,7 +99,8 @@ class UserController extends Controller
         return view('admin.users.edit',
         [
             'roles'=>Role::all(),
-            'user' =>User::find($id)
+            'user' =>User::find($id),
+            'wilayas' => Wilaya::all()
     
     ]);
 
@@ -114,16 +118,17 @@ class UserController extends Controller
         $user = User::find($id);
         if(!$user)
         {
-            $request->session()->flash('error','you cannot Edit this user');
+            $request->session()->flash('error','Utilisateur Introuvable !!');
             return redirect(route('admin.users.index')); 
 
         }
+
         $data=$request->except(['_token']);
         $data['password']=bcrypt($data['password']);
         $user->update($data);
         //$user->roles()->sync($request->roles);
 
-        $request->session()->flash('success','You have Edited The User');
+        $request->session()->flash('success','Utilisateur Modifié avec Succès');
 
 
         return redirect(route('admin.users.index'));
@@ -138,7 +143,7 @@ class UserController extends Controller
     public function destroy($id,Request $request )
     {
         User::destroy($id);
-        $request->session()->flash('success','You have deleted The User');
+        $request->session()->flash('success','Utilisateur Supprimé avec Succès');
         return redirect(route('admin.users.index')); 
 
        }

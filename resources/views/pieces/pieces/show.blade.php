@@ -4,7 +4,8 @@
         
             
                     <!-- Content Row -->
-                    <div class="row py-3">
+                    <div class='card-body bg-white  border border-light '>
+                    
         
             <div class="container pt-1 border rounded-3 mt-0">
                <div class="table-responsive">
@@ -13,7 +14,7 @@
                         <tr>
                             <th scope="col">Designation</th>
                             <th scope="col">Quantite En stock</th>
-                            <th scope="col">Quatité Utilisée</th>
+                            <th scope="col">Unite</th>
                             <th scope="col">Date d'Acquisition </th>
 
                            

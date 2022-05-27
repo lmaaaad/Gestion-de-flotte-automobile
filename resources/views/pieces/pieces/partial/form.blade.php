@@ -99,7 +99,7 @@
             @enderror
         </div>
        <div class="col-6 mb-3">
-           <label for='prix' clsss="col-md-4 col-form-label" style="color: black"> {{('Prix Unitaire')}}</label>
+           <label for='prix' clsss="col-md-4 col-form-label" style="color: black"> {{('Prix Unitaire (DA)')}}</label>
            <input name='prix' type='texte' class="form-control" required
            value="{{ old('prix') }}  @isset($piece) {{ $piece->prix }} @endisset">
            

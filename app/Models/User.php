@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role_id', 'Wilaya',
+        'name', 'email', 'password','role_id', 'wilaya_id',
     ];
 
     /**
@@ -48,6 +48,11 @@ class User extends Authenticatable
 {
     return $this->belongsTo('App\Models\Role');
 }
+    public function wilaya(){
+        return $this->belongsTo('App\Models\Wilaya');
+}
+    
+
 
 /** 
  * chack of the user has a role

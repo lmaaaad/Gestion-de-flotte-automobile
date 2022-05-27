@@ -2,31 +2,34 @@
 @include('gestionv.side')
 @include('navbar')
                     <!-- Content Row -->
-                    <div class="py-3 d-flex justify-start">
-                        @cannot('is-observateur') 
-                            <a href="{{ route('gestionv.taxes.create') }}" >
-                                <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
-                            </a>
-                            @endcannot
+                    <div class='card-body bg-white  border border-light '>
+                        <div class="card-header">
+                            <div class="py-2 d-flex justify-start">
+                            @cannot('is-observateur') 
+                                <a href="{{ route('gestionv.taxes.create') }}" >
+                                    <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
+                                </a>
+                                @endcannot
 
-                         @cannot('is-dupw')
-                              
-                           
-                         <div class="dropdown col align-self-end p-1 mx-5 text-right align-self-end">
-                                 <button class="btn btn-primary dropdown-toggle" type="button"
-                                     id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                     aria-expanded="false">
-                                     Selectionnez Votre Wilaya
-                                 </button>
-                                 <div class="dropdown-menu animated--fade-in scrollable"
-                                     aria-labelledby="dropdownMenuButton">
-                                     @foreach ($wilaya as $wilaya)
-                                     <a class="dropdown-item" href="#">{{ $wilaya->name }}</a>
-                                     @endforeach
-                                 </div>
-                             </div>     
-                             @endcannot 
+                             @cannot('is-dupw')
+
+                            
+                             <div class="dropdown col align-self-end p-1 mx-5 text-right align-self-end">
+                                     <button class="btn btn-primary dropdown-toggle" type="button"
+                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                         aria-expanded="false">
+                                         Selectionnez Votre Wilaya
+                                     </button>
+                                     <div class="dropdown-menu animated--fade-in scrollable"
+                                         aria-labelledby="dropdownMenuButton">
+                                         @foreach ($wilayas as $wilaya)
+                                         <a class="dropdown-item" href="{{ route('gestionv.taxes.index',['wilaya_id'=>$wilaya->id] ) }}">{{ $wilaya->name }}</a>
+                                         @endforeach
+                                     </div>
+                                 </div>     
+                                 @endcannot 
                             </div>   
+                        </div>
 
                          
        
@@ -52,7 +55,7 @@
                             <th scope='row'> {{ $taxe->nom }} </th>
                             <td>{{ $taxe->vehicule->Matricule}} </td>
                             <td> {{  $taxe->date  }} </td>
-                            <td> {{ $taxe->Wilaya }}
+                            <td> {{ $taxe->wilaya->name }}
                             <td> {{ $taxe->expire }}</td>
                             @cannot('is-observateur')  
                              <td> 
@@ -68,6 +71,7 @@
                                      </form>    
                                     </div>    
                             </td>
+
                             @endcannot
                           </tr>
                         @endforeach

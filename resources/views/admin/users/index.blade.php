@@ -33,11 +33,9 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <div class="sidebar-brand d-flex align-items-center justify-content-center">
-                <a id='logo-orig' class="navbar-brand ps-0 " href="#" > 
-                    <img src='/pic/logo-orig.png' alt=algerie-poste-logo>
-                </a>
+               
     
-                <div class="sidebar-brand-text">Adminstration</div>
+                <div class="sidebar-brand-text fw-bolder">Adminstration</div>
             </div>
 
             <!-- Divider -->
@@ -58,21 +56,25 @@
 
 @include('navbar')
                     <!-- Content Row -->
-                    <div class="row py-3">
-                        <p>  
+                    <div class='card-body bg-white border border-light '>
+                        <div class="card-header">
+                       <div class="py-2 d-flex justify-start">
+                         
                             <a href="{{ route('admin.users.create') }}" >
                                 <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
                             </a>
-                         </p>
-        
+                       
 
-                          
+                            
+
+                        </div>
+                    </div>
             <div class="container pt-1 border rounded-3 mt-0">
                 <div class="table-responsive">
                 <table id="example" class="table table-striped" style="width:100%">
                      <thead>
                        <tr>
-                         <th scope="col">ID</th>
+
                          <th scope="col">Nom</th>
                          <th scope="col">Email</th>
                          <th scope="col">Role </th>
@@ -90,13 +92,13 @@
                      <tbody>
                          @foreach ($users as $user)
                          <tr>
-                             <th scope="row">{{ $user->id }}</th>
-                             <td> {{  $user ->name  }} </td>
+
+                             <td scope="row"> {{  $user ->name  }} </td>
                              <td>{{ $user ->email  }}</td>
                              <td> 
                                  {{ $user->role->name ?? '' }}
                              </td>
-                            <td> {{ $user->Wilaya }} </td>
+                            <td> {{  $user->wilaya->name ?? ''  }} </td>
                               <td> 
                                   <div class=" d-flex">
                                       <a class="mx-1" href="{{ route('admin.users.edit',$user->id) }}" ><button class="btn btn-sm btn-primary" type="button">Modifier</button>  </a>
@@ -117,7 +119,7 @@
                        
                      </tbody>
                    </table>
-                   {{ $users->links() }}
+                    
                  </div>
              </div>   
                         

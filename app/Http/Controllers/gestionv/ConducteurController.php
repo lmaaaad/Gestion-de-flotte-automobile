@@ -23,8 +23,7 @@ class ConducteurController extends Controller
 
         $user=auth()->user();
         if ($user->hasRole('dupw')) {
-    
-    
+ 
             $conducteurs=Conducteur::where('wilaya_id',$user->wilaya->id)->get();
             }else {
                 $conducteurs=Conducteur::all();
@@ -35,6 +34,7 @@ class ConducteurController extends Controller
                 }
 
              }
+
 
         return view('gestionv.conducteurs.index', [
             'conducteurs' =>  $conducteurs , 'wilayas' => Wilaya::all()
@@ -50,7 +50,7 @@ class ConducteurController extends Controller
     public function create()
     {
 
-        return view('gestionv.conducteurs.create', ['vehicules' => Vehicule::all()]);
+        return view('gestionv.conducteurs.create', ['vehicules' => Vehicule::all(),'wilayas' => Wilaya::all()]);
     }
 
     /**
@@ -77,7 +77,7 @@ class ConducteurController extends Controller
         $conducteur=Conducteur::create($validatedData);
 
 
-        $request->session()->flash('success','Vous avez cree un Conducteur');
+        $request->session()->flash('success','Conducteur ajouté avec succès');
 
         return redirect(route('gestionv.conducteurs.index'));
     }
@@ -103,7 +103,9 @@ class ConducteurController extends Controller
     public function edit($id)
     {
         $conducteur=Conducteur::find($id);
-      return view('gestionv.conducteurs.edit',compact('conducteur'));
+      return view('gestionv.conducteurs.edit',[
+        'wilayas' => Wilaya::all(), 'conducteur' =>$conducteur, 'vehicules' => Vehicule::all()
+      ]);
     }
 
     /**
@@ -117,7 +119,7 @@ class ConducteurController extends Controller
     {
         $conducteur = Conducteur::find($id);
         $conducteur->update($request->except(['_token']));
-        $request->session()->flash('success',"Vous avez modifie les informations d'un conducteur");
+        $request->session()->flash('success',"Conducteur modifiée avec Succès");
         return redirect(route('gestionv.conducteurs.index'));
     }
 
@@ -131,7 +133,7 @@ class ConducteurController extends Controller
     {
         
         Conducteur::destroy($id);
-        $request->session()->flash('success','Vous avez supprime un Conducteur');
+        $request->session()->flash('success','Conducteur Supprimé !!');
         return redirect(route('gestionv.conducteurs.index')); 
     }
 }

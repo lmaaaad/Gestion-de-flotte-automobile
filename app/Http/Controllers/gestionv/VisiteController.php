@@ -24,9 +24,14 @@ class VisiteController extends Controller
             $visites=Visite::where('Wilaya',$user->Wilaya)->get();
             }else {
                 $visites=Visite::all();
+                if(request()->has('wilaya_id'))
+                {
+                   
+                    $visites=Visite::where('wilaya_id',request()->wilaya_id)->get();
+                }
 
              }
-        return view('gestionv.visites.index', ['visites' => $visites ,'wilaya' => Wilaya::all()]);
+        return view('gestionv.visites.index', ['visites' => $visites ,'wilayas' => Wilaya::all()]);
     }
 
     /**
@@ -36,7 +41,7 @@ class VisiteController extends Controller
      */
     public function create()
     {
-        return view('gestionv.visites.create', ['vehicules' => Vehicule::all()]);
+        return view('gestionv.visites.create', ['vehicules' => Vehicule::all(),'wilayas' => Wilaya::all()]);
     }
 
     /**
@@ -52,7 +57,7 @@ class VisiteController extends Controller
             'date' => 'required',
             'prochaine' => 'required',
             'rappel' => 'required',
-            'Wilaya' => 'required',
+            'wilaya_id' => 'required',
            
         ]);
          
@@ -60,7 +65,7 @@ class VisiteController extends Controller
 
         //$visite->roles()->sync($request->roles);
 
-        $request->session()->flash('success','Vous avez cree un Visite');
+        $request->session()->flash('success','Visite effectué avec succès');
 
         return redirect(route('gestionv.visites.index'));
     }
@@ -87,7 +92,9 @@ class VisiteController extends Controller
         return view('gestionv.visites.edit',
         [
             'vehicules'=>Vehicule::all() ,
-            'visite' =>Visite::find($id) 
+            'visite' =>Visite::find($id) ,
+            'wilayas' => Wilaya::all()
+
         ]);
     }
 
@@ -102,7 +109,7 @@ class VisiteController extends Controller
     {
         $visite = Visite::find($id);
         $visite->update($request->except(['_token']));
-        $request->session()->flash('success',"Vous avez modifie les informations d'un visite");
+        $request->session()->flash('success',"Visite modifiée avec Succès");
         return redirect(route('gestionv.visites.index'));
     }
 
@@ -115,7 +122,7 @@ class VisiteController extends Controller
     public function destroy($id,Request $request)
     {
         Visite::destroy($id);
-        $request->session()->flash('success','Vous avez supprime un Visite');
+        $request->session()->flash('success','Visite Supprimé !!');
         return redirect(route('gestionv.visites.index')); 
     }
 }

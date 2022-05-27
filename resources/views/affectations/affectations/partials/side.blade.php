@@ -39,7 +39,7 @@
                     <img src='/pic/logo-orig.png' alt=algerie-poste-logo>
                 </a>
     
-                <div class="sidebar-brand-text">Affectations</div>
+                <div class="sidebar-brand-text">Missions</div>
             </div>
 
             <!-- Divider -->
@@ -49,7 +49,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('entretiens.entretiens.index') }}">
                     <i><img src="/pic/affectation.png" style='height:30px;'></i>
-                    <span class="pl-2 ">Affectations </span>
+                    <span class="pl-2 ">Mission </span>
                 </a>
             </li>
             <!-- Divider -->

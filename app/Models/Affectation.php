@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Affectation extends Model
 {
     protected $fillable = [
-        'conducteur_id','date','depart','arrivee','date_retour', 'affecte_par','Wilaya',
+        'conducteur_id','date','depart','arrivee','date_retour', 'affecte_par','wilaya_id',
     ];
 
 
@@ -18,6 +18,10 @@ class Affectation extends Model
     public function conducteur()
 {
     return $this->belongsTo('App\Models\Conducteur');
+}
+public function wilaya()
+{
+    return $this->belongsTo('App\Models\Wilaya');
 }
 
 }

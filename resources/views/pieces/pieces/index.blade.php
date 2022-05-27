@@ -4,12 +4,16 @@
         
             
                     <!-- Content Row -->
-                    <div class="row py-3">
-                        <p>  
+                    <div class='card-body bg-white  border border-light '>
+                        <div class="card-header">
+                    <div class="py-2 d-flex justify-start">
+                      
                             <a href="{{ route('pieces.pieces.create') }}" >
                                 <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
                             </a>
-                         </p>
+                        </div>
+                    </div>    
+                        
         
             <div class="container pt-1 border rounded-3 mt-0">
                <div class="table-responsive">

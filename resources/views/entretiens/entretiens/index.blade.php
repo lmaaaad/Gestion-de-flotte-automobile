@@ -37,9 +37,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <div class="sidebar-brand d-flex align-items-center justify-content-center">
-                <a id='logo-orig' class="navbar-brand ps-0 " href="#" > 
-                    <img src='/pic/logo-orig.png' alt=algerie-poste-logo>
-                </a>
+                
     
                 <div class="sidebar-brand-text">Entretiens</div>
             </div>
@@ -61,16 +59,19 @@
 
       @include('navbar')
                     <!-- Content Row -->
-             
-                    <div class="row py-3">
-                        <p>  
+                    <div class='card-body bg-white  border border-light '>
+                    <div class="card-header">
+                <div class="py-2 d-flex justify-start">
+                  
+                       
                             <a href="{{ route('entretiens.entretiens.create') }}" >
                                 <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
                             </a>
-                         </p>
+                 
 
                          
-               
+                        </div>
+                    </div>
             <div class="container pt-1 border rounded-3 mt-0">
                <div class="table-responsive">
                <table id="example" class="table table-striped" style="width:100%">

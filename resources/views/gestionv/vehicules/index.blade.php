@@ -4,30 +4,33 @@
 @include('navbar')
             
                     <!-- Content row -->
-                    <div class="py-3 d-flex justify-start">
-                      @cannot('is-observateur') 
-                            <a href="{{ route('gestionv.vehicules.create') }}" >
-                                <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
-                            </a>
-                            @endcannot
+                    <div class='card-body bg-white  border border-light '>
+                    <div class="card-header">
+                          <div class="py-2 d-flex justify-start">
+                            @cannot('is-observateur') 
+                                  <a href="{{ route('gestionv.vehicules.create') }}" >
+                                      <button type="button" class="btn btn-success" ><img src="/pic/icon-add.png" id="add"> Ajouter </button>
+                                  </a>
+                                  @endcannot
+                                
+                                  @cannot('is-dupw')
 
-                            @cannot('is-dupw')
-                              
-                           
-                    <div class="dropdown col align-self-end p-1 mx-5 text-right align-self-end">
-                            <button class="btn btn-primary dropdown-toggle" type="button"
-                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                Selectionnez Votre Wilaya
-                            </button>
-                            <div class="dropdown-menu animated--fade-in scrollable"
-                                aria-labelledby="dropdownMenuButton">
-                                @foreach ($wilaya as $wilaya)
-                                <a class="dropdown-item" href="#">{{ $wilaya->name }}</a>
-                                @endforeach
+                                
+                          <div class="dropdown col align-self-end p-1 mx-5 text-right align-self-end">
+                                  <button class="btn btn-primary dropdown-toggle" type="button"
+                                      id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                      aria-expanded="false">
+                                      Selectionnez Votre Wilaya
+                                  </button>
+                                  <div class="dropdown-menu animated--fade-in scrollable"
+                                      aria-labelledby="dropdownMenuButton">
+                                      @foreach ($wilayas as $wilaya)
+                                      <a class="dropdown-item" href="{{ route('gestionv.vehicules.index',['wilaya_id'=>$wilaya->id] ) }}">{{ $wilaya->name }}</a>
+                                      @endforeach
+                                  </div>
+                              </div>     
+                              @endcannot 
                             </div>
-                        </div>     
-                        @endcannot 
                 </div>     
 
             <div class="container pt-1 border rounded-3 mt-0">
@@ -46,6 +49,7 @@
 
                       </tr>
                     </thead>
+
                     <tbody>
                         @foreach ($vehicules as $vehicule)
                         <tr>

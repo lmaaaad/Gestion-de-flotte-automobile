@@ -1,15 +1,8 @@
-search bar 
-
-affichae paar wilaya (mini khlas)
-
-
-RElatio many to many
-
-Entretien f Show page , na9as affichage kanet takhrjli 
-Trying to get property 'Matricule' of non-object >>  and ma3reftch na7iha so khalitha t'afficher za3ma id wahdou and maaficha walou :( :( :( 
+line 84 conducteur form takhraj ki dir edit
+assurance aussi .....ga3 li fihom wilaya kiima lowla
 
 
 
 optionnel :
 notification
-export and import pdf from rapport
+export excel from tables

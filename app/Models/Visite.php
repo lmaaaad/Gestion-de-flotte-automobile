@@ -9,12 +9,16 @@ class Visite extends Model
 {
 
     protected $fillable = [
-        'vehicule_id' ,'date', 'prochaine' ,'rappel', 'Wilaya'
+        'vehicule_id' ,'date', 'prochaine' ,'rappel', 'wilaya_id'
     ];
 
     Public function vehicule()
     {
         return $this -> belongsTo('App\Models\Vehicule');
+    }
+    public function wilaya()
+    {
+        return $this->belongsTo('App\Models\Wilaya');
     }
     use HasFactory;
 }

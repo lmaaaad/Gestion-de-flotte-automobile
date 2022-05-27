@@ -18,11 +18,13 @@ class CreateAssurancesTable extends Migration
             $table->date('date');
             $table->date('expire');
             $table->bigInteger('rappel');
-            $table->string('Wilaya')->nullable();
+            $table->unsignedBigInteger('wilaya_id');
             $table->unsignedBigInteger('vehicule_id');
             $table->unsignedBigInteger('fournisseur_id');
             $table->foreign('vehicule_id')->references('id')->on('vehicules')->onDelete('cascade');
             $table->foreign('fournisseur_id')->references('id')->on('fournisseurs')->onDelete('cascade');
+            $table->foreign('wilaya_id')->references('id')->on('wilayas')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

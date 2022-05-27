@@ -19,8 +19,9 @@ class CreateTaxesTable extends Migration
             $table->date('date');
             $table->date('expire');
             $table->bigInteger('rappel');
-            $table->string('Wilaya')->nullable();
+            $table->unsignedBigInteger('wilaya_id');
             $table->unsignedBigInteger('vehicule_id');
+            $table->foreign('wilaya_id')->references('id')->on('wilayas')->onDelete('cascade');
             $table->foreign('vehicule_id')->references('id')->on('vehicules')->onDelete('cascade');
             $table->timestamps();
         });

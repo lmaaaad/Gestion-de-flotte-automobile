@@ -78,11 +78,10 @@
           </div>
 
           <div class="col-6 mb-3">
-            <label for='Wilaya' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
-            <select id="Wilaya" class="form-select" name='Wilaya' required
-            value="{{ old('Wilaya') }} ">
+            <label for='wilaya_id' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
+            <select id="wilaya_id" class="form-select" name='wilaya_id' required>
             @foreach ($wilayas as $wilaya)
-            <option value="{{ $wilaya->id }}"  @isset($conducteurs) @if ($conducteur->wilaya->id == $wilaya_id)
+            <option value="{{ $wilaya->id }}"  @isset($conducteur) @if ($conducteur->wilaya->id == $wilaya_id)
                 selected
             @endif @endisset >
             {{ $wilaya->name }}

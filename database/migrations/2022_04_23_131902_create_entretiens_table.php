@@ -17,7 +17,6 @@ class CreateEntretiensTable extends Migration
             $table->id();
             $table->unsignedBigInteger('vehicule_id');
             $table->unsignedBigInteger('fournisseur_id');
-
             $table->longText('discription');
             $table->date('date');
             $table->integer('kilometrage');
