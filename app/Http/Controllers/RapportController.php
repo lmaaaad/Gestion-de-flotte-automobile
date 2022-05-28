@@ -21,9 +21,9 @@ class RapportController extends Controller
         
         $user=User::all();
         $users =DB::table('users')->count();
-        $conducteurs = DB::table('Conducteurs')->count();;
-        $vehicules = DB::table('vehicules')->count();;
-        $affectations = DB::table('affectations')->count();;
+        $conducteurs = DB::table('Conducteurs')->count();
+        $vehicules = DB::table('vehicules')->count();
+        $affectations = DB::table('affectations')->count();
 
         return view('rapport',compact(['users','conducteurs','vehicules','affectations','user']));
     }

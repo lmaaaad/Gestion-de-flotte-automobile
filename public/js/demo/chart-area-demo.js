@@ -34,7 +34,7 @@ var myLineChart = new Chart(ctx, {
   data: {
     labels: ["2010","2011","2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"],
     datasets: [{
-      label: "Gains",
+      label: "Depenses  ",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
@@ -46,7 +46,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 11000],
+      data: [1000, 1400, 1500, 3000, 5000, 5000, 6500, 6000, 7000, 8000, 11000,13000],
     }],
   },
   options: {
@@ -78,7 +78,7 @@ var myLineChart = new Chart(ctx, {
           padding: 10,
           // Include Milion Dinar in the ticks
           callback: function(value, index, values) {
-            return number_format(value) + 'M.DA' ;
+            return number_format(value) + '   M.DA' ;
           }
         },
         gridLines: {
@@ -109,8 +109,8 @@ var myLineChart = new Chart(ctx, {
       caretPadding: 10,
       callbacks: {
         label: function(tooltipItem, chart) {
-          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + number_format(tooltipItem.yLabel) + ': M.DA'  ;
+          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '  ';
+          return datasetLabel + number_format(tooltipItem.yLabel) + ' M.DA'  ;
         }
       }
     }

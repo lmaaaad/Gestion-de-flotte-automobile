@@ -47,6 +47,9 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
+            <div class="text-center d-none d-md-inline" >
+                <button class="rounded-circle border-0" id="sidebarToggle"> </button>
+            </div>
         </ul>
         <!-- End of Sidebar -->
 
@@ -138,7 +141,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Apercu des gains</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Apercu des depense</h6>
                                     
                                 </div>
                                 <!-- Card Body -->
