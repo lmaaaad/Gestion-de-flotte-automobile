@@ -36,9 +36,9 @@
                    
 
                
-            <div class="container pt-1 border rounded-3 mt-0">
-               <div class="table-responsive">
-               <table id="example" class="table table-striped" style="width:100%">
+            <div class=" container pt-1 border rounded-3 mt-0 pb-3">
+               <div class="table-responsive pt-2">
+               <table id="example" class="table table-striped pt-2" style="width:100%">
                     <thead>
                       <tr>
 

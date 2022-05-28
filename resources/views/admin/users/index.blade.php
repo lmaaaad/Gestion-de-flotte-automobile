@@ -20,7 +20,9 @@
         
         rel="stylesheet" href=" https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap5.min.css" >   
     <!-- Custom styles for this template-->
-    <link href="/rapport.css" rel="stylesheet">
+     <link href="/rapport.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
    
 </head>
 
@@ -69,9 +71,9 @@
 
                         </div>
                     </div>
-            <div class="container pt-1 border rounded-3 mt-0">
-                <div class="table-responsive">
-                <table id="example" class="table table-striped" style="width:100%">
+            <div class=" container pt-1 border rounded-3 mt-0 pb-3">
+                <div class="table-responsive pt-2">
+                <table id="example" class="table table-striped pt-2" style="width:100%">
                      <thead>
                        <tr>
 

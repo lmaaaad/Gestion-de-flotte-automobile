@@ -21,7 +21,9 @@
         
         rel="stylesheet" href=" https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap5.min.css" >   
     <!-- Custom styles for this template-->
-    <link href="/rapport.css" rel="stylesheet">
+     <link href="/rapport.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
    
 </head>
 
