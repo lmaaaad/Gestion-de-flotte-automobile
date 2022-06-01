@@ -32,7 +32,7 @@ var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["2010","2011","2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+    labels: ["Jan","fev",'mars','avril','mai','juin','juil','aout','sep','oct','nov','dec'],
     datasets: [{
       label: "Depenses  ",
       lineTension: 0.3,
@@ -46,7 +46,9 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [1000, 1400, 1500, 3000, 5000, 5000, 6500, 6000, 7000, 8000, 11000,13000],
+      data: [],
+
+      
     }],
   },
   options: {

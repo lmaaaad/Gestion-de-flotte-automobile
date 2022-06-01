@@ -5,6 +5,7 @@ namespace App\Http\Controllers\gestionv;
 use App\Http\Controllers\Controller;
 use App\Models\Assurance;
 use App\Models\Fournisseur;
+use App\Models\User;
 use App\Models\Vehicule;
 use App\Models\Wilaya;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class AssuranceController extends Controller
                 $assurances=Assurance::where('wilaya_id',request()->wilaya_id)->get();
                 }
              }
-
+            
         return view('gestionv.assurances.index', ['assurances' =>  $assurances , 'wilayas' => Wilaya::all()]);
 
     }

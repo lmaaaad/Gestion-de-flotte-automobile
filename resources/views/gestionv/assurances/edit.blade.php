@@ -1,11 +1,11 @@
 @extends('layouts.app')
-<title> Edit Assurance </title>
+<title> Modifier Assurance </title>
 @section('content')
  <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center"> Modifier les informations d'une Assurance </div>
+                <div class="card-header text-center text-black"> Modifier les informations d'une Assurance </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('gestionv.assurances.update',$assurance->id) }}">

@@ -62,7 +62,7 @@
                       
                     </tbody>
                   </table>
-                  {{ $pieces->links() }}
+                 
                 </div>
             </div>   
                  

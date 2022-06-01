@@ -3,15 +3,15 @@
 
 <div class="row mb-12">
     <div class="col-6 mb-3">
-        <label for='Vehicule'> {{ __('Vehicule(Matricule)') }}</label>
+        <label for='Vehicule' style="color: black"> {{ __('Véhicule(Matricule)') }}</label>
                    <select name='vehicule_id' type='texte' class="form-select" required
                    value="{{ old('Vehicule') }} ">
-                   <option selected disabled value=""> Liste Vehicules  </option>
+                   <option selected disabled value=""> Liste Véhicules  </option>
                    @foreach($vehicules as $vehicule)
                    
                    <option value="{{ $vehicule->id }}" id="{{ $vehicule->Matricule }}"
-                       @isset($user)
-                      @if ($vehicule->id == $vehicule->Matricule) checked @endif
+                       @isset($assurance)
+                      @if ($vehicule->id == $assurance->vehicule->id) selected @endif
                        @endisset>
                       {{ $vehicule->Matricule }}
                @endforeach
@@ -23,14 +23,14 @@
                     </select>
     </div>
     <div class="col-6 mb-3">
-        <label for='Fournisseur'> {{ __('Fournisseur') }}</label>
+        <label for='Fournisseur' style="color: black" > {{ __('Fournisseur') }}</label>
                    <select name='fournisseur_id' type='texte' class="form-select" required
                    value="{{ old('Fournisseur') }} ">
                    <option selected disabled value=""> Liste Fournisseurs  </option>
                    @foreach($fournisseurs as $fournisseur)
                    <option value="{{ $fournisseur->id }}" id="{{ $fournisseur->name }}"
-                       @isset($user)
-                      @if ($fournisseur->id == $fournisseur->name) checked @endif
+                       @isset($assurance)
+                      @if ($fournisseur->id == $assurance->fournisseur->id) selected @endif
                        @endisset>
                       {{ $fournisseur->name }}
                @endforeach
@@ -45,9 +45,9 @@
 
 <div class="row mb-12">     
     <div class="col-6 mb-3">
-        <label for='date' clsss="col-md-4 col-form-label" style="color: black" > {{ __("Date d'Assurance") }}</label>
+        <label for='date' class="col-md-9 col-form-label" style="color: black" > {{ __("Date d'Assurance") }}</label>
         <input name='date' type='date' class="form-control" required placeholder="Entre 1 et 365 jours" 
-        value="{{ old('date') }}  @isset($assurance) {{ $assurance->date }} @endisset">
+        value="@isset($assurance){{ $assurance->date }}@endisset">
         
         @error('date')
         <span class="invalid-feedback" role="alert">
@@ -56,9 +56,9 @@
       @enderror
    </div>
    <div class="col-6 mb-3">
-    <label for='expire' clsss="col-md-4 col-form-label" style="color: black" > {{ __("Expiration d'Assurance") }}</label>
+    <label for='expire' class="col-md-9 col-form-label" style="color: black" > {{ __("Expiration d'Assurance") }}</label>
     <input name='expire' type='date' class="form-control" required placeholder="Entre 1 et 365 jours" 
-    value="{{ old('expire') }}  @isset($assurance) {{ $assurance->expire }} @endisset">
+    value="@isset($assurance){{ $assurance->expire }}@endisset">
     
     @error('expire')
     <span class="invalid-feedback" role="alert">
@@ -70,9 +70,9 @@
 
 <div class="row mb-12">
     <div class="col-6 mb-3">
-        <label for='rappel' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Rappel Avant (jours)') }}</label>
+        <label for='rappel' class="col-md-9 col-form-label" style="color: black" > {{ __('Rappel Avant (jours)') }}</label>
         <input name='rappel' type='number' class="form-control" required placeholder="Entre 1 et 365 jours" 
-        value="{{ old('rappel') }}  @isset($assurance) {{ $assurance->rappel }} @endisset">
+        value="@isset($assurance){{ $assurance->rappel }}@endisset">
         
         @error('rappel')
         <span class="invalid-feedback" role="alert">
@@ -82,10 +82,10 @@
    </div>
 
    <div class="col-6 mb-3">
-    <label for='wilaya_id' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
+    <label for='wilaya_id' class="col-md-6 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
     <select id="wilaya_id" class="form-select" name='wilaya_id' required>
     @foreach ($wilayas as $wilaya)
-    <option value="{{ $wilaya->id }}"  @isset($assurance) @if ($assurance->wilaya->id == $wilaya_id)
+    <option value="{{ $wilaya->id }}"  @isset($assurance) @if ($assurance->wilaya->id == $wilaya->id)
         selected
     @endif @endisset >
     {{ $wilaya->name }}

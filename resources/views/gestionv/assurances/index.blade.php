@@ -20,7 +20,7 @@
                                  <button class="btn btn-primary dropdown-toggle" type="button"
                                      id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                      aria-expanded="false">
-                                     Selectionnez Votre Wilaya
+                                     Séléctionnez Votre Wilaya
                                  </button>
                                  <div class="dropdown-menu animated--fade-in scrollable"
                                      aria-labelledby="dropdownMenuButton">
@@ -30,6 +30,12 @@
                                  </div>
                              </div>     
                              @endcannot 
+
+                             {{-- @can('is-dupw')
+                             <div class="py-2 d-flex justify-end">
+                                 <span class='fw-bold'> Votre Wilaya est : {{  $assurances->wilaya->name }} </span> 
+                             </div>     
+                             @endcan  --}}
                             </div>   
                         </div>       
         
@@ -38,10 +44,10 @@
                <div class="table-responsive pt-2">
                <table id="example" class="table table-striped pt-2" style="width:100%">
                     <thead>
-                      <tr>
+                      <tr style="color: black">
 
-                            <th scope="col">Vehicule</th>
-                            <th scope="col">Assurez Chez</th>
+                            <th scope="col">Véhicule</th>
+                            <th scope="col">Assuré Chez</th>
                             <th scope="col">Wilaya</th>
                             <th scope="col">Date d'Assurance</th>
                             <th scope="col">Date d'Expiration</th>
@@ -51,7 +57,7 @@
                     <tbody>
                         @foreach ($assurances as $assurance)
                         <tr>
-                            <th scope="row">{{ $assurance->vehicule->Matricule}} </th>
+                            <th scope="row" style="color: black">{{ $assurance->vehicule->Matricule}} </th>
                            
                             <td> {{ $assurance->fournisseur->name }}
                                 <td> {{  $assurance->wilaya->name }} </td>

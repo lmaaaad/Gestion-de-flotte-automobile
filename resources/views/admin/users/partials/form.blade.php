@@ -1,7 +1,7 @@
 @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end text-black"  >{{ __('Nom-Prénom') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="name" autofocus
@@ -16,7 +16,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end text-black">{{ __('Addresse Email') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}
@@ -32,7 +32,7 @@
                         
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end text-black">{{ __('Mot de Passe ') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -49,9 +49,9 @@
                             <div class="col-12 offset-md-2" >
                             @foreach ( $roles as $role )
                                      <div class="form-check ">
-                                         <input class="form-check-input" name="role_id" required 
+                                         <input class="form-check-input role_id" name="role_id"  required 
                                          type="radio" value ="{{ $role->id}}" id="{{ $role->name }}">
-                                         <label class="form-check-label" for="{{ $role->name }}">
+                                         <label class="form-check-label text-black" for="{{ $role->name }}">
                                              {{ $role->name }}
                                          </label>
                                      </div>
@@ -61,15 +61,16 @@
                         </div>
 
 
-                        <div class="row mb-3">
-                            <label for='wilaya_id' class="col-md-4 col-form-label text-md-end"> {{ __('Wilaya (Si Dupw)') }}</label>
+                        <div class="row mb-3 wilaya" hidden >
+                            <label for='wilaya_id' class="col-md-4 col-form-label text-md-end text-black"> {{ __('Wilaya (Si Dupw)') }}</label>
                             <div class="col-md-6">
-                            <select id="wilaya_id" class="form-select" name='wilaya_id' required> 
+                            <select id="wilaya_id" class="form-select" name='wilaya_id' disabled> 
+                                <option  value="">Sélectionner une wilaya</option>
                             @foreach ($wilayas as $wilaya)
-                            <option value="{{ $wilaya->id }}"  @isset($user->wilaya) @if ($user->wilaya->id == $wilaya_id)
+                            <option value="{{ $wilaya->id }}"@isset($user) @if ($user->wilaya->id == $wilaya_id)
                                 selected
                             @endif 
-                            @endisset >
+                            @endisset>
                             {{ $wilaya->name }}
                         </option>
                             @endforeach 
@@ -81,7 +82,7 @@
                         <div class="d-flex bd-highlight md-3">
                             <div class="mx-1">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Enregister') }}
                                 </button>
                             </div>      
                             <a class="mx-1" href="{{ route('admin.users.index') }}">
@@ -92,3 +93,20 @@
                             
                         </div>
                     </div>
+ <script>
+window.onload = function() {
+   
+
+    $("[name='role_id']").change(function() { console.log($(this).val());
+         if ($(this).val()=='2') {
+            $('.wilaya').attr('hidden',false);
+            $('#wilaya_id').attr('disabled',false);
+            
+         }else {
+            $('.wilaya').attr('hidden',true);
+            $('#wilaya_id').attr('disabled',true);
+         }
+     });
+     }
+ </script>
+

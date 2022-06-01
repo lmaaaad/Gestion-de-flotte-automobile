@@ -16,8 +16,8 @@ class pieceController extends Controller
      */
     public function index()
     {
-        
-        return view('pieces.pieces.index', ['pieces' => Piece::paginate(1000)]);
+        $pieces= piece::all();
+        return view('pieces.pieces.index', ['pieces' => $pieces]);
     }
 
     /**
@@ -83,7 +83,7 @@ class pieceController extends Controller
         return view('pieces.pieces.edit',
         [
             
-            'pieces' =>Piece::find($id),
+            'piece' =>Piece::find($id),
            
             'fournisseurs' =>Fournisseur::all(),
         ]);

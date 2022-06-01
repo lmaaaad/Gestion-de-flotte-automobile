@@ -125,7 +125,7 @@
                       
                     </tbody>
                   </table>
-                  {{ $entretiens->links() }}
+               
                 </div>
             </div>   
               <!-- /.container-fluid -->

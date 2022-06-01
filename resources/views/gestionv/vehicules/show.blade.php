@@ -1,22 +1,22 @@
 @extends('layouts.app')
-<title> Details Vehicule </title>
+<title> Détails Véhicule </title>
 @section('content')
  <div class="container mt-5 pb-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card ">
-                <div class="card-header text-center"> Détails Sur  <span class="fw-bold"> {{ $vehicule->Matricule }} </span> </div>
+                <div class="card-header text-center text-black"> Détails Sur  <span class="fw-bold text-black"> {{ $vehicule->Matricule }} </span> </div>
                 <div class="card-body">
                     <div class="row mb-12">
 
                         <div class="col-6 mb-3">
-                           <label for="name" class="col-md-4 col-form-label ">{{ __('Matricule') }}</label>
+                           <label for="name" class="col-md-4 col-form-label text-black">{{ __('Matricule') }}</label>
                            <br> <p class=" text-black border border-primary rounded-3 p-2" >{{ $vehicule->Matricule }}</p>
         
                       </div>
                 
                         <div class="col-6 mb-3">
-                            <label for="Marque" class="col-md-4 col-form-label ">{{ __('Marque') }}</label>
+                            <label for="Marque" class="col-md-4 col-form-label text-black ">{{ __('Marque') }}</label>
                             <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $vehicule->Marque }}</p>
                 
                         </div>
@@ -25,7 +25,7 @@
                 
                     <div class="row mb-12">
                         <div class="col-6 mb-3">
-                            <label for="Modele" >{{ __('Modele') }}</label>
+                            <label for="Modele" style="color: black">{{ __('Modèle') }}</label>
                             <br> <p class=" text-black border border-primary rounded-3 p-2" >{{ $vehicule->Modele }}</p>
                
                         </div>
@@ -45,7 +45,7 @@
                   
                        </div>       
                        <div class="col-6 mb-3">
-                           <label for='Date_ms' > {{ __('Date Mise en Circulation') }}</label>
+                           <label for='Date_ms' style="color: black"> {{ __('Date de Mise en Circulation') }}</label>
                            <br> <p class=" text-black border border-primary rounded-3 p-2" >{{ $vehicule->Date_ms }}</p>
         
                        </div>
@@ -55,12 +55,12 @@
                 
                      <div class="row mb-12">
                          <div class="col-6 mb-3">
-                          <label for='Type' clsss="col-md-4 col-form-label "> {{ __('Type') }}</label>
+                          <label for='Type' class="col-md-4 col-form-label text-black"> {{ __('Type') }}</label>
                           <br> <p class=" text-black border border-primary rounded-3 p-2" >{{ $vehicule->Type }}</p>
                         
                          </div>   
                          <div class="col-6 mb-3">
-                             <label for='Carburant' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Carburant') }}</label>
+                             <label for='Carburant' class="col-md-4 col-form-label" style="color: black"> {{ __('Carburant') }}</label>
                              <br> <p class=" text-black border border-primary rounded-3 p-2" >{{ $vehicule->Carburant }}</p>
                             
                          </div>
@@ -68,7 +68,7 @@
                 
                    <div class="row mb-12">
                        <div class="col-6 mb-3">
-                           <label for='Etat_Actuel' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Etat Actuel') }}</label>
+                           <label for='Etat_Actuel' class="col-md-4 col-form-label" style="color: black"> {{ __('Etat Actuel') }}</label>
                            <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $vehicule->Etat_Actuel }}</p>
                      
                        </div>                              
@@ -78,7 +78,7 @@
                 
                   
                     <div class="col-6 mb-3">
-                        <label for='Wilaya' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
+                        <label for='Wilaya' class="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
                         <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $vehicule->wilaya->name }}</p> 
                           
                      

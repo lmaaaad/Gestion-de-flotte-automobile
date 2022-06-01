@@ -88,7 +88,7 @@
      <div class="row">  
          @can('is-admin') 
         <a class="col-md-3 col-sm-6 p-2 pt-5" id='admin' href="{{ route('admin.users.index') }}">
-             <div class=" bg-gradient bg-primary text-center p-2" style="height: 130px;">
+             <div class=" bg-gradient bg-primary text-center p-2 rounded shadow" style="height: 130px;">
                 <img src="pic/user.png" width="70px" height="70px">
 
                 <div class="text-center" > Administration </div>
@@ -99,7 +99,7 @@
          @endcan
 
          <a class="col-md-3 col-sm-6 p-2 pt-5  " href="{{ route('gestionv.conducteurs.index') }}">
-            <div class="bg-danger bg-gradient p-2" style="height: 130px;">
+            <div class="bg-danger bg-gradient p-2 rounded shadow" style="height: 130px;">
                <img src="pic/car.png" width="70px" height="70px">
                <div class="text-center">    Gestion Véhicule </div>
             </div>
@@ -111,7 +111,7 @@
          @cannot('is-observateur')
      
          <a class="col-md-3 col-sm-6 p-2 pt-5 " href="{{ route('pieces.fournisseurs.index') }}">
-             <div class="bg-warning bg-gradient p-2" style="height: 130px;">
+             <div class="bg-warning bg-gradient p-2 rounded shadow" style="height: 130px;">
                 <img src="/pic/setting2.png" width="70px" height="70px">
                 <div class="text-center" >  Maintenances  </div>
              </div>
@@ -121,7 +121,7 @@
 
             <a class="col-md-3 col-sm-6 p-2 pt-5 " href="{{ route('affectations.affectations.index') }}">
              
-                <div class="bg-info "style="height: 130px;">
+                <div class="bg-info rounded shadow "style="height: 130px;">
                   <img src="pic/affectation.png" width="70px" height="70px">
                   <p class="text-center">  Missions </p>
                 </div>
@@ -131,7 +131,7 @@
              
          @can('is-admin') 
          <a class="col-md-3 col-sm-6 p-2 " href="{{ route('entretiens.entretiens.index') }}">
-            <div class="purple"style="height: 130px;">
+            <div class="purple rounded shadow"style="height: 130px;">
                <img src="pic/maftah.png" width="70px" height="70px">
                <p class="text-center">    Entretien  </p>
             </div>
@@ -139,7 +139,7 @@
 
          @can('is-dupw')
          <a class="col-md-3 col-sm-6 p-2 pt-5" href="{{ route('entretiens.entretiens.index') }}">
-             <div class="purple"style="height: 130px;">
+             <div class="purple rounded shadow"style="height: 130px;">
                 <img src="pic/maftah.png" width="70px" height="70px">
                 <p class="text-center">    Entretien  </p>
              </div>
@@ -155,25 +155,25 @@
             @cannot('is-observateur')
 
             <a class="col-md-3 col-sm-6 p-2 " href="{{ route('rapport') }}">
-                <div class="bg-success bg-gradient"style="height: 130px;">
+                <div class="bg-success bg-gradient rounded shadow"style="height: 130px;">
                    <img src="pic/rapport.png" width="70px" height="70px">
                    <p class="text-center "> Rapports </p>
                 </div>
                </a>
-               @endcannot()
+               @endcannot
    
            
      </div>
-     <footer class="sticky-footer  text-muted pt-4">
-        <div class="copyright text-right my-auto text-grey pt-5">
-            <span style="font-size: 15px">Copyright &copy;  2022 Algérie Poste. Tous droits réservés </span>
-        </div>
-    </footer>
+     <footer class="sticky-footer text-muted text-right pt-4">
+     <div class="copyright text-right text-grey pt-5">
+         <span style="font-size: 15px">Copyright &copy;  2022 Algérie Poste. Tous droits réservés </span>
+     </div>
+ </footer>
+ </div>
+
  </div>
  
- 
- </div>
- 
+  
  
 
 

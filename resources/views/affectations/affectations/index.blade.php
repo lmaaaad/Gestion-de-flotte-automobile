@@ -83,7 +83,7 @@
                                     <div class="dropdown-menu animated--fade-in scrollable"
                                         aria-labelledby="dropdownMenuButton">
                                         @foreach ($wilayas as $wilaya)
-                                        <a class="dropdown-item" href="#">{{ $wilaya->name }}</a>
+                                        <a class="dropdown-item" href="{{ route('affectations.affectations.index',['wilaya_id'=>$wilaya->id] ) }}">{{ $wilaya->name }}</a>
                                         @endforeach
                                     </div>
                                 </div>     
@@ -99,13 +99,13 @@
                <div class="table-responsive pt-2" >
                <table id="example" class="table table-striped pt-2"  style="width:100%">
                     <thead>
-                      <tr>
+                      <tr style="color: black">
                         <th scope="col">Conducteur</th>
-                        <th scope="col">Depart</th>
-                        <th scope="col">Arrivee</th>
-                        <th scope="col">Date de Depart</th>
-                        <th scope="col">Date de retour</th>
-                        <th scope="col">Affecte par</th>
+                        <th scope="col">Départ</th>
+                        <th scope="col">Arrivée</th>
+                        <th scope="col">Date de Départ</th>
+                        <th scope="col">Date de Retour</th>
+                        <th scope="col">Affecté Par</th>
                       
                         <th scope="col">Action</th>
                        
@@ -119,7 +119,7 @@
                         @foreach ($affectations as $affectation)
                         <tr>
 
-                            <th scope="row"> {{  $affectation->conducteur->Nom }}  {{  $affectation->conducteur->Prenom }}</th>
+                            <th scope="row" style="color: black"> {{  $affectation->conducteur->Nom }}  {{  $affectation->conducteur->Prenom }}</th>
                             <td>{{ $affectation->depart  }}</td>
                             <td>{{ $affectation->arrivee  }}</td>
                             <td>{{ $affectation->date_retour  }}</td>

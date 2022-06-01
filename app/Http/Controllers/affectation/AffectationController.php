@@ -22,14 +22,15 @@ class AffectationController extends Controller
         if ($user->hasRole('dupw')) {
     
     
-            $affectations=Affectation::where('Wilaya',$user->Wilaya)->get();
+            $affectations=Affectation::where('wilaya_id',request()->wilaya_id)->get();
             }else {
                 $affectations=Affectation::all();
+                
 
              }
         
         return view('affectations.affectations.index', [
-            'affectations' => $affectations ,'conducteur'=>Conducteur::all() ,  'wilayas' => Wilaya::all(),
+            'affectations' => $affectations ,'conducteurs'=>Conducteur::all() ,  'wilayas' => Wilaya::all(),
         ]);
         
     }

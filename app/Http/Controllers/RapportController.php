@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Affectation;
 use App\Models\Conducteur;
+use App\Models\Entretien;
+use App\Models\Taxe;
 use App\Models\User;
 use App\Models\Vehicule;
 use Illuminate\Http\Request;
@@ -25,7 +27,18 @@ class RapportController extends Controller
         $vehicules = DB::table('vehicules')->count();
         $affectations = DB::table('affectations')->count();
 
-        return view('rapport',compact(['users','conducteurs','vehicules','affectations','user']));
+        $entretiens = Entretien::select(DB::raw('sum(cout) as "SOMME" '),
+                                DB::raw('MONTH(date) month'))
+                                ->groupby('month')
+                                ->get();
+
+                                foreach ($entretiens as $key => $value) {
+                                    $depense[$value['month']]=(int)$value['SOMME'];
+
+                                }
+        
+
+        return view('rapport',compact(['users','conducteurs','vehicules','affectations','user' ,'depense']));
     }
 
 

@@ -19,7 +19,7 @@
                             <button class="btn btn-primary dropdown-toggle" type="button"
                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-                                Selectionnez Votre Wilaya
+                                Séléctionnez Votre Wilaya
                             </button>
                             <div class="dropdown-menu animated--fade-in scrollable"
                                 aria-labelledby="dropdownMenuButton">
@@ -40,11 +40,11 @@
                <div class="table-responsive pt-2">
                <table id="example" class="table table-striped pt-2" style="width:100%">
                     <thead>
-                      <tr>
+                      <tr style="color: black">
 
                                 <th scope="col">Nom</th>
-                                <th scope="col">Prenom</th>
-                                <th scope="col">Vehicule</th>
+                                <th scope="col">Prénom</th>
+                                <th scope="col">Véhicule</th>
                                 <th scope="col">Tel </th>
                                 <th scope="col">Adresse</th>
                                 <th scope="col">Wilaya</th>

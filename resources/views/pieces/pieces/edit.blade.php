@@ -8,7 +8,7 @@
                 <div class="card-header text-center"> Modifier les informations d'une Piece </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('pieces.pieces.update',$pieces->id) }}">
+                    <form method="POST" action="{{ route('pieces.pieces.update',$piece->id) }}">
                         @method('PATCH')
                         @include('pieces.pieces.partial.form')
                     </form>

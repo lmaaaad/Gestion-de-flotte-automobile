@@ -3,13 +3,13 @@
     <div class="row mb-12">
 
         <div class="col-6 mb-3">
-            <label for="name" class="col-md-4 col-form-label ">{{ __('Conducteur') }}</label>
+            <label for="name" class="col-md-4 col-form-label "style="color: black">{{ __('Conducteur') }}</label>
             <select class="form-select" name="conducteur_id" required id="name">
-                <option value="option_select" dsisabled selected>le nom de Conducteur</option>
+                <option value="option_select" disabled selected>Le nom de Conducteur</option>
                 @foreach($conducteurs as $conducteur)
                     <option value="{{ $conducteur->id }}" id="{{ $conducteur->name }}"
-                        @isset($user)
-                       @if ($conducteur->id == $conducteur->name) checked @endif
+                        @isset($affectation)
+                       @if ($conducteur->id == $affectation->conducteur->id) selected @endif
                         @endisset>
                        {{ $conducteur->Nom }}  {{ $conducteur->Prenom }}
                 @endforeach
@@ -25,9 +25,9 @@
     
 
           <div class="col-6 mb-3">
-            <label for="affecte_par" class="col-md-4 col-form-label ">{{('Affecte Par')}}</label>
+            <label for="affecte_par" class="col-md-4 col-form-label "style="color: black">{{('Affecté Par')}}</label>
             <input name="affecte_par" type="text" class="form-control" required
-            value="{{ old('affecte_par') }}">
+            value="@isset($affectation){{ $affectation->affecte_par }}@endisset">
             
             @error('affecte_par')
                 <span class="invalid-feedback" role="alert">
@@ -38,9 +38,9 @@
     </div>
     <div class="row mb-12">  
         <div class="col-6 mb-3">
-            <label for='depart' clsss="col-md-4 col-form-label" style="color: black" > {{('Depart')}}</label>
+            <label for='depart' class="col-md-4 col-form-label" style="color: black" > {{('Depart')}}</label>
             <input name='depart' type='texte' class="form-control" required
-            value="{{ old('depart') }}  @isset($affectation) {{ $affectation->depart }} @endisset">
+            value="@isset($affectation){{ $affectation->depart }}@endisset">
             
             @error('depart')
             <span class="invalid-feedback" role="alert">
@@ -51,9 +51,9 @@
     
     
            <div class="col-6 mb-3">
-               <label for='arrivee' clsss="col-md-4 col-form-label" style="color: black"> {{('Arrivee')}}</label>
+               <label for='arrivee' class="col-md-4 col-form-label" style="color: black"> {{('Arrivee')}}</label>
                <input name='arrivee' type='texte' class="form-control" required
-               value="{{ old('arrivee') }}  @isset($affectation) {{ $affectation->arrivee }} @endisset">
+               value="@isset($affectation){{ $affectation->arrivee }}@endisset">
                
                @error('arrivee')
                   <span class="invalid-feedback" role="alert">
@@ -66,9 +66,9 @@
 
     <div class="row  mb-12">
         <div class="col-6 mb-3">
-            <label for="" class="col-md-4 col-form-label ">{{('Date Aller')}}</label>
+            <label for="" class="col-md-4 col-form-label "style="color: black">{{('Date Aller')}}</label>
             <input name="date" type="date" class="form-control" required
-            value="{{ old('date') }}  @isset($affectation) {{$affectation->date}} @endisset">
+            value="@isset($affectation){{$affectation->date}}@endisset">
             
             @error('date')
                 <span class="invalid-feedback" role="alert">
@@ -78,9 +78,9 @@
         </div>
 
         <div class="col-6 mb-3">
-            <label for='date_retour' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Date Retour') }}</label>
+            <label for='date_retour' class="col-md-6 col-form-label" style="color: black"> {{ __('Date Retour') }}</label>
             <input name='date_retour' type='date' class="form-control" required
-            value="{{ old('date_retour') }}  @isset($affectation) {{ $affectation->date_retour }} @endisset">
+            value="@isset($affectation){{ $affectation->date_retour }}@endisset">
             
             @error('date_retour')
                  <span class="invalid-feedback" role="alert">
@@ -95,10 +95,10 @@
   
    <div class="row mb-12">  
     <div class="col-6 mb-3">
-        <label for='wilaya_id' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
+        <label for='wilaya_id' class="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
         <select id="wilaya_id" class="form-select" name='wilaya_id' required>
         @foreach ($wilayas as $wilaya)
-        <option value="{{ $wilaya->id }}"  @isset($affectation) @if ($affectation->wilaya->id == $wilaya_id)
+        <option value="{{ $wilaya->id }}"  @isset($affectation) @if ($affectation->wilaya->id == $wilaya->id)
             selected
         @endif @endisset >
         {{ $wilaya->name }}

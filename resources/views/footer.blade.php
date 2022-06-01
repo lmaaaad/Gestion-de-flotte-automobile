@@ -42,16 +42,6 @@
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/plug-ins/1.12.1/i18n/fr-FR.json"></script>
 
-{{-- <script>
-$(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'excel', 'pdf', 'print'
-        ]
-    } );
-} );
-</script> --}}
 
 <script type="text/javascript">
 $(document).ready( function () {

@@ -4,14 +4,14 @@
 <div class="row mb-12">
     <div class="col-6 mb-3">
         <label for='Vehicule'> {{ __('Vehicule(Matricule)') }}</label>
-                   <select name='vehicule_id' type='texte' class="form-select" required
-                   value="{{ old('Vehicule') }} ">
-                   <option selected disabled value=""> Liste Vehicules  </option>
+                   <select name='vehicule_id' type='texte' class="form-select" required>
+                  
+                   <option value=""> Liste Vehicules  </option>
                    @foreach($vehicules as $vehicule)
                    
                    <option value="{{ $vehicule->id }}" id="{{ $vehicule->Matricule }}"
-                       @isset($user)
-                      @if ($vehicule->id == $vehicule->Matricule) checked @endif
+                       @isset($taxe)
+                      @if ($vehicule->id == $taxe->vehicule->id) selected @endif
                        @endisset>
                       {{ $vehicule->Matricule }}
                @endforeach
@@ -25,7 +25,7 @@
     <div class="col-6 mb-3">
         <label for="nom">{{ __('Nom') }}</label>
         <input name="nom" type="text" class="form-control @error('noms') is-invalid @enderror"  required autocomplete="nom" autofocus
-        value="{{ old('nom') }}  @isset($taxe) {{ $taxe->nom }} @endisset">
+        value="@isset($taxe){{ $taxe->nom }}@endisset">
  
            @error('nom')
                <span class="invalid-feedback" role="alert">
@@ -37,7 +37,7 @@
     <div class="col-6 mb-3">
         <label for='date' clsss="col-md-4 col-form-label" style="color: black" > {{ __("Date Taxe") }}</label>
         <input name='date' type='date' class="form-control" required placeholder="Entre 1 et 365 jours" 
-        value="{{ old('date') }}  @isset($taxe) {{ $taxe->date }} @endisset">
+        value="@isset($taxe){{ $taxe->date }}@endisset">
         
         @error('date')
         <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
    <div class="col-6 mb-3">
     <label for='expire' clsss="col-md-4 col-form-label" style="color: black" > {{ __("Expiration Taxe") }}</label>
     <input name='expire' type='date' class="form-control" required placeholder="Entre 1 et 365 jours" 
-    value="{{ old('expire') }}  @isset($taxe) {{ $taxe->expire }} @endisset">
+    value="@isset($taxe){{ $taxe->expire }}@endisset">
     
     @error('expire')
     <span class="invalid-feedback" role="alert">
@@ -62,7 +62,7 @@
     <div class="col-6 mb-3">
         <label for='rappel' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Rappel Avant (jours)') }}</label>
         <input name='rappel' type='number' class="form-control" required placeholder="Entre 1 et 365 jours" 
-        value="{{ old('rappel') }}  @isset($taxes) {{ $taxes->rappel }} @endisset">
+        value="@isset($taxe){{ $taxe->rappel }}@endisset">
         
         @error('rappel')
         <span class="invalid-feedback" role="alert">
@@ -75,9 +75,9 @@
     <label for='wilaya_id' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
     <select id="wilaya_id" class="form-select" name='wilaya_id' required>
     @foreach ($wilayas as $wilaya)
-    <option value="{{ $wilaya->id }}"  @isset($taxes) @if ($taxes->wilaya->id == $wilaya_id)
+    <option value="{{ $wilaya->id }}"   @if ($taxe->wilaya->id == $wilaya->id)
         selected
-    @endif @endisset >
+    @endif  >
     {{ $wilaya->name }}
 </option>
     @endforeach 

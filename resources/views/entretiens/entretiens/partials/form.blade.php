@@ -12,8 +12,8 @@
                @foreach($vehicules as $vehicule)
                
                <option value="{{ $vehicule->id }}" id="{{ $vehicule->Matricule }}"
-                   @isset($user)
-                  @if ($vehicule->id == $vehicule->Matricule) checked @endif
+                   @isset($entretien)
+                  @if ($vehicule->id == $entretien->vehicule->id) selected @endif
                    @endisset>
                   {{ $vehicule->Matricule }}
            @endforeach
@@ -25,11 +25,17 @@
                 </select>
             </div>          
                 <div class="col-6 mb-3">
-                    <label for='discription' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Description') }}</label>
+                    <label for='discription' class="col-md-6 col-form-label" style="color: black" > {{ __('Description') }}</label>
                     <select name='discription' type='texte' class="form-control" required  
-                    value="{{ old('discription') }}">
-                    <option disabled selected > Choisissez l'entretien </option>
+                    value="">
+                    
+                  
+                    <option disabled  > Choisissez l'entretien </option>
+                    <option value="@isset($entretien){{ $entretien->discription }}"
+                        selected
+                     @endisset > {{ $vehicule->discription }} </option>
                     <option disabled style="font-weight:bold; color:black" > LES PETITS ENTRETIENS </option>
+                   
                     <option> La vidange du moteur, </option>
                     <option> La vérification des liquides </option>
                     <option> Le contrôle des freins </option>
@@ -62,8 +68,8 @@
                    <option selected disabled value=""> Liste Fournisseurs  </option>
                    @foreach($fournisseurs as $fournisseur)
                    <option value="{{ $fournisseur->id }}" id="{{ $fournisseur->name }}"
-                       @isset($user)
-                      @if ($fournisseur->id == $fournisseur->name) checked @endif
+                       @isset($entretien)
+                      @if ($fournisseur->id == $entretien->fournisseur->id) selected @endif
                        @endisset>
                       {{ $fournisseur->name }}
                @endforeach
@@ -87,7 +93,7 @@
     <div class="col-6 mb-3">
         <label for='date' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Date') }}</label>
         <input name='date' type='date'  class="form-control" required
-        value="{{ old('date') }} ">
+        value="@isset($entretien){{ $entretien->date }}@endisset">
         @error('date')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -97,7 +103,7 @@
     <div class="col-6 mb-3">
         <label for='kilometrage' clsss="col-md-4 col-form-label" style="color: black" style="color: black" > {{ __('Kilometrage (KM)') }}</label>
         <input name='kilometrage' type='number' class="form-control" required  
-        value="{{ old('kilometrage') }}  ">
+        value="@isset($entretien){{ $entretien->kilometrage }}@endisset">
         
         @error('kilometrage')
         <span class="invalid-feedback" role="alert">
@@ -113,7 +119,7 @@
         <select class="js-example-placeholder-multiple js-states form-control" multiple="multiple" name='pieces[]' id='pieces' required  value="{{ old('piece_id') }} ">
 
                    @foreach($pieces as $piece)
-                   <option value="{{ $piece->id }}" id="{{ $piece->designation }}"   
+                   <option value="@isset($entretien){{ $entretien->pieces }}@endisset"   
                     @isset($piece_ids)            
                       @if (in_array($piece->id,$piece_ids)) selected @endif  @endisset >
                       {{ $piece->designation }}
@@ -127,9 +133,9 @@
                </div>
 
     <div class="col-6 mb-3">
-        <label for='cout' clsss="col-md-4 col-form-label" style="color: black" style="color: black" > {{ __('Cout (DA)') }}</label>
+        <label for='cout' class="col-md-6 col-form-label" style="color: black" style="color: black" > {{ __('Cout (DA)') }}</label>
         <input name='cout' type='number' class="form-control" required  
-        value="{{ old('cout') }}  ">
+        value="@isset($entretien){{ $entretien->cout }}@endisset">
         
         @error('cout')
         <span class="invalid-feedback" role="alert">

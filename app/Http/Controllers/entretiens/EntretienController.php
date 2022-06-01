@@ -18,8 +18,9 @@ class EntretienController extends Controller
      */
     public function index()
     {
+        $entretiens = Entretien::all();
         return view('entretiens.entretiens.index', [
-            'entretiens' => Entretien::paginate(5),'vehicule' => Vehicule::all(),'fournisseur' => Fournisseur::all() ,
+            'entretiens' => $entretiens,'vehicule' => Vehicule::all(),'fournisseur' => Fournisseur::all() ,
         ]);
     }
 

@@ -11269,6 +11269,9 @@
   footer.sticky-footer {
     padding: 2rem 0;
     flex-shrink: 0;
+    position:  fixed  ;
+    bottom:20px;
+    
   }
   
   footer.sticky-footer .copyright {

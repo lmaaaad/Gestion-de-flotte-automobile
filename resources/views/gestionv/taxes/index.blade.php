@@ -55,8 +55,9 @@
                             <th scope='row'> {{ $taxe->nom }} </th>
                             <td>{{ $taxe->vehicule->Matricule}} </td>
                             <td> {{  $taxe->date  }} </td>
-                            <td> {{ $taxe->wilaya->name }}
+                            
                             <td> {{ $taxe->expire }}</td>
+                            <td> {{ $taxe->wilaya->name }}</td>
                             @cannot('is-observateur')  
                              <td> 
                                  <div class=" d-flex">

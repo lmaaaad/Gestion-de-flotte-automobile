@@ -78,11 +78,11 @@
                 <div class="table-responsive pt-2">
                 <table id="example" class="table table-striped pt-2" style="width:100%">
                      <thead>
-                       <tr>
+                       <tr style="color: black">
 
                          <th scope="col">Nom</th>
                          <th scope="col">Email</th>
-                         <th scope="col">Role </th>
+                         <th scope="col">Rôle </th>
               
                         <th scope="col">Wilaya </th>
           
@@ -98,7 +98,7 @@
                          @foreach ($users as $user)
                          <tr>
 
-                             <td scope="row"> {{  $user ->name  }} </td>
+                             <td scope="row" style="color: black"> {{  $user ->name  }} </td>
                              <td>{{ $user ->email  }}</td>
                              <td> 
                                  {{ $user->role->name ?? '' }}

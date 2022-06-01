@@ -3,15 +3,15 @@
 
 <div class="row mb-12">
     <div class="col-6 mb-3">
-        <label for='Vehicule'> {{ __('Vehicule(Matricule)') }}</label>
+        <label for='Vehicule' class="col-md-9 col-form-label"> {{ __('Vehicule(Matricule)') }}</label>
                    <select name='vehicule_id' type='texte' class="form-select" required
                    value="{{ old('Vehicule') }} ">
                    <option selected disabled value=""> Liste Vehicules  </option>
                    @foreach($vehicules as $vehicule)
                    
                    <option value="{{ $vehicule->id }}" id="{{ $vehicule->Matricule }}"
-                       @isset($user)
-                      @if ($vehicule->id == $vehicule->Matricule) checked @endif
+                       @isset($visite)
+                      @if ($vehicule->id == $visite->vehicule->id) selected @endif
                        @endisset>
                       {{ $vehicule->Matricule }}
                @endforeach
@@ -23,9 +23,9 @@
                     </select>
     </div>
     <div class="col-6 mb-3">
-        <label for='date' clsss="col-md-4 col-form-label" style="color: black" > {{ __("Date Visite technique") }}</label>
+        <label for='date' class="col-md-9 col-form-label" style="color: black" > {{ __("Date Visite technique") }}</label>
         <input name='date' type='date' class="form-control" required  
-        value="{{ old('date') }}  @isset($visite) {{ $visite->date }} @endisset">
+        value="@isset($visite){{ $visite->date }}@endisset">
         
         @error('date')
         <span class="invalid-feedback" role="alert">
@@ -36,9 +36,9 @@
     
 <div class="row mb-12">     
     <div class="col-6 mb-3">
-        <label for='date' clsss="col-md-4 col-form-label" style="color: black" > {{ __("Prochaine visite technique ") }}</label>
+        <label for='date' class="col-md-9 col-form-label" style="color: black" > {{ __("Prochaine visite technique ") }}</label>
         <input name='prochaine' type='date' class="form-control" required 
-        value="{{ old('prochaine') }}  @isset($visite) {{ $visite->prochaine }} @endisset">
+        value="@isset($visite){{ $visite->prochaine }}@endisset">
         
         @error('prochaine')
         <span class="invalid-feedback" role="alert">
@@ -47,9 +47,9 @@
       @enderror
    </div>
    <div class="col-6 mb-3">
-    <label for='rappel' clsss="col-md-4 col-form-label" style="color: black" > {{ __('Rappel Avant (jours)') }}</label>
+    <label for='rappel' class="col-md-9 col-form-label" style="color: black" > {{ __('Rappel Avant (jours)') }}</label>
     <input name='rappel' type='number' class="form-control" required placeholder="Entre 1 et 365 jours" 
-    value="{{ old('rappel') }}  @isset($visite) {{ $visite->rappel }} @endisset">
+    value="@isset($visite){{ $visite->rappel }}@endisset">
     
     @error('rappel')
     <span class="invalid-feedback" role="alert">
@@ -58,10 +58,10 @@
   @enderror
 </div>
 <div class="col-6 mb-3">
-    <label for='wilaya_id' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
+    <label for='wilaya_id' class="col-md-6 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
     <select id="wilaya_id" class="form-select" name='wilaya_id' required>
     @foreach ($wilayas as $wilaya)
-    <option value="{{ $wilaya->id }}"  @isset($visiste) @if ($visite->wilaya->id == $wilaya_id)
+    <option value="{{ $wilaya->id }}"  @isset($visite) @if ($visite->wilaya->id == $wilaya->id)
         selected
     @endif @endisset >
     {{ $wilaya->name }}

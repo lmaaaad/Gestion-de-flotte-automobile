@@ -1,4 +1,4 @@
-<title> Vehicules </title>
+<title> Véhicules </title>
 
 @include('gestionv.side')
 @include('navbar')
@@ -20,7 +20,7 @@
                                   <button class="btn btn-primary dropdown-toggle" type="button"
                                       id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                       aria-expanded="false">
-                                      Selectionnez Votre Wilaya
+                                      Séléctionnez Votre Wilaya
                                   </button>
                                   <div class="dropdown-menu animated--fade-in scrollable"
                                       aria-labelledby="dropdownMenuButton">
@@ -37,10 +37,10 @@
                <div class="table-responsive pt-2">
                 <table id="example" class="table table-striped pt-2" style="width:100%">
                     <thead>
-                      <tr>
+                      <tr style="color: black" >
                         <th >Matricule</th>
                         <th >Marque</th>
-                        <th >Modele</th>
+                        <th >Modèle</th>
                         <th >Etat Actuel</th>
                         <th >Action</th>
                        
@@ -53,13 +53,13 @@
                     <tbody>
                         @foreach ($vehicules as $vehicule)
                         <tr>
-                            <td scope="row">{{ $vehicule->Matricule }}</td>
+                            <td scope="row" style="color: black">{{ $vehicule->Matricule }}</td>
                             <td>{{ $vehicule->Marque  }}</td>
                             <td>{{ $vehicule->Modele }}</td>
                             <td>{{ $vehicule->Etat_Actuel }}</td>
                              <td> 
                                  <div class=" d-flex">
-                                  <a class="mx-1" href="{{ route('gestionv.vehicules.show',$vehicule->id) }}" ><button class="btn btn-sm btn-secondary" type="button">Detail</button>  </a>
+                                  <a class="mx-1" href="{{ route('gestionv.vehicules.show',$vehicule->id) }}" ><button class="btn btn-sm btn-secondary" type="button">Détails</button>  </a>
                                   @cannot('is-observateur') 
                                      <a class="mx-1" href="{{ route('gestionv.vehicules.edit',$vehicule->id) }}" ><button class="btn btn-sm btn-primary" type="button">Modifier</button>  </a>
                                       
