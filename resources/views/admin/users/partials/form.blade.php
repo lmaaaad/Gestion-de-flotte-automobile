@@ -5,7 +5,7 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="name" autofocus
-                                value="{{ old('name') }}  @isset($user) {{ $user->name }} @endisset">
+                                value="@isset($user){{ $user->name }}@endisset">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -19,8 +19,8 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end text-black">{{ __('Addresse Email') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}
-                                @isset($user) {{ $user->email }} @endisset" required autocomplete="email"  pattern="[a-z0-9._%+-]+@poste.dz">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" 
+                                value="@isset($user){{ $user->email }}@endisset" required autocomplete="email"  pattern="[a-z0-9._%+-]+@poste.dz">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -50,7 +50,7 @@
                             @foreach ( $roles as $role )
                                      <div class="form-check ">
                                          <input class="form-check-input role_id" name="role_id"  required 
-                                         type="radio" value ="{{ $role->id}}" id="{{ $role->name }}">
+                                         type="radio" value="@isset($user){{ $user->role_id }}@endisset" id="{{ $role->name }}">
                                          <label class="form-check-label text-black" for="{{ $role->name }}">
                                              {{ $role->name }}
                                          </label>
@@ -65,16 +65,17 @@
                             <label for='wilaya_id' class="col-md-4 col-form-label text-md-end text-black"> {{ __('Wilaya (Si Dupw)') }}</label>
                             <div class="col-md-6">
                             <select id="wilaya_id" class="form-select" name='wilaya_id' disabled> 
-                                <option  value="">Sélectionner une wilaya</option>
-                            @foreach ($wilayas as $wilaya)
-                            <option value="{{ $wilaya->id }}"@isset($user) @if ($user->wilaya->id == $wilaya_id)
-                                selected
-                            @endif 
-                            @endisset>
-                            {{ $wilaya->name }}
-                        </option>
-                            @endforeach 
+                                 <option  value="">Sélectionner une wilaya</option> 
+                                @foreach ($wilayas as $wilaya)
+                                <option value="{{ $wilaya->id }}"@isset($user) @if ($wilaya->id == $user->wilaya->id)
+                                    selected
+                                @endif @endisset >
+                                {{ $wilaya->name }}
+                            </option>
+                                @endforeach 
                               </select>
+
+                              
                             </div>   
                          
                        </div> 

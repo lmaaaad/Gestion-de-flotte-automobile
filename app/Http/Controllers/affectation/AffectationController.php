@@ -17,7 +17,7 @@ class AffectationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         $user=auth()->user();
         if ($user->hasRole('dupw')) {
     
@@ -25,6 +25,11 @@ class AffectationController extends Controller
             $affectations=Affectation::where('wilaya_id',request()->wilaya_id)->get();
             }else {
                 $affectations=Affectation::all();
+                if(request()->has('wilaya_id'))
+                {
+                    $affectations=Affectation::where('wilaya_id',request()->wilaya_id)->get();
+
+                }
                 
 
              }

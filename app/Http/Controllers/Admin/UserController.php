@@ -96,12 +96,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $user = User::find($id);
         return view('admin.users.edit',
         [
+            'wilayas' => Wilaya::all(),
+            'user' =>$user ,
             'roles'=>Role::all(),
-            'user' =>User::find($id),
-            'wilayas' => Wilaya::all()
-    
     ]);
 
     }
@@ -115,7 +115,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
+        $user = User::find($id); 
         if(!$user)
         {
             $request->session()->flash('error','Utilisateur Introuvable !!');
