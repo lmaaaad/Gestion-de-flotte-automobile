@@ -9618,6 +9618,8 @@
   .text-info {
     color: #36b9cc !important;
   }
+
+  
   
   a.text-info:hover, a.text-info:focus {
     color: #258391 !important;
@@ -9630,6 +9632,9 @@
   a.text-warning:hover, a.text-warning:focus {
     color: #dda20a !important;
   }
+  .text-tchini {
+    color: #DAF7A6  !important;
+  }
   
   .text-danger {
     color: #e74a3b !important;
@@ -9638,7 +9643,20 @@
   a.text-danger:hover, a.text-danger:focus {
     color: #be2617 !important;
   }
-  
+  .text-pink {
+    color :#e83e8c !important
+  }
+
+  .text-pinko {
+    color :#D100FF !important
+  }
+  .text-bhar {
+    color :#00FFE0  !important
+  }
+  .text-rman {
+    color :#581845 !important
+  }
+
   .text-light {
     color: #f8f9fc !important;
   }

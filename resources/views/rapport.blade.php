@@ -141,7 +141,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Apercu des depense</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Apercu des depense (Pieces) </h6>
                                     
                                 </div>
                                 <!-- Card Body -->
@@ -159,7 +159,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Missions destination</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Apercu des depense (Entretiens)</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -168,20 +168,52 @@
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Alger
+                                            <i class="fas fa-circle text-primary"></i>  Janvier
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Oran
+                                            <i class="fas fa-circle text-success"></i> Fevrier
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Constantine
+                                            <i class="fas fa-circle text-grey"></i> Mars
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-danger"></i> Blida
+                                            <i class="fas fa-circle text-danger"></i> Avril
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-grey"></i> Autres
+                                            <i class="fas fa-circle text-tchini"></i> Mai
                                         </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-white "></i> 
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Juin
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-dark"></i> Juillet
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-warning"></i> Aout
+                                        </span>
+                                      
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-pink"></i> Septembre
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-white "></i> 
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-white "></i> 
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-pinko"></i> October
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-rman"></i> Nov
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-bhar"></i> Dec
+                                        </span>
+
 
                                     </div>
                                 </div>
@@ -292,10 +324,10 @@ var myLineChart = new Chart(ctx, {
     labels:{{  json_encode(array_keys($depense)) }},
     datasets: [{
       label: "Depenses  ",
-      lineTension: 0.3,
+      lineTension: 0.5,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
-      pointRadius: 3,
+      pointRadius: 2,
       pointBackgroundColor: "rgba(78, 115, 223, 1)",
       pointBorderColor: "rgba(78, 115, 223, 1)",
       pointHoverRadius: 3,
@@ -378,6 +410,54 @@ var myLineChart = new Chart(ctx, {
 });
 
     </script>
+
+
+
+{{-- ========================================================================================================= --}}
+
+<script>
+// Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+// Pie Chart Example
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: {{  json_encode(array_keys($depense_en)) }},
+    datasets: [{
+      data: {{ json_encode(array_values($depense_en)) }},
+      backgroundColor: ['#4e73df', '#1cc88a','#d6d6d6','#e74a3b','#DAF7A6','#36b9cc','#000000','#f6c23e','#e83e8c','#D100FF', '#581845','#00FFE0'],
+      hoverBackgroundColor: ['#4e73df', '#1cc88a','#d6d6d6','#e74a3b','#DAF7A6','#36b9cc','#000000','#f6c23e','#e83e8c','#D100FF', '#581845','#00FFE0'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+
+
+
+
+</script>
+
+
 </body>
 
 </html>

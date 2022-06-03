@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Affectation;
 use App\Models\Conducteur;
 use App\Models\Entretien;
+use App\Models\Piece;
 use App\Models\Taxe;
 use App\Models\User;
 use App\Models\Vehicule;
@@ -27,18 +28,26 @@ class RapportController extends Controller
         $vehicules = DB::table('vehicules')->count();
         $affectations = DB::table('affectations')->count();
 
-        $entretiens = Entretien::select(DB::raw('sum(cout) as "SOMME" '),
-                                DB::raw('MONTH(date) month'))
+        $pieces = Piece::select(DB::raw('sum(prix) as "SOMME" '),
+                                DB::raw('MONTH(date_acq) month'))
                                 ->groupby('month')
                                 ->get();
 
-                                foreach ($entretiens as $key => $value) {
+                                foreach ( $pieces as $key => $value) {
                                     $depense[$value['month']]=(int)$value['SOMME'];
 
                                 }
-        
+        $entretiens = Entretien::select(DB::raw('sum(cout) as "SOMME" '),
+        DB::raw('MONTH(date) month'))
+        ->groupby('month')
+        ->get();
 
-        return view('rapport',compact(['users','conducteurs','vehicules','affectations','user' ,'depense']));
+        foreach ( $entretiens as $key => $value) {
+            $depense_en[$value['month']]=(int)$value['SOMME'];
+
+        }
+
+        return view('rapport',compact(['users','conducteurs','vehicules','affectations','user' ,'depense','depense_en']));
     }
 
 

@@ -80,7 +80,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end"></label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" placeholder="Username or Email Adress" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" placeholder="Addresse Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -109,7 +109,7 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                    {{ __('Se Connecter') }}
                                 </button>
                               
                                 

@@ -59,7 +59,7 @@ class EntretienController extends Controller
             'pieces.*' => 'required',
             
         ]);
-
+dd($request);
          
         $entretien=Entretien::create($request->except('pieces'));
         $entretien->pieces()->sync($request->pieces);

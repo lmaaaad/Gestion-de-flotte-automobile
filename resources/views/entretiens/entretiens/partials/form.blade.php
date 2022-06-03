@@ -116,10 +116,10 @@
 <div class='row mb-12'>
     <div class="col-6 mb-3">
         <label for='pieces' style="color: black"> {{ __('Pieces') }}</label>
-        <select class="js-example-placeholder-multiple js-states form-control" multiple="multiple" name='pieces[]' id='pieces' required  value="{{ old('piece_id') }} ">
+        <select class="js-example-placeholder-multiple js-states form-control" multiple="multiple" name='pieces[]' id='piece' required  value="piece_id">
 
                    @foreach($pieces as $piece)
-                   <option value="@isset($entretien){{ $entretien->pieces }}@endisset"   
+                    <option value="@isset($entretien){{ $entretien->pieces }}@endisset"   
                     @isset($piece_ids)            
                       @if (in_array($piece->id,$piece_ids)) selected @endif  @endisset >
                       {{ $piece->designation }}
