@@ -75,9 +75,9 @@
     <label for='wilaya_id' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Wilaya') }}</label>
     <select id="wilaya_id" class="form-select" name='wilaya_id' required>
     @foreach ($wilayas as $wilaya)
-    <option value="{{ $wilaya->id }}"   @if ($taxe->wilaya->id == $wilaya->id)
+    <option value="{{ $wilaya->id }}"@isset($taxe) @if ($taxe->wilaya->id == $wilaya->id)
         selected
-    @endif  >
+    @endif @endisset >
     {{ $wilaya->name }}
 </option>
     @endforeach 

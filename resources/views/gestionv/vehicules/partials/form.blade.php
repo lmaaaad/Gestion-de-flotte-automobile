@@ -87,9 +87,7 @@
             <select name='Type' type='texte' class="form-select" required
                 value="@isset($vehicule){{ $vehicule->Type }}@endisset">
                 <option selected disabled value=""> Type de Vehicule </option>
-                <option value="@isset($vehicule){{ $vehicule->Type }}"
-                    selected
-                 @endisset > {{ $vehicule->Type }} </option>
+                
                 <option>Voiture</option>
                 <option>Bus</option>
                 <option>Van</option>
@@ -110,9 +108,7 @@
              value="@isset($vehicule){{ $vehicule->Carburant }}@endisset">
              
              <option selected disabled value=""> Type de Carburant </option>
-             <option value="@isset($vehicule){{ $vehicule->Carburant }}"
-                selected
-             @endisset > {{ $vehicule->Carburant }} </option>
+            
                 <option>Essence</option>
                 <option>Gasoil</option>
                 <option>Gaz</option>
@@ -132,9 +128,7 @@
            <Select name='Etat_Actuel' type='texte' class="form-select" required
            value="@isset($vehicule){{ $vehicule->Etat_Actuel }}@endisset">
            <option selected disabled value=""> Etat de Véhicule </option>
-           <option value="@isset($vehicule){{ $vehicule->Etat_Actuel }}"
-            selected
-         @endisset > {{ $vehicule->Etat_Actuel }} </option>
+           
            <option>Bon</option>
            <option>Moyen</option>
            <option>Mauvais</option>
