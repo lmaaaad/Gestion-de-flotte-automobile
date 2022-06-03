@@ -87,9 +87,7 @@
             <select name='type' type='text' class="form-select" required
                 value="@isset($fournisseur){{ $fournisseur->type }}@endisset">
                 <option  disabled value=""> Choisir </option>
-                <option value="@isset($fournisseur){{ $fournisseur->type }}"
-                    selected
-                 @endisset > {{ $fournisseur->type }} </option>
+                
                 <option>Grossiste</option>
                 <option>Détaillant</option>
                 <option>Prestataire</option>
