@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title> Create User </title>
+<title> Créer Utilisateur </title>
 @section('content')
  <div class="container mt-5">
     <div class="row justify-content-center">

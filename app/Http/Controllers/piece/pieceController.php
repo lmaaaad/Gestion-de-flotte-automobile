@@ -57,7 +57,7 @@ class pieceController extends Controller
          
         $piece=Piece::create($validatedData);
     
-        $request->session()->flash('success','Piece Ajouté avec succès');
+        $request->session()->flash('success','Pièce Ajoutée avec succès');
         return redirect(route('pieces.pieces.index'));
     }
 
@@ -102,7 +102,7 @@ class pieceController extends Controller
         $piece = Piece::find($id);
         if(!$piece)
         {
-            $request->session()->flash('error','Piece Modifié avec succès');
+            $request->session()->flash('error','Pièce Modifiée avec succès');
             return redirect(route('pieces.pieces.index')); 
 
         }
@@ -125,7 +125,7 @@ class pieceController extends Controller
     public function destroy($id,Request $request)
     {
         Piece::destroy($id);
-        $request->session()->flash('success','Piece Supprimé !!');
+        $request->session()->flash('success','Pièce Supprimée !!');
         return redirect(route('pieces.pieces.index')); 
     }
 }

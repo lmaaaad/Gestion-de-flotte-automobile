@@ -66,7 +66,7 @@ class TaxeController extends Controller
         $taxe=Taxe::create($validatedData);
         //$taxe->roles()->sync($request->roles);
 
-        $request->session()->flash('success','Conducteur effectué avec succès');
+        $request->session()->flash('success','Taxe ajoutée avec succès');
 
         return redirect(route('gestionv.taxes.index'));
     }
@@ -110,7 +110,7 @@ class TaxeController extends Controller
     {
         $taxe = Taxe::find($id);
         $taxe->update($request->except(['_token']));
-        $request->session()->flash('success',"Conducteur modifiée avec Succès");
+        $request->session()->flash('success',"Taxe modifiée avec Succès");
         return redirect(route('gestionv.taxes.index'));
     }
 
@@ -123,7 +123,7 @@ class TaxeController extends Controller
     public function destroy($id,Request $request)
     {
         Taxe::destroy($id);
-        $request->session()->flash('success','Conducteur Supprimé !!');
+        $request->session()->flash('success','Taxe Supprimée !!');
         return redirect(route('gestionv.taxes.index')); 
     }
 }

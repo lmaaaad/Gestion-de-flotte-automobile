@@ -69,7 +69,7 @@ class AssuranceController extends Controller
 
         //$assurance->roles()->sync($request->roles);
 
-        $request->session()->flash('success','Assurance effectué avec succès');
+        $request->session()->flash('success','Assurance ajoutée avec succès');
 
         return redirect(route('gestionv.assurances.index'));
     }
@@ -130,7 +130,7 @@ class AssuranceController extends Controller
     public function destroy($id,Request $request)
     {
         Assurance::destroy($id);
-        $request->session()->flash('success','Assurance Supprimé !!');
+        $request->session()->flash('success','Assurance Supprimée !!');
         return redirect(route('gestionv.assurances.index')); 
     }
 }

@@ -1,4 +1,4 @@
-<title> Pieces En Stock </title>
+<title> Pièces En Stock </title>
 @include('pieces.side')
 @include('navbar')
         
@@ -11,10 +11,10 @@
                <div class="table-responsive pt-2">
                <table id="example" class="table table-striped pt-2" style="width:100%">
                     <thead>
-                        <tr>
-                            <th scope="col">Designation</th>
-                            <th scope="col">Quantite En stock</th>
-                            <th scope="col">Unite</th>
+                        <tr style="color: black">
+                            <th scope="col">Désignation</th>
+                            <th scope="col">Quantité En stock</th>
+                            <th scope="col">Unité</th>
                             <th scope="col">Date d'Acquisition </th>
 
                            
@@ -23,7 +23,7 @@
                         <tbody>
                             @foreach ($pieces as $piece)
                             <tr>
-                                <td> {{ $piece->designation}}</td>
+                                <td style="color: black"> {{ $piece->designation}}</td>
                                 <td> {{ ($piece->quantite) - ($piece->quantite_utiliser)}}</td>
                                 <td> {{ $piece->unite }}</td>
                                 <td> {{ $piece->date_acq}}</td>

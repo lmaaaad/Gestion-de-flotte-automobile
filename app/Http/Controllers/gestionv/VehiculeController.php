@@ -77,7 +77,7 @@ class VehiculeController extends Controller
 
         //$vehicule->roles()->sync($request->roles);
 
-        $request->session()->flash('success','Vehicule ajouté avec succès');
+        $request->session()->flash('success','Véhicule ajouté avec succès');
 
         return redirect(route('gestionv.vehicules.index'));
     }
@@ -123,7 +123,7 @@ class VehiculeController extends Controller
        
         $vehicule = Vehicule::find($id);
         $vehicule->update($request->except(['_token']));
-        $request->session()->flash('success',"Vehicule modifiée avec Succès");
+        $request->session()->flash('success',"Véhicule modifié avec Succès");
         return redirect(route('gestionv.vehicules.index'));
     }
 
@@ -136,7 +136,7 @@ class VehiculeController extends Controller
     public function destroy($id,Request $request)
     {
         Vehicule::destroy($id);
-        $request->session()->flash('success','Vehicule Supprimé !!');
+        $request->session()->flash('success','Véhicule Supprimé !!');
         return redirect(route('gestionv.vehicules.index')); 
     }
 }

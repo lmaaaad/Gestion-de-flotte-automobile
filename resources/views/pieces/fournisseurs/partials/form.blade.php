@@ -3,7 +3,7 @@
     <div class="row mb-12">
 
         <div class="col-6 mb-3">
-           <label for="name" class="col-md-9 col-form-label ">{{ __('Name') }}</label>
+           <label for="name" class="col-md-9 col-form-label text-black">{{ __('Nom') }}</label>
            <input name="name" type="text" name='name' class="form-control @error('name') is-invalid @enderror"  required autocomplete="name" autofocus
            value="@isset($fournisseur){{ $fournisseur->name }}@endisset">
 
@@ -15,7 +15,7 @@
       </div>
 
         <div class="col-6 mb-3">
-            <label for="email" class="col-md-9 col-form-label ">{{ __('E-mail') }}</label>
+            <label for="email" class="col-md-9 col-form-label text-black ">{{ __('Email') }}</label>
             <input id="email" type="email" class="form-control " name="email"  required autocomplete="email"
             value="@isset($fournisseur){{ $fournisseur->email }}@endisset">
 
@@ -30,7 +30,7 @@
 
     <div class="row mb-12">
         <div class="col-6 mb-3">
-            <label for="ville" class="col-md-9 col-form-label ">{{ __('Ville') }}</label>
+            <label for="ville" class="col-md-9 col-form-label text-black">{{ __('Ville') }}</label>
             <input name="ville" type="texte" class="form-control" required
             value="@isset($fournisseur){{ $fournisseur->ville }}@endisset">
             
@@ -42,7 +42,7 @@
         </div>
 
         <div class="col-6 mb-3">
-            <label for='tel' class="col-md-9 col-form-label" style="color: black" > {{ __('Telephone') }}</label>
+            <label for='tel' class="col-md-9 col-form-label" style="color: black" > {{ __('Téléphone') }}</label>
             <input name='tel' type='tel' class="form-control" required  pattern="[0]{1}[5-7]{1}[0-9]{8}" placeholder="exp:0567879829" aria-label="10-digit area code" size="2"
             value="@isset($fournisseur){{ $fournisseur->tel }}@endisset">
             
@@ -86,7 +86,7 @@
           <label for='type' class="col-md-9 col-form-label" style="color: black"> {{ __('Type') }}</label>
             <select name='type' type='text' class="form-select" required
                 value="@isset($fournisseur){{ $fournisseur->type }}@endisset">
-                <option  disabled value=""> Choisir </option>
+                <option selected disabled value=""> Choisir </option>
                 
                 <option>Grossiste</option>
                 <option>Détaillant</option>
@@ -101,7 +101,7 @@
              @enderror
          </div>   
          <div class="col-6 mb-3">
-             <label for='datedeb' class="col-md-9 col-form-label" style="color: black"> {{ __('Date debut contrat') }}</label>
+             <label for='datedeb' class="col-md-9 col-form-label" style="color: black"> {{ __('Date de Début de contrat') }}</label>
              <input name='datedeb' type='date'  class="form-control" required
              value="@isset($fournisseur){{ $fournisseur->datedeb }}@endisset">
              @error('datedeb')
@@ -114,7 +114,7 @@
 
    <div class="row mb-12">
        <div class="col-6 mb-3">
-           <label for='datefin' class="col-md-9 col-form-label" style="color: black"> {{ __('Date fin Contrat') }}</label>
+           <label for='datefin' class="col-md-9 col-form-label" style="color: black"> {{ __('Date de Fin de Contrat') }}</label>
            <input name='datefin' type='date' class="form-control" required
            value="@isset($fournisseur){{ $fournisseur->datefin }}@endisset">
            @error('datefin')

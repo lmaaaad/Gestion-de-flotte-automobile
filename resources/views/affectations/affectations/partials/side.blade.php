@@ -49,7 +49,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('entretiens.entretiens.index') }}">
                     <i><img src="/pic/affectation.png" style='height:30px;'></i>
-                    <span class="pl-2 ">Mission </span>
+                    <span class="pl-2 ">Missions </span>
                 </a>
             </li>
             <!-- Divider -->

@@ -60,7 +60,7 @@
         <div class="container-fluid">
         <a href="{{ route('home') }}" style="height: 20px;  weight:20px">
             <i class="fa fa-arrow-circle-left fa-5" aria-hidden="true"></i>
-            Home
+            Accueil
         </a>        
         <div class="pt-5">
         <main>

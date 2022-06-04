@@ -81,12 +81,12 @@
                <div class="table-responsive pt-2">
                <table id="example" class="table table-striped pt-2" style="width:100%">
                     <thead>
-                      <tr>
+                      <tr style="color: black">
 
-                        <th scope="col">Vehicule</th>
+                        <th scope="col">Véhicule</th>
                         <th scope="col">Fournisseur</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Cout (DA)</th>
+                        <th scope="col">Coût (DA)</th>
                         <th scope="col">Action</th>
                        
 
@@ -98,7 +98,7 @@
                         @foreach ($entretiens as $entretien)
                         <tr>
 
-                            <th scope="row"> {{  $entretien->vehicule->Matricule  }} </th>
+                            <th scope="row" style="color: black"> {{  $entretien->vehicule->Matricule  }} </th>
                             <td>{{ $entretien->fournisseur->name  }}</td>
                             <td> {{ $entretien->discription}}</td>
                             <td> {{ $entretien->cout}}</td>
@@ -107,8 +107,9 @@
 
                              <td> 
                                  <div class=" d-flex">
+                                 <a class="mx-1" href="{{ route('entretiens.entretiens.show',$entretien->id) }}" ><button class="btn btn-sm btn-secondary" type="button">Détails</button>  </a>
                                      <a class="mx-1" href="{{ route('entretiens.entretiens.edit',$entretien->id) }}" ><button class="btn btn-sm btn-primary" type="button">Modifier</button>  </a>
-                                     <a class="mx-1" href="{{ route('entretiens.entretiens.show',$entretien->id) }}" ><button class="btn btn-sm btn-secondary" type="button">Detail</button>  </a>
+                                     
                                      <form id="delete-user-form-{{ $entretien->id }}" action="{{ route('entretiens.entretiens.destroy',$entretien->id) }}" method="POST">
                                          @csrf
                                          @method("DELETE")

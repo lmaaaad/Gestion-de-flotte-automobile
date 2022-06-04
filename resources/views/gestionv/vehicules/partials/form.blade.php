@@ -67,7 +67,7 @@
            @enderror
        </div>       
        <div class="col-6 mb-3">
-           <label for='Date_ms' style="color: black" > {{ __('Date de Mise en Circulation') }}</label>
+           <label for='Date_ms' class="col-md-9 col-form-label" style="color: black" > {{ __('Date de Mise en Circulation') }}</label>
            <input name='Date_ms' type='Date' class="form-control"  required
            value="@isset($vehicule){{ $vehicule->Date_ms }}@endisset">
            
@@ -86,7 +86,7 @@
           <label for='Type' class="col-md-4 col-form-label text-black"> {{ __('Type') }}</label>
             <select name='Type' type='texte' class="form-select" required
                 value="@isset($vehicule){{ $vehicule->Type }}@endisset">
-                <option selected disabled value=""> Type de Vehicule </option>
+                <option selected disabled value=""> Type de Véhicule </option>
                 
                 <option>Voiture</option>
                 <option>Bus</option>

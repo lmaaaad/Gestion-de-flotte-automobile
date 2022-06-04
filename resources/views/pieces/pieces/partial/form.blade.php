@@ -3,7 +3,7 @@
     <div class="row mb-12">
 
         <div class="col-6 mb-3">
-            <label for="name" class="col-md-6 col-form-label ">{{ __('Fournisseur') }}</label>
+            <label for="name" class="col-md-6 col-form-label text-black ">{{ __('Fournisseur') }}</label>
             <select class="form-select" name="fournisseur_id" required id="name">
                 <option value="option_select" disabled selected>Nom de Fournisseur</option>
                 @foreach($fournisseurs as $fournisseur)
@@ -21,19 +21,18 @@
               @enderror
 
            
-          </div>
+     </div>
 
          
             <div class="col-6 mt-4">
-        <a class="col-form-label btn btn-secondary" href="{{ route('pieces.fournisseurs.create') }}" role="button">Creer nouveau fournisseur</a>
+        <a class="col-form-label btn btn-secondary" href="{{ route('pieces.fournisseurs.create') }}" role="button">Créer un nouveau Fournisseur</a>
   
           </div>    
 
-        </div>
-    
+</div>
     <div class="row mb-12">
         <div class="col-6 mb-3">
-            <label for='designation' class="col-md-6 col-form-label"> {{('Designation')}}</label>
+            <label for='designation' class="col-md-6 col-form-label text-black"> {{('Désignation')}}</label>
             <input name='designation' type='texte' class="form-control" required
             value="@isset($piece){{ $piece->designation }}@endisset">
             
@@ -45,7 +44,7 @@
         </div>         
 
         <div class="col-6 mb-3">
-            <label for="marque" class="col-md-9 col-form-label ">{{ __('Marque')}}</label>
+            <label for="marque" class="col-md-9 col-form-label text-black ">{{ __('Marque')}}</label>
             <input name="marque" type="texte" class="form-control" required
             value="@isset($piece){{$piece->marque}}@endisset">
             
@@ -60,7 +59,7 @@
     <div class="row mb-12">
         
         <div class="col-6 mb-3">
-            <label for='quantite' class="col-md-9 col-form-label" style="color: black" > {{('Quantite ')}}</label>
+            <label for='quantite' class="col-md-9 col-form-label" style="color: black" > {{('Quantité ')}}</label>
             <input name='quantite' type='number' class="form-control" required 
             value="@isset($piece){{ $piece->quantite }}@endisset">
             
@@ -72,7 +71,7 @@
        </div>        
         
         <div class="col-6 mb-3">
-            <label for='quantite_utiliser' class="col-md-9 col-form-label" style="color: black" > {{('Quantite Utiliser')}}</label>
+            <label for='quantite_utiliser' class="col-md-9 col-form-label" style="color: black" > {{('Quantité Utilisée')}}</label>
             <input name='quantite_utiliser' type='number' class="form-control" required 
             value="@isset($piece){{ $piece->quantite_utiliser }}@endisset">
             
@@ -88,7 +87,7 @@
    <div class="row mb-12">  
 
     <div class="col-6 mb-3">
-        <label for="unite" class="col-md-9 col-form-label">{{ __('Unite')}}</label>
+        <label for="unite" class="col-md-9 col-form-label text-black">{{ __('Unité')}}</label>
             <input name="unite" type="texte" class="form-control" placeholder="Exp: paire / kg / Boite de 100 ..." required
             value="@isset($piece){{$piece->unite}}@endisset">
             

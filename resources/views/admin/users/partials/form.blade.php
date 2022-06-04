@@ -16,7 +16,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end text-black">{{ __('Addresse Email') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end text-black">{{ __('Adresse Email') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}
@@ -65,7 +65,7 @@
                             <label for='wilaya_id' class="col-md-4 col-form-label text-md-end text-black"> {{ __('Wilaya (Si Dupw)') }}</label>
                             <div class="col-md-6">
                             <select id="wilaya_id" class="form-select" name='wilaya_id' disabled> 
-                                <option  value="">Sélectionner une wilaya</option>
+                                <option  value="">Sélectionnez une wilaya</option>
                             @foreach ($wilayas as $wilaya)
                             <option value="{{ $wilaya->id }}"@isset($user) @if ($user->wilaya->id == $wilaya_id)
                                 selected

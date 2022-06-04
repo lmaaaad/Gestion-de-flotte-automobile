@@ -5,7 +5,7 @@
         <div class="col-6 mb-3">
             <label for="name" class="col-md-4 col-form-label "style="color: black">{{ __('Conducteur') }}</label>
             <select class="form-select" name="conducteur_id" required id="name">
-                <option value="option_select" disabled selected>Le nom de Conducteur</option>
+                <option value="option_select" disabled selected>Nom du Conducteur</option>
                 @foreach($conducteurs as $conducteur)
                     <option value="{{ $conducteur->id }}" id="{{ $conducteur->name }}"
                         @isset($affectation)
@@ -38,7 +38,7 @@
     </div>
     <div class="row mb-12">  
         <div class="col-6 mb-3">
-            <label for='depart' class="col-md-4 col-form-label" style="color: black" > {{('Depart')}}</label>
+            <label for='depart' class="col-md-4 col-form-label" style="color: black" > {{('Départ')}}</label>
             <input name='depart' type='texte' class="form-control" required
             value="@isset($affectation){{ $affectation->depart }}@endisset">
             
@@ -51,7 +51,7 @@
     
     
            <div class="col-6 mb-3">
-               <label for='arrivee' class="col-md-4 col-form-label" style="color: black"> {{('Arrivee')}}</label>
+               <label for='arrivee' class="col-md-4 col-form-label" style="color: black"> {{('Arrivée')}}</label>
                <input name='arrivee' type='texte' class="form-control" required
                value="@isset($affectation){{ $affectation->arrivee }}@endisset">
                

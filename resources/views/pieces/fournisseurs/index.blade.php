@@ -35,7 +35,7 @@
                     <tbody>
                         @foreach ($fournisseurs as $fournisseur)
                         <tr>
-                            <th scope="row">{{ $fournisseur->name }}</th>
+                            <th scope="row" style="color: black">{{ $fournisseur->name }}</th>
                             <td> {{  $fournisseur ->type  }} </td>
                             <td>{{ $fournisseur ->Ncontrat  }}</td>
                             <td>{{ $fournisseur->tel }}</td>
@@ -45,8 +45,9 @@
 
                              <td> 
                                  <div class=" d-flex">
+                                    <a class="mx-1" href="{{ route('pieces.fournisseurs.show',$fournisseur->id) }}" ><button class="btn btn-sm btn-secondary" type="button">Détails</button>  </a>
                                      <a class="mx-1" href="{{ route('pieces.fournisseurs.edit',$fournisseur->id) }}" ><button class="btn btn-sm btn-primary" type="button">Modifier</button>  </a>
-                                     <a class="mx-1" href="{{ route('pieces.fournisseurs.show',$fournisseur->id) }}" ><button class="btn btn-sm btn-secondary" type="button">Detail</button>  </a>
+                                     
                                      <form id="delete-user-form-{{ $fournisseur->name }}" action="{{ route('pieces.fournisseurs.destroy',$fournisseur->id) }}" method="POST">
                                          @csrf
                                          @method("DELETE")

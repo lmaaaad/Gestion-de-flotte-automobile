@@ -59,7 +59,7 @@
    <label for='Vehicule' style="color: black"> {{ __('Véhicule(Matricule)') }}</label>
               <select name='vehicule_id' type='texte' class="form-select" required>
               
-              <option selected disabled value=""> Liste Vehicules</option>
+              <option selected disabled value=""> Liste Véhicules</option>
               @foreach($vehicules as $vehicule)
               <option value="{{ $vehicule->id }}" id="{{ $vehicule->Matricule }}"
                   @isset($conducteur)

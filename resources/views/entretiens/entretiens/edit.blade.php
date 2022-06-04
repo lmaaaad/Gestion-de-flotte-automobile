@@ -1,11 +1,11 @@
 @extends('layouts.app')
-<title> Edit Entretien </title>
+<title> Modifier Entretien </title>
 @section('content')
  <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center"> Modifier les informations d'une Entretiens </div>
+                <div class="card-header text-center text-black"> Modifier les informations d'un Entretien </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('entretiens.entretiens.update',$entretien->id) }}">

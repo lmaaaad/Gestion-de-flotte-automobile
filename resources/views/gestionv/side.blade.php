@@ -38,7 +38,7 @@
             <div class="sidebar-brand d-flex align-items-center justify-content-center">
                 
     
-                <div class="sidebar-brand-text fw-bold">Gestion Vehicule</div>
+                <div class="sidebar-brand-text fw-bold">Gestion Vehicules</div>
             </div>
 
             <!-- Divider -->
@@ -55,7 +55,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('gestionv.vehicules.index') }}">
                     <i><img src="/pic/car.png" style='height:30px;'></i>
-                    <span class="pl-2 "> Vehicules</span>
+                    <span class="pl-2 "> Véhicules</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
@@ -71,7 +71,7 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="{{ route('gestionv.assurances.index') }}"> Assurances </a>
                             <a class="collapse-item" href="{{ route('gestionv.taxes.index') }}">Taxes</a>
-                            <a class="collapse-item" href="{{ route('gestionv.visites.index') }}">Visites</a>
+                            <a class="collapse-item" href="{{ route('gestionv.visites.index') }}">Visites Techniques</a>
                             <div class="collapse-divider"></div>
                             
                         </div>

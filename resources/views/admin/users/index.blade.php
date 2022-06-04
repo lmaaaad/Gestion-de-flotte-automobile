@@ -37,7 +37,7 @@
             <div class="sidebar-brand d-flex align-items-center justify-content-center">
                
     
-                <div class="sidebar-brand-text fw-bolder">Adminstration</div>
+                <div class="sidebar-brand-text fw-bolder">Administration</div>
             </div>
 
             <!-- Divider -->

@@ -3,10 +3,10 @@
 
 <div class="row mb-12">
     <div class="col-6 mb-3">
-        <label for='Vehicule' class="col-md-9 col-form-label"> {{ __('Vehicule(Matricule)') }}</label>
+        <label for='Vehicule' class="col-md-9 col-form-label text-black"> {{ __('Véhicule(Matricule)') }}</label>
                    <select name='vehicule_id' type='texte' class="form-select" required
                    value="{{ old('Vehicule') }} ">
-                   <option selected disabled value=""> Liste Vehicules  </option>
+                   <option selected disabled value=""> Liste Véhicules  </option>
                    @foreach($vehicules as $vehicule)
                    
                    <option value="{{ $vehicule->id }}" id="{{ $vehicule->Matricule }}"
@@ -23,7 +23,7 @@
                     </select>
     </div>
     <div class="col-6 mb-3">
-        <label for='date' class="col-md-9 col-form-label" style="color: black" > {{ __("Date Visite technique") }}</label>
+        <label for='date' class="col-md-9 col-form-label" style="color: black" > {{ __("Date de la Visite Technique") }}</label>
         <input name='date' type='date' class="form-control" required  
         value="@isset($visite){{ $visite->date }}@endisset">
         
@@ -33,10 +33,10 @@
         </span>
       @enderror
    </div>
-    
+</div>  
 <div class="row mb-12">     
     <div class="col-6 mb-3">
-        <label for='date' class="col-md-9 col-form-label" style="color: black" > {{ __("Prochaine visite technique ") }}</label>
+        <label for='date' class="col-md-9 col-form-label" style="color: black" > {{ __("Prochaine Visite Technique ") }}</label>
         <input name='prochaine' type='date' class="form-control" required 
         value="@isset($visite){{ $visite->prochaine }}@endisset">
         

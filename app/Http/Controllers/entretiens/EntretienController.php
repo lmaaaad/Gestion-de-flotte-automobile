@@ -118,7 +118,7 @@ dd($request);
         $entretien = Entretien::find($id);
         $entretien->update($request->except(['_token']));
         //$entretien->roles()->sync($request->roles);
-        $request->session()->flash('success',"Entretien modifiée ");
+        $request->session()->flash('success',"Entretien modifié ");
         return redirect(route('entretiens.entretiens.index'));
     }
 

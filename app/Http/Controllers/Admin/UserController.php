@@ -70,7 +70,7 @@ class UserController extends Controller
 
         //$user->roles()->sync($request->roles);
 
-        $request->session()->flash('success','Utilisateur cree avec success');
+        $request->session()->flash('success','Utilisateur créé avec succèss');
 
         return redirect(route('admin.users.index'));
     }

@@ -1,4 +1,4 @@
-<title> Visites </title>
+<title> Visites Techniques </title>
 
 @include('gestionv.side')
 @include('navbar')
@@ -19,7 +19,7 @@
                                  <button class="btn btn-primary dropdown-toggle" type="button"
                                      id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                      aria-expanded="false">
-                                     Selectionnez Votre Wilaya
+                                     Séléctionnez Votre Wilaya
                                  </button>
                                  <div class="dropdown-menu animated--fade-in scrollable"
                                      aria-labelledby="dropdownMenuButton">
@@ -38,11 +38,11 @@
                <div class="table-responsive pt-2">
                 <table id="example" class="table table-striped pt-2" style="width:100%">
                     <thead>
-                      <tr>
+                      <tr style="color: black">
 
-                        <th scope='col'>Vehicule</th>
+                        <th scope='col'>Véhicule</th>
                         <th scope="col">Wilaya</th>
-                        <th scope="col">Date visite</th>
+                        <th scope="col">Date de la Visite</th>
                         <th scope="col">Prochaine Visite</th>
                         @cannot('is-observateur')     <th scope="col">Action</th>@endcannot
                       </tr>
@@ -50,7 +50,7 @@
                     <tbody>
                         @foreach ($visites as $visite)
                         <tr>
-                            <th scope="row">{{ $visite->vehicule->Matricule}} </th>
+                            <th scope="row" style="color: black">{{ $visite->vehicule->Matricule}} </th>
                             <td> {{ $visite->wilaya->name }}
                             <td> {{  $visite->date  }} </td>
                             <td> {{ $visite->prochaine }}</td>

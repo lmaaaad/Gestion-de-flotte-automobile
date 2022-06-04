@@ -46,7 +46,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('pieces.fournisseurs.index') }}">
                     <i class="fas fa-user pl-1"></i>
-                    <span class="pl-2 ">Fournisseur </span>
+                    <span class="pl-2 ">Fournisseurs </span>
                 </a>
             </li>
 
@@ -55,12 +55,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                 aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-user pl-1"></i>
-                    <span class="pl-2 "> Pieces</span>
+                    <span class="pl-2 "> Pièces</span>
             </a> 
 
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="{{ route('pieces.pieces.index') }}"> General </a>
+                            <a class="collapse-item" href="{{ route('pieces.pieces.index') }}"> Général </a>
                             <a class="collapse-item" href="{{ route('piece') }}">En Stock</a>
     
                             <div class="collapse-divider"></div>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Rapport</title>
+    <title>Rapports</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -32,7 +32,7 @@
             <div class="sidebar-brand d-flex align-items-center justify-content-center">
                
     
-                <div class="sidebar-brand-text mx-3 fw-bolder">Rapport</div>
+                <div class="sidebar-brand-text mx-3 fw-bolder">Rapports</div>
             </div>
 
             <!-- Divider -->
@@ -83,7 +83,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Nombre de Vehicules </div>
+                                                Nombre de Véhicules </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $vehicules }}</div>
                                         </div>
                                         <div class="col-auto">
@@ -119,7 +119,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Nombre de missions (Mensuel)</div>
+                                                Nombre de Missions (Mensuel)</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $affectations }}</div>
                                         </div>
                                         <div class="col-auto">
@@ -141,7 +141,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Apercu des depense (Pieces) </h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Aperçu des dépenses (Pièces) </h6>
                                     
                                 </div>
                                 <!-- Card Body -->
@@ -159,7 +159,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Apercu des depense (Entretiens)</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Aperçu des dépenses (Entretiens)</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -192,7 +192,7 @@
                                             <i class="fas fa-circle text-dark"></i> Juillet
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-warning"></i> Aout
+                                            <i class="fas fa-circle text-warning"></i> Août
                                         </span>
                                       
                                         <span class="mr-2">
@@ -205,13 +205,13 @@
                                             <i class="fas fa-circle text-white "></i> 
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-pinko"></i> October
+                                            <i class="fas fa-circle text-pinko"></i> Octobre
                                         </span>
                                         <span class="mr-2">
                                             <i class="fas fa-circle text-rman"></i> Nov
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-bhar"></i> Dec
+                                            <i class="fas fa-circle text-bhar"></i> Déc
                                         </span>
 
 

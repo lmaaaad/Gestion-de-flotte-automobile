@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Affectations</title>
+    <title>Missions</title>
 
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -39,7 +39,7 @@
             <div class="sidebar-brand d-flex align-items-center justify-content-center">
                
     
-                <div class="sidebar-brand-text">Mission</div>
+                <div class="sidebar-brand-text">Missions</div>
             </div>
 
             <!-- Divider -->
@@ -49,7 +49,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('affectations.affectations.index') }}">
                     <i><img src="/pic/affectation.png" style='height:30px;'></i>
-                    <span class="pl-2 ">Mission </span>
+                    <span class="pl-2 ">Missions </span>
                 </a>
             </li>
             <!-- Divider -->
@@ -78,7 +78,7 @@
                                     <button class="btn btn-primary dropdown-toggle" type="button"
                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
-                                        Selectionnez Votre Wilaya
+                                        Séléctionnez Votre Wilaya
                                     </button>
                                     <div class="dropdown-menu animated--fade-in scrollable"
                                         aria-labelledby="dropdownMenuButton">

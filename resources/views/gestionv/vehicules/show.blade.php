@@ -31,7 +31,7 @@
                         </div>
                 
                         <div class="col-6 mb-3">
-                            <label for='Couleur' >{{ __('Couleur') }}</label>
+                            <label for='Couleur' style="color: black" >{{ __('Couleur') }}</label>
                             <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $vehicule->Couleur }}</p>
            
                        </div>
@@ -39,13 +39,13 @@
                 
                    <div class="row mb-12">  
                        <div class="col-6 mb-3">
-                           <label for='Num_serie' clsss="col-md-4 col-form-label" style="color: black"> {{('N° de Chassis')}}</label>
+                           <label for='Num_serie' class="col-md-9 col-form-label" style="color: black"> {{('N° de Chassis')}}</label>
                            <br> <p class=" text-black border border-primary rounded-3 p-2" > {{ $vehicule->Num_serie }}</p>
                            
                   
                        </div>       
                        <div class="col-6 mb-3">
-                           <label for='Date_ms' style="color: black"> {{ __('Date de Mise en Circulation') }}</label>
+                           <label for='Date_ms' class="col-md-9 col-form-label" style="color: black"> {{ __('Date de Mise en Circulation') }}</label>
                            <br> <p class=" text-black border border-primary rounded-3 p-2" >{{ $vehicule->Date_ms }}</p>
         
                        </div>

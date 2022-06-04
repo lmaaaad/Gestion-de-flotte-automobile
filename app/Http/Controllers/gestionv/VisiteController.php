@@ -65,7 +65,7 @@ class VisiteController extends Controller
 
         //$visite->roles()->sync($request->roles);
 
-        $request->session()->flash('success','Visite effectué avec succès');
+        $request->session()->flash('success','Visite Technique ajoutée avec succès');
 
         return redirect(route('gestionv.visites.index'));
     }
@@ -109,7 +109,7 @@ class VisiteController extends Controller
     {
         $visite = Visite::find($id);
         $visite->update($request->except(['_token']));
-        $request->session()->flash('success',"Visite modifiée avec Succès");
+        $request->session()->flash('success',"Visite Technique modifiée avec Succès");
         return redirect(route('gestionv.visites.index'));
     }
 
@@ -122,7 +122,7 @@ class VisiteController extends Controller
     public function destroy($id,Request $request)
     {
         Visite::destroy($id);
-        $request->session()->flash('success','Visite Supprimé !!');
+        $request->session()->flash('success','Visite Technique Supprimée !!');
         return redirect(route('gestionv.visites.index')); 
     }
 }

@@ -5,10 +5,10 @@
 <div class="row mb-12">
    
    <div class="col-6 mb-3">
-    <label for='Vehicule'> {{ __('Vehicule(Matricule)') }}</label>
+    <label for='Vehicule' class="col-md-9 col-form-label" style="color: black"> {{ __('Véhicule(Matricule)') }}</label>
                <select name='vehicule_id' type='texte' class="form-select" required
                value="{{ old('Vehicule') }} ">
-               <option selected disabled value=""> Liste Vehicules  </option>
+               <option selected disabled value=""> Liste Véhicules  </option>
                @foreach($vehicules as $vehicule)
                
                <option value="{{ $vehicule->id }}" id="{{ $vehicule->Matricule }}"
@@ -25,30 +25,29 @@
                 </select>
             </div>          
                 <div class="col-6 mb-3">
-                    <label for='discription' class="col-md-6 col-form-label" style="color: black" > {{ __('Description') }}</label>
+                    <label for='discription' class="col-md-9 col-form-label" style="color: black" > {{ __('Description') }}</label>
                     <select name='discription' type='texte' class="form-control" required  
                     value="">
                     
                   
-                    <option disabled  > Choisissez l'entretien </option>
+                    <option selected disabled value="" > Choisissez l'Entretien </option>
                     <option value="@isset($entretien){{ $entretien->discription }}"
                         selected
                      @endisset > {{ $vehicule->discription }} </option>
-                    <option disabled style="font-weight:bold; color:black" > LES PETITS ENTRETIENS </option>
-                   
-                    <option> La vidange du moteur, </option>
-                    <option> La vérification des liquides </option>
-                    <option> Le contrôle des freins </option>
-                    <option> La vérification des phares </option>
-                    <option> La vérification de l’état de la batterie </option>
-                    <option> Le contrôle des essuie-glaces </option>
+                    <option disabled style="font-weight:bold ; color:black"> LES PETITS ENTRETIENS </option>
+                    <option> Vidange du moteur </option>
+                    <option> vérification des liquides </option>
+                    <option> Contrôle des freins </option>
+                    <option> Vérification des phares </option>
+                    <option> Vérification de l’état de la batterie </option>
+                    <option> Contrôle des essuie-glaces </option>
                     <option disabled style="font-weight:bold ; color:black"> LES GRANDS ENTRETIENS </option>
-                    <option> Le remplacement du filtre à huile </option>
-                    <option> Le replacement du filtre à air </option>
-                    <option> Le remplacement filtre à pollen </option>
-                    <option> Le remplacement des bougies </option>
-                    <option> Le contrôle du pot d’échappement </option>
-                    <option> La vérification des amortisseurs et des pneus </option>
+                    <option> Remplacement du filtre à huile </option>
+                    <option> Remplacement du filtre à air </option>
+                    <option> Remplacement du filtre à pollen </option>
+                    <option> Remplacement des bougies </option>
+                    <option> Contrôle du pot d’échappement </option>
+                    <option> Vérification des amortisseurs et des pneus </option>
 
                     @error('discription')
                     <span class="invalid-feedback" role="alert">
@@ -62,7 +61,7 @@
 
 <div class="row mb-12">
     <div class="col-6 mb-3">
-        <label for='Fournisseur'> {{ __('Fournisseur') }}</label>
+        <label for='Fournisseur' class="col-md-9 col-form-label" style="color: black"> {{ __('Fournisseur') }}</label>
                    <select name='fournisseur_id' type='texte' class="form-select" required
                    value="{{ old('Fournisseur') }} ">
                    <option selected disabled value=""> Liste Fournisseurs  </option>
@@ -84,14 +83,14 @@
 
  
     <div class="col-6 mt-4 ">
-        <a class=" col-form-label btn btn-secondary" href="{{ route('pieces.fournisseurs.create') }}" role="button">Creer nouveau fournisseur</a>
+        <a class=" col-form-label btn btn-secondary" href="{{ route('pieces.fournisseurs.create') }}" role="button">Créer un nouveau Fournisseur</a>
    </div>
 
 </div>
 
 <div class='row mb-12'>
     <div class="col-6 mb-3">
-        <label for='date' clsss="col-md-4 col-form-label" style="color: black"> {{ __('Date') }}</label>
+        <label for='date' class="col-md-9 col-form-label" style="color: black"> {{ __('Date') }}</label>
         <input name='date' type='date'  class="form-control" required
         value="@isset($entretien){{ $entretien->date }}@endisset">
         @error('date')
@@ -101,7 +100,7 @@
       @enderror
     </div>
     <div class="col-6 mb-3">
-        <label for='kilometrage' clsss="col-md-4 col-form-label" style="color: black" style="color: black" > {{ __('Kilometrage (KM)') }}</label>
+        <label for='kilometrage' class="col-md-9 col-form-label" style="color: black" > {{ __('Kilométrage (KM)') }}</label>
         <input name='kilometrage' type='number' class="form-control" required  
         value="@isset($entretien){{ $entretien->kilometrage }}@endisset">
         
@@ -115,15 +114,16 @@
 
 <div class='row mb-12'>
     <div class="col-6 mb-3">
-        <label for='pieces' style="color: black"> {{ __('Pieces') }}</label>
+        <label for='pieces' class="col-md-9 col-form-label" style="color: black" > {{ __('Pièces') }}</label>
         <select class="js-example-placeholder-multiple js-states form-control" multiple="multiple" name='pieces[]' id='piece' required  value="piece_id">
 
-                   @foreach($pieces as $piece)
+                 @foreach($pieces as $piece)
                     <option value="@isset($entretien){{ $entretien->pieces }}@endisset"   
                     @isset($piece_ids)            
-                      @if (in_array($piece->id,$piece_ids)) selected @endif  @endisset >
+                      @if (in_array($piece->id,$piece_ids)) selected @endif  
+                    @endisset >
                       {{ $piece->designation }}
-               @endforeach
+                @endforeach
                    @error('pieces')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -133,7 +133,7 @@
                </div>
 
     <div class="col-6 mb-3">
-        <label for='cout' class="col-md-6 col-form-label" style="color: black" style="color: black" > {{ __('Cout (DA)') }}</label>
+        <label for='cout' class="col-md-9 col-form-label" style="color: black" > {{ __('Coût (DA)') }}</label>
         <input name='cout' type='number' class="form-control" required  
         value="@isset($entretien){{ $entretien->cout }}@endisset">
         
@@ -147,7 +147,7 @@
 </div>    
 <div class='row mb-12'>
 <div class="col-6 mb-4 ">
-    <a class=" col-form-label btn btn-secondary" href="{{ route('pieces.pieces.create') }}" role="button">Creer nouveau Piece</a>
+    <a class=" col-form-label btn btn-secondary" href="{{ route('pieces.pieces.create') }}" role="button">Créer une nouvelle Pièce</a>
 </div>
 </div>
 

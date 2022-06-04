@@ -55,7 +55,7 @@
                     <tbody>
                         @foreach ($conducteurs as $conducteur)
                         <tr>
-                            <th scope="row">{{ $conducteur->Nom }} </th>
+                            <th scope="row" style="color: black">{{ $conducteur->Nom }} </th>
                             <td> {{  $conducteur->Prenom  }} </td>
                             <td> {{ $conducteur->vehicule->Matricule }}
                             <td>{{ $conducteur->tel  }}</td>

@@ -119,7 +119,7 @@ class ConducteurController extends Controller
     {
         $conducteur = Conducteur::find($id);
         $conducteur->update($request->except(['_token']));
-        $request->session()->flash('success',"Conducteur modifiée avec Succès");
+        $request->session()->flash('success',"Conducteur modifié avec Succès");
         return redirect(route('gestionv.conducteurs.index'));
     }
 
