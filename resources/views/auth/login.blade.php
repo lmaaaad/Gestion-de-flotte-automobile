@@ -58,12 +58,14 @@
 					  </span>
 				  @enderror   
 
+          
 					</div>
+          
 		            <div class="form-group">
 						
 		            	<button type="submit" class="form-control btn btn-primary submit px-3">	{{ __('Se Connecter') }}</button>
 		            </div>
-		           
+                
 		          </form>
 		        </div>
 		      </div>
