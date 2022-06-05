@@ -1,104 +1,82 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
-    <!-- Required meta tags -->
+  	<title>{{ 'GESTION DE FLOTTE AP' }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- CSRF Token -->
+	<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Style -->
+	<link rel="stylesheet" href="css/style.css">
 
-    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+							<div class="text w-100">
+								<img class="pb-4" src="/pic/logo-head.png" >
+								<h4>LOGICIEL DE  GESTION DU  PARC AUTOMOBILE</h4>
+								<p>CONNECTEZ-VOUS POUR ACCÉDER À LA BASE DE DONNÉES</p>
+								
+							</div>
+			      </div>
+						<div class="login-wrap p-4 p-lg-5">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h3 class="mb-4">Se connecter</h3>
+			      		</div>
+								
+			      	</div>
+					  <form method="POST" action="{{ route('login') }}" >
+						@csrf
+			      		<div class="form-group mb-3">
+			      			<label class="label" for="email">Addresse email</label>
+							  <input id="email" type="email"  class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email" autofocus placeholder="username@poste.dz">			      		</div>
+							  @error('email')
+							  <span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror   
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    
-    <!-- Style -->
-    <link rel="stylesheet" href="/css/style.css">
-    
+							  <div class="form-group mb-3">
+		            	<label class="label" for="password">Mot de Passe</label>
+						<input id="password" type="password"  class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
+						@error('password')
+						<span class="invalid-feedback" role="alert">
+						  <strong>{{ $message }}</strong>
+					  </span>
+				  @enderror   
 
-    <title>{{ 'GESTION DE FLOTTE AP' }}</title>
-  </head>
-  <body>
-  
+					</div>
+		            <div class="form-group">
+						
+		            	<button type="submit" class="form-control btn btn-primary submit px-3">	{{ __('Se Connecter') }}</button>
+		            </div>
+		           
+		          </form>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-  
-  <div class="content">
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <img src="pic/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
-        </div>
-        <div class="col-md-6 contents">
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <div class="mb-4">
-           
-                <img src='/pic/logo-head.png' class='pl-5 pb-3'>
-               
-              <h3> LOGICIEL DE  GESTION DU  PARC AUTOMOBILE </h3>
-              <p class="mb-4">CONNECTEZ-VOUS POUR ACCÉDER À LA BASE DE DONNÉES</p>
-            </div>
-            <div></div>
-            <div class="card-body">
-            <form method="POST" action="{{ route('login') }}" >
-              @csrf
-              <div class="form-group first pt-5 pb-3 ">
-                <label for="email">Addresse Email</label>
-                <input id="email" type="email"  class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email" autofocus>             
-                @error('email')
-            <span class="invalid-feedback" role="alert">
-              <strong>{{ $message }}</strong>
-          </span>
-      @enderror   
-              </div>
-              <div class="form-group last mb-4">
-                <label for="password">Mot de Passe</label>
-                <input id="password" type="password"  class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-               
-              </div>
-              
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
 
-              @error('password')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-          @enderror
-              
-
-              
-
-              <button type="submit" class="btn btn-primary">
-                {{ __('Se Connecter') }}
-            </button>
-
-           
-            </form>
-            
-
-            </div>
-          </div>
-            </div>
-          </div>
-          
-        </div>
-        
-      </div>
-    </div>
-  </div>
-  
-
-  
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    
-  </body>
+	</body>
 </html>
+
