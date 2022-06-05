@@ -15,7 +15,7 @@
                        @endisset>
                       {{ $vehicule->Matricule }}
                @endforeach
-                   @error('Fournisseur')
+                   @error('vehicule_id')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -25,8 +25,13 @@
     <div class="col-6 mb-3">
         <label for="nom" class="col-md-9 col-form-label text-black">{{ __('Nom de la Taxe') }}</label>
         <select name="nom" type="text" class="form-select"  required 
-            value="@isset($taxe){{ $taxe->nom }}@endisset">
-            <option selected disabled value=""> Taxe </option>
+            value="" @isset($taxe){{ $taxe->nom }}@endisset selected>
+            <option  disabled value=""> Taxe </option>
+            @if(isset($taxe->nom))
+            <option value="{{ $taxe->nom  }}" {{ ' selected'}}>
+              {{ $taxe->nom }}
+            </option>
+          @endif
             <option> Vignette </option>
             <option> Péage </option>
 

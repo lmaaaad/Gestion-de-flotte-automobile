@@ -50,6 +50,55 @@
             </li>
         
             <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell fa-fw"></i>
+                    <!-- Counter - Alerts -->
+                    <span class="badge badge-danger badge-counter">+3</span>
+                </a>
+                <!-- Dropdown - Alerts -->
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="alertsDropdown">
+                    <h6 class="dropdown-header">
+                        Notifications
+                    </h6>
+                    <a class="dropdown-item d-flex align-items-center" href="{{ route('gestionv.assurances.index')  }}">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-primary">
+                                <i class="fas fa-file-alt text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">juillet 5, 2022</div>
+                            <span class="font-weight-bold">Renouvellement assurance véhicule avec plaque d'immatriculation 11233 119 15</span>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="{{ route('gestionv.visites.index')  }}">
+                        <div class="mr-3">
+                             <div class="icon-circle bg-primary">
+                                 <i class="fas fa-file-alt text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">juillet 7, 2022</div>
+                           <span class="font-weight-bold"> Renouvellement assurance véhicule avec plaque d'immatriculation 11123 318 16  </span>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="{{ route('gestionv.visites.index')  }}">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-warning">
+                                <i class="fas fa-exclamation-triangle text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">juillet 8, 2022</div>
+                            <span class="font-weight-bold"> 2 jours avant la prochaine visite technique de véhicule avec plaque d'immatriculation 11123 318 16 </span> 
+                        </div>
+                    </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="#">Afficher toutes les notifications</a>
+                </div>
+            </li>
 
         
 

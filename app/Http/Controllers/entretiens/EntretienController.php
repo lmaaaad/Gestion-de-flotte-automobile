@@ -45,7 +45,7 @@ class EntretienController extends Controller
      */
     public function store(Request $request)
     {
-         
+       
          $validatedData = $request->validate([
 
             'vehicule_id' => 'required|max:255',
@@ -59,7 +59,7 @@ class EntretienController extends Controller
             'pieces.*' => 'required',
             
         ]);
-dd($request);
+        // dd($validatedData);
          
         $entretien=Entretien::create($request->except('pieces'));
         $entretien->pieces()->sync($request->pieces);

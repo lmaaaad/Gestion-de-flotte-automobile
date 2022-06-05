@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title> Modidfier Véhicule </title>
+<title> Modifier Véhicule </title>
 @section('content')
  <div class="container mt-5">
     <div class="row justify-content-center">

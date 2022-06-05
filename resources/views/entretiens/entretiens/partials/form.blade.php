@@ -17,7 +17,7 @@
                    @endisset>
                   {{ $vehicule->Matricule }}
            @endforeach
-               @error('Fournisseur')
+               @error('vehicule_id')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -26,28 +26,23 @@
             </div>          
                 <div class="col-6 mb-3">
                     <label for='discription' class="col-md-9 col-form-label" style="color: black" > {{ __('Description') }}</label>
-                    <select name='discription' type='texte' class="form-control" required  
-                    value="">
-                    
+                    <select name='discription' type='texte' class="form-control" required   style="color: black">
+                 
                   
-                    <option selected disabled value="" > Choisissez l'Entretien </option>
-                    <option value="@isset($entretien){{ $entretien->discription }}"
-                        selected
-                     @endisset > {{ $vehicule->discription }} </option>
-                    <option disabled style="font-weight:bold ; color:black"> LES PETITS ENTRETIENS </option>
-                    <option> Vidange du moteur </option>
-                    <option> vérification des liquides </option>
-                    <option> Contrôle des freins </option>
-                    <option> Vérification des phares </option>
-                    <option> Vérification de l’état de la batterie </option>
-                    <option> Contrôle des essuie-glaces </option>
+                    <option disabled value="" > Choisissez l'Entretien </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'Vidange du moteur' )selected @endif> Vidange du moteur </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'vérification des liquides' )selected @endif> vérification des liquides </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'Contrôle des freins' )selected @endif> Contrôle des freins </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'Vérification des phares' )selected @endif> Vérification des phares </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'Vérification de l’état de la batterie' )selected @endif> Vérification de l’état de la batterie </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'Contrôle des essuie-glaces' )selected @endif> Contrôle des essuie-glaces </option>
                     <option disabled style="font-weight:bold ; color:black"> LES GRANDS ENTRETIENS </option>
-                    <option> Remplacement du filtre à huile </option>
-                    <option> Remplacement du filtre à air </option>
-                    <option> Remplacement du filtre à pollen </option>
-                    <option> Remplacement des bougies </option>
-                    <option> Contrôle du pot d’échappement </option>
-                    <option> Vérification des amortisseurs et des pneus </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'Remplacement du filtre à huile' )selected @endif> Remplacement du filtre à huile </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'Remplacement du filtre à air ' )selected @endif> Remplacement du filtre à air </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'Remplacement du filtre à pollen ' )selected @endif> Remplacement du filtre à pollen </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'Remplacement des bougies' )selected @endif> Remplacement des bougies </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'Contrôle du pot d’échappement' )selected @endif> Contrôle du pot d’échappement </option>
+                    <option  @if(isset($entretien) && $entretien->discription == 'Vérification des amortisseurs et des pneus' )selected @endif> Vérification des amortisseurs et des pneus </option>
 
                     @error('discription')
                     <span class="invalid-feedback" role="alert">
@@ -118,7 +113,7 @@
         <select class="js-example-placeholder-multiple js-states form-control" multiple="multiple" name='pieces[]' id='piece' required  value="piece_id">
 
                  @foreach($pieces as $piece)
-                    <option value="@isset($entretien){{ $entretien->pieces }}@endisset"   
+                    <option value="@isset($pieces){{ $piece->id }}@endisset "
                     @isset($piece_ids)            
                       @if (in_array($piece->id,$piece_ids)) selected @endif  
                     @endisset >

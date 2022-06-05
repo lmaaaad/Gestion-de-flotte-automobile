@@ -216,7 +216,8 @@
 
 
                                     </div>
-                                </div>
+                                  <p class="text-center"> <br> Le Total des depenses en 2022 est : {{ json_encode(array_sum($depense_en)) }} DA     </p>
+                                                           </div>
                             </div>
                         </div>
                     </div>
@@ -321,7 +322,7 @@ var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels:{{  json_encode(array_keys($depense)) }},
+    labels: [ 'Jan','Fev','Mars','Avril','MAi','Juin','Juill','Aout','Sept','Oct','Nov','Dec'],
     datasets: [{
       label: "Depenses  ",
       lineTension: 0.5,
@@ -370,7 +371,7 @@ var myLineChart = new Chart(ctx, {
           padding: 10,
           // Include Milion Dinar in the ticks
           callback: function(value, index, values) {
-            return number_format(value) + '   M.DA' ;
+            return number_format(value) + ' DA' ;
           }
         },
         gridLines: {
@@ -402,7 +403,7 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '  ';
-          return datasetLabel + number_format(tooltipItem.yLabel) + ' M.DA'  ;
+          return datasetLabel + number_format(tooltipItem.yLabel) + ' DA'  ;
         }
       }
     }
