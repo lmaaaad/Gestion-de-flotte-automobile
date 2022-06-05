@@ -29,6 +29,7 @@
 
   
   <div class="content">
+    
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -38,6 +39,9 @@
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
+           
+                <img src='/pic/logo-head.png' class='pl-5 pb-3'>
+               
               <h3> LOGICIEL DE  GESTION DU  PARC AUTOMOBILE </h3>
               <p class="mb-4">CONNECTEZ-VOUS POUR ACCÉDER À LA BASE DE DONNÉES</p>
             </div>
