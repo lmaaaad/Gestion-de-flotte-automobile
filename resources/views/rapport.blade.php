@@ -216,7 +216,7 @@
 
 
                                     </div>
-                                  <p class="text-center"> <br> Le Total des depenses en 2022 est : {{ json_encode(array_sum($depense_en)) }} DA     </p>
+                                  <p class="text-center"> <br> Le Total des dépenses en 2022 est : {{ json_encode(array_sum($depense_en)) }} DA     </p>
                                                            </div>
                             </div>
                         </div>
