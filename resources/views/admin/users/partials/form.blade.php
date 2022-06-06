@@ -5,7 +5,7 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="name" autofocus
-                                value="{{ old('name') }}  @isset($user) {{ $user->name }} @endisset">
+                                value="{{ old('name') }}@isset($user){{ $user->name }}@endisset">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -20,7 +20,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}
-                                @isset($user) {{ $user->email }} @endisset" required autocomplete="email"  pattern="[a-z0-9._%+-]+@poste.dz">
+                                @isset($user){{ $user->email }}@endisset" required autocomplete="email"  pattern="[a-z0-9._%+-]+@poste.dz">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -78,7 +78,25 @@
                             </div>   
                          
                        </div> 
-                       @endif
+                       @else  
+                       <div class="row mb-3 wilaya" hidden >
+                        <label for='wilaya_id' class="col-md-4 col-form-label text-md-end text-black"> {{ __('Wilaya (Si Dupw)') }}</label>
+                        <div class="col-md-6">
+                        <select id="wilaya_id" class="form-select" name='wilaya_id' disabled> 
+                            <option  value="">Sélectionnez une wilaya</option>
+                        @foreach ($wilayas as $wilaya)
+                        <option value="{{ $wilaya->id }}"@isset($user) @if ($user->wilaya->id == $wilaya->id)
+                            selected
+                        @endif 
+                        @endisset>
+                        {{ $wilaya->name }}
+                    </option>
+                        @endforeach 
+                          </select>
+                        </div>   
+                     
+                   </div> 
+                   @endif
 
                         <div class="d-flex bd-highlight md-3">
                             <div class="mx-1">
