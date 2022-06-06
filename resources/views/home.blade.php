@@ -213,11 +213,26 @@
    
            
      </div>
+     @cannot('is-observateur')
      <footer class="sticky-footer text-muted text-right pt-4">
-     <div class="copyright text-right text-grey pt-5">
+     <div class="copyright text-right text-grey pt-4">
          <span style="font-size: 15px">Copyright &copy;  2022 Algérie Poste. Tous droits réservés </span>
      </div>
  </footer>
+ @endcannot
+  @can('is-observateur')
+  <footer class="sticky-footer text-muted text-right pt-4">
+      <div class='pt-5'>
+        <div class='pt-5'>
+        <div class='pt-3'>
+    <div class="copyright text-right text-grey pt-5">
+        <span style="font-size: 15px">Copyright &copy;  2022 Algérie Poste. Tous droits réservés </span>
+    </div>
+</div>
+</div>
+</div>
+</footer>
+@endcannot
  </div>
 
  </div>
