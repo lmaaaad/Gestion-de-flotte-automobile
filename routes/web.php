@@ -28,6 +28,11 @@ use App\Http\Controllers\SearchController;
 Route::get('/', function () {
     return view('auth/login');
 });
+Route::post('/password/reset/{token}', 'Auth\ResetPasswordController@reset')->name('password.reset');
+
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+})->middleware('guest')->name('password.request');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

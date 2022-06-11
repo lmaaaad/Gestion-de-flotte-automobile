@@ -48,8 +48,8 @@
                 <!-- Dropdown - Messages -->
                 
             </li>
-        
-            <!-- Nav Item - Alerts -->
+          @isset($user)
+           <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
                 <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -125,7 +125,7 @@
                 </form>
                 </div>
             </li>
-        
+@endisset
         </ul>  
     </nav>
    </div>    

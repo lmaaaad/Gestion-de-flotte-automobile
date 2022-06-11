@@ -65,6 +65,11 @@
 						
 		            	<button type="submit" class="form-control btn btn-primary submit px-3">	{{ __('Se Connecter') }}</button>
 		            </div>
+					<div class="form-group d-md-flex">
+		            	<div class="w-50 text-left">
+						<a class="text-primary" href="{{ route('password.request') }}">Mot de passe oublié ?</a>
+						 </div>
+		            </div>
                 
 		          </form>
 		        </div>
