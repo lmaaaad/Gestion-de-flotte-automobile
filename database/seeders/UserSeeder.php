@@ -15,32 +15,32 @@ class UserSeeder extends Seeder
     public function run()
     {
          DB::table('users')->insert([
-             'name'=> 'Boukedjani imad',
-             'email' => 'imad.boukedjani@poste.dz',
+             'name'=> 'user imad',
+             'email' => 'lolo.loa@domain.com',
              'password' => bcrypt('qwertyuiop'),
              
              'role_id' => '1',
          ]);
 
          DB::table('users')->insert([
-            'name'=> 'Mahioufe fouzi',
-            'email' => 'mahioufe.fouzi@poste.dz',
+            'name'=> 'kiooo',
+            'email' => 'sasae.saqq@domain.com',
             'password' =>  bcrypt('qwertyuiop'),
             
             'role_id' => '1',
         ]);
 
          DB::table('users')->insert([
-            'name'=> 'Touati.houda',
-            'email' => 'Touati.houda@poste.dz',
+            'name'=> 'user.user',
+            'email' => 'user.user@domain.com',
             'password' =>  bcrypt('qwertyuiop') ,
             'wilaya_id' => '16',
             'role_id' =>  '2' ,
         ]);
 
         DB::table('users')->insert([
-            'name'=> 'Naib Rabah',
-            'email' => 'naib.rabah@poste.dz',
+            'name'=> 'Naib paolo',
+            'email' => 'naib.paolo@domain.com',
             'password' =>  bcrypt('qwertyuiop') ,
           
             'role_id' =>'3',

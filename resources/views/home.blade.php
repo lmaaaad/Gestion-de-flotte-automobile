@@ -32,7 +32,7 @@
     <nav class="navbar navbar-expand navbar-light bg-white topbar col-xl-12 mb-4 static-top shadow">
         <div class="sidebar-brand d-flex align-items-center justify-content-center">
             <a id='logo-orig' class="navbar-brand ps-0 " href="#" > 
-                <img src='/pic/logo-head.png' style="height:70px; padding-top:8px; width:180px" alt=algerie-poste-logo>
+                <img src='/pic/logo-head.png' style="height:70px; padding-top:8px; width:180px" alt=logo>
             </a>
         </div>   
 
@@ -126,7 +126,7 @@
 </div>
 <nav class="navbar navbar-light navbar-custom col-xl-12 shadow" style="background-color: #00B1FF ;">
     <div id="below-nav-bar">
-        <p> LOGICIEL DE GESTION DE FLOTTE AP  </p>
+        <p> LOGICIEL DE GESTION DE FLOTTE  </p>
     </div>
    
     <div id="choissisez">
@@ -216,7 +216,7 @@
      @cannot('is-observateur')
      <footer class="sticky-footer text-muted text-right pt-4">
      <div class="copyright text-right text-grey pt-4">
-         <span style="font-size: 15px">Copyright &copy;  2022 Algérie Poste. Tous droits réservés </span>
+         <span style="font-size: 15px">Copyright &copy;  2022 Tous droits réservés </span>
      </div>
  </footer>
  @endcannot
@@ -226,7 +226,7 @@
         <div class='pt-5'>
         <div class='pt-3'>
     <div class="copyright text-right text-grey pt-5">
-        <span style="font-size: 15px">Copyright &copy;  2022 Algérie Poste. Tous droits réservés </span>
+        <span style="font-size: 15px">Copyright &copy;  2022 Tous droits réservés </span>
     </div>
 </div>
 </div>

@@ -8,7 +8,7 @@
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow ">
 
              <a id='logo-orig' class="navbar-brand " href="#" > 
-                <img src='/pic/logo-head.png' style="height:70px; padding-top:8px; width:160px" alt=algerie-poste-logo>
+                <img src='/pic/logo-head.png' style="height:70px; padding-top:8px; width:16>
             </a>
             <!-- Sidebar Toggle (Topbar) -->
             

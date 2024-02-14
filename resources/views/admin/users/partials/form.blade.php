@@ -20,7 +20,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}
-                                @isset($user){{ $user->email }}@endisset" required autocomplete="email" > <!--pattern="[a-z0-9._%+-]+@poste.dz" -->
+                                @isset($user){{ $user->email }}@endisset" required autocomplete="email" > <!--pattern="[a-z0-9._%+-]+@domain.com" -->
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

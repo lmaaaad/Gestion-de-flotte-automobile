@@ -42,7 +42,7 @@
 						@csrf
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="email">Addresse email</label>
-							  <input id="email" type="email"  class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email" autofocus placeholder="username@poste.dz">			      		</div>
+							  <input id="email" type="email"  class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email" autofocus placeholder="username@domain.com">			      		</div>
 							  @error('email')
 							  <span class="invalid-feedback" role="alert">
 								<strong>{{ $message }}</strong>

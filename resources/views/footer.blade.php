@@ -1,7 +1,7 @@
            <!-- Footer -->
            <footer class="sticky-footer mt-auto text-muted text-right">
             <div class="copyright text-center my-auto text-right">
-                <span>Copyright &copy;  2022 Algérie Poste. Tous droits réservés </span>
+                <span>Copyright &copy;  2022 Tous droits réservés </span>
             </div>
     </footer>
 

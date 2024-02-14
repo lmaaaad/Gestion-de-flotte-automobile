@@ -36,7 +36,7 @@
             <!-- Sidebar - Brand -->
             <div class="sidebar-brand d-flex align-items-center justify-content-center">
                 <a id='logo-orig' class="navbar-brand ps-0 " href="#" > 
-                    <img src='/pic/logo-orig.png' alt=algerie-poste-logo>
+                    <img src='/pic/logo-orig.png' alt=logo>
                 </a>
     
                 <div class="sidebar-brand-text">Missions</div>

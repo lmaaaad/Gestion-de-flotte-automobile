@@ -34,7 +34,7 @@
     <nav class="navbar navbar-expand navbar-light bg-white topbar col-xl-12 mb-4 static-top shadow">
         <div class="sidebar-brand d-flex align-items-center justify-content-center">
             <a id='logo-orig' class="navbar-brand ps-0 " href="#" > 
-                <img src='/pic/logo-head.png' style="height:70px; padding-top:8px; width:180px" alt=algerie-poste-logo>
+                <img src='/pic/logo-head.png' style="height:70px; padding-top:8px; width:180px" alt=logo>
             </a>
         </div>    
         

@@ -233,7 +233,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy;  2022 Algérie Poste. Tous droits réservés </span>
+                        <span>Copyright &copy;  2022 Tous droits réservés </span>
                     </div>
                 </div>
             </footer>
