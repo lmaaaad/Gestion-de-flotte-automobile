@@ -118,7 +118,7 @@ class UserController extends Controller
         $user = User::find($id); 
         if(!$user)
         {
-            $request->session()->flash('error','Utilisateur Introuvable !!');
+            $request->session()->flash('error','Utilisateur Introuvable !!!');
             return redirect(route('admin.users.index')); 
 
         }
